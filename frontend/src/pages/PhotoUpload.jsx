@@ -28,6 +28,226 @@ const backgroundStars = [
   { left: "97%", top: "34%", size: 1.5, delay: 0.4 },
 ];
 
+/* =========================================================
+   PHOTO PROCESSOR
+   =========================================================
+   Semua foto akan dibuat menjadi rasio 3:4.
+
+   Yang penting:
+   - Tidak dipaksa menjadi 1200x1600.
+   - Resolusi hasil mengikuti hasil crop dari foto asli.
+   - Tidak melakukan upscale.
+   - Kualitas JPEG 98%.
+========================================================= */
+
+function cropImageToThreeByFour(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      const image = new Image();
+
+      image.onload = () => {
+        const sourceWidth = image.naturalWidth;
+        const sourceHeight = image.naturalHeight;
+
+        if (!sourceWidth || !sourceHeight) {
+          reject(
+            new Error("Resolusi foto tidak valid.")
+          );
+          return;
+        }
+
+        const targetRatio = 3 / 4;
+        const sourceRatio =
+          sourceWidth / sourceHeight;
+
+        let cropWidth;
+        let cropHeight;
+        let cropX;
+        let cropY;
+
+        /*
+         * FOTO LEBIH LEBAR DARI 3:4
+         *
+         * Contoh:
+         * 4000 x 3000
+         *
+         * Tinggi dipertahankan.
+         * Lebar dipotong dari kiri dan kanan.
+         */
+        if (sourceRatio > targetRatio) {
+          cropHeight = sourceHeight;
+
+          cropWidth = Math.round(
+            sourceHeight * targetRatio
+          );
+
+          cropX = Math.round(
+            (sourceWidth - cropWidth) / 2
+          );
+
+          cropY = 0;
+        }
+
+        /*
+         * FOTO LEBIH TINGGI DARI 3:4
+         *
+         * Contoh:
+         * 3000 x 5000
+         *
+         * Lebar dipertahankan.
+         * Tinggi dipotong dari atas dan bawah.
+         */
+        else if (sourceRatio < targetRatio) {
+          cropWidth = sourceWidth;
+
+          cropHeight = Math.round(
+            sourceWidth / targetRatio
+          );
+
+          cropX = 0;
+
+          cropY = Math.round(
+            (sourceHeight - cropHeight) / 2
+          );
+        }
+
+        /*
+         * FOTO SUDAH 3:4
+         *
+         * Tidak perlu crop.
+         */
+        else {
+          cropWidth = sourceWidth;
+          cropHeight = sourceHeight;
+
+          cropX = 0;
+          cropY = 0;
+        }
+
+        /*
+         * Jangan pernah menghasilkan ukuran 0.
+         */
+        if (
+          cropWidth <= 0 ||
+          cropHeight <= 0
+        ) {
+          reject(
+            new Error(
+              "Ukuran crop foto tidak valid."
+            )
+          );
+
+          return;
+        }
+
+        const canvas =
+          document.createElement("canvas");
+
+        /*
+         * Canvas menggunakan resolusi crop asli.
+         * Tidak ada resize ke 1200x1600.
+         */
+        canvas.width = cropWidth;
+        canvas.height = cropHeight;
+
+        const ctx =
+          canvas.getContext("2d");
+
+        if (!ctx) {
+          reject(
+            new Error(
+              "Canvas tidak tersedia."
+            )
+          );
+
+          return;
+        }
+
+        /*
+         * Rendering berkualitas tinggi.
+         */
+        ctx.imageSmoothingEnabled = true;
+
+        ctx.imageSmoothingQuality = "high";
+
+        /*
+         * Draw foto ke canvas.
+         */
+        ctx.drawImage(
+          image,
+          cropX,
+          cropY,
+          cropWidth,
+          cropHeight,
+          0,
+          0,
+          cropWidth,
+          cropHeight
+        );
+
+        /*
+         * JPEG kualitas 98%.
+         *
+         * Ini menjaga kualitas foto tetap tinggi
+         * tanpa membuat ukuran file PNG yang sangat besar.
+         */
+        canvas.toBlob(
+          (blob) => {
+            if (!blob) {
+              reject(
+                new Error(
+                  "Gagal membuat file foto."
+                )
+              );
+
+              return;
+            }
+
+            const objectUrl =
+              URL.createObjectURL(blob);
+
+            resolve({
+              src: objectUrl,
+              width: cropWidth,
+              height: cropHeight,
+              blob,
+              ratio: "3:4",
+            });
+          },
+          "image/jpeg",
+          0.98
+        );
+      };
+
+      image.onerror = () => {
+        reject(
+          new Error(
+            "Foto tidak dapat dibaca."
+          )
+        );
+      };
+
+      image.src = reader.result;
+    };
+
+    reader.onerror = () => {
+      reject(
+        new Error(
+          "File tidak dapat dibaca."
+        )
+      );
+    };
+
+    reader.readAsDataURL(file);
+  });
+}
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
 function FinaleLikeBackground() {
   return (
     <div
@@ -183,7 +403,8 @@ function FinaleLikeBackground() {
             scale: [0.7, 1.25, 0.7],
           }}
           transition={{
-            duration: 3.5 + (index % 4) * 0.7,
+            duration:
+              3.5 + (index % 4) * 0.7,
             delay: star.delay,
             repeat: Infinity,
             ease: "easeInOut",
@@ -199,7 +420,8 @@ function FinaleLikeBackground() {
           top: "44%",
           width: "76%",
           height: "64%",
-          transform: "translate(-50%, -50%)",
+          transform:
+            "translate(-50%, -50%)",
           borderRadius: "50%",
           background:
             "radial-gradient(circle, rgba(255,20,147,0.045), transparent 66%)",
@@ -223,70 +445,159 @@ function FinaleLikeBackground() {
   );
 }
 
+/* =========================================================
+   PHOTO UPLOAD
+========================================================= */
+
 export default function PhotoUpload({
   onNext,
   photos,
   setPhotos,
 }) {
   const fileInputRefs = useRef([]);
-  const [feedback, setFeedback] = useState("");
+
+  const [feedback, setFeedback] =
+    useState("");
 
   const openFilePicker = (index) => {
     fileInputRefs.current[index]?.click();
   };
 
-  const handleFileChange = (event, index) => {
-    const file = event.target.files?.[0];
+  /* =======================================================
+     UPLOAD FOTO
+  ======================================================= */
 
-    if (!file) return;
+  const handleFileChange = async (
+    event,
+    index
+  ) => {
+    const file =
+      event.target.files?.[0];
 
-    if (!file.type.startsWith("image/")) {
+    if (!file) {
       return;
     }
 
-    const reader = new FileReader();
+    if (!file.type.startsWith("image/")) {
+      setFeedback(
+        "pilih file foto ya."
+      );
 
-    reader.onload = () => {
-      setPhotos((currentPhotos) => {
-        const updatedPhotos = [...currentPhotos];
+      event.target.value = "";
 
-        updatedPhotos[index] = reader.result;
+      return;
+    }
 
-        const uploadedCount =
-          updatedPhotos.filter(Boolean).length;
-
-        setFeedback(
-          feedbackMessages[
-            Math.min(
-              uploadedCount,
-              feedbackMessages.length - 1
-            )
-          ]
+    try {
+      /*
+       * Proses foto:
+       *
+       * foto asli
+       * ↓
+       * crop 3:4
+       * ↓
+       * resolusi maksimal
+       * ↓
+       * JPEG kualitas 98%
+       */
+      const processedPhoto =
+        await cropImageToThreeByFour(
+          file
         );
 
-        return updatedPhotos;
-      });
-    };
+      setPhotos(
+        (currentPhotos) => {
+          const updatedPhotos = [
+            ...currentPhotos,
+          ];
 
-    reader.readAsDataURL(file);
+          updatedPhotos[index] =
+            processedPhoto;
 
+          const uploadedCount =
+            updatedPhotos.filter(Boolean)
+              .length;
+
+          setFeedback(
+            feedbackMessages[
+              Math.min(
+                uploadedCount,
+                feedbackMessages.length -
+                  1
+              )
+            ]
+          );
+
+          return updatedPhotos;
+        }
+      );
+    } catch (error) {
+      console.error(
+        "Gagal memproses foto:",
+        error
+      );
+
+      setFeedback(
+        "foto itu nggak bisa diproses."
+      );
+    }
+
+    /*
+     * Supaya foto yang sama bisa
+     * dipilih lagi.
+     */
     event.target.value = "";
   };
 
+  /* =======================================================
+     REMOVE FOTO
+  ======================================================= */
+
   const removePhoto = (index) => {
-    setPhotos((currentPhotos) => {
-      const updatedPhotos = [...currentPhotos];
+    setPhotos(
+      (currentPhotos) => {
+        const updatedPhotos = [
+          ...currentPhotos,
+        ];
 
-      updatedPhotos[index] = null;
+        const oldPhoto =
+          updatedPhotos[index];
 
-      return updatedPhotos;
-    });
+        /*
+         * Bersihkan object URL.
+         */
+        if (
+          oldPhoto &&
+          typeof oldPhoto === "object" &&
+          oldPhoto.src
+        ) {
+          URL.revokeObjectURL(
+            oldPhoto.src
+          );
+        }
+
+        updatedPhotos[index] = null;
+
+        return updatedPhotos;
+      }
+    );
 
     setFeedback("");
   };
 
-  const uploadedCount = photos.filter(Boolean).length;
-  const allPhotosUploaded = uploadedCount === 3;
+  /* =======================================================
+     STATUS
+  ======================================================= */
+
+  const uploadedCount =
+    photos.filter(Boolean).length;
+
+  const allPhotosUploaded =
+    uploadedCount === 3;
+
+  /* =======================================================
+     RENDER
+  ======================================================= */
 
   return (
     <section
@@ -300,7 +611,7 @@ export default function PhotoUpload({
       }}
     >
       {/* =====================================================
-          FULL-PAGE BACKGROUND
+          FULL PAGE BACKGROUND
       ====================================================== */}
 
       <FinaleLikeBackground />
@@ -326,7 +637,12 @@ export default function PhotoUpload({
         transition={{
           duration: 0.9,
           delay: 0.08,
-          ease: [0.22, 1, 0.36, 1],
+          ease: [
+            0.22,
+            1,
+            0.36,
+            1,
+          ],
         }}
       >
         <div className="photo-upload-eyebrow">
@@ -336,12 +652,21 @@ export default function PhotoUpload({
         <h1>
           taruh 3 foto
           <br />
-          <span>kamu di sini.</span>
+          <span>
+            kamu di sini.
+          </span>
         </h1>
 
         <div className="photo-upload-description">
-          <p>bisa selfie asal-asalan.</p>
-          <p>bisa foto random di galeri kamu.</p>
+          <p>
+            bisa selfie asal-asalan.
+          </p>
+
+          <p>
+            bisa foto random di
+            galeri kamu.
+          </p>
+
           <p>apapun.</p>
         </div>
 
@@ -371,130 +696,197 @@ export default function PhotoUpload({
         transition={{
           duration: 0.9,
           delay: 0.24,
-          ease: [0.22, 1, 0.36, 1],
+          ease: [
+            0.22,
+            1,
+            0.36,
+            1,
+          ],
         }}
       >
-        {photos.map((photo, index) => (
-          <motion.div
-            key={index}
-            className={`photo-slot-wrapper ${
-              photo ? "has-photo" : ""
-            }`}
-            initial={{
-              opacity: 0,
-              y: 20,
-              scale: 0.97,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-              scale: 1,
-            }}
-            transition={{
-              duration: 0.7,
-              delay: 0.32 + index * 0.1,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-          >
-            <div
-              className={`photo-slot ${
+        {photos.map(
+          (photo, index) => (
+            <motion.div
+              key={index}
+              className={`photo-slot-wrapper ${
                 photo
-                  ? "photo-slot-filled"
-                  : "photo-slot-empty-state"
+                  ? "has-photo"
+                  : ""
               }`}
-            >
-              <div className="photo-slot-number">
-                0{index + 1}
-              </div>
-
-              <div className="photo-slot-label">
-                MEMORY
-              </div>
-
-              {!photo && (
-                <button
-                  type="button"
-                  className="photo-empty"
-                  onClick={() => openFilePicker(index)}
-                  aria-label={`Tambah foto ${index + 1}`}
-                >
-                  <span className="photo-empty-plus">
-                    +
-                  </span>
-
-                  <span className="photo-empty-title">
-                    add memory
-                  </span>
-
-                  <span className="photo-empty-hint">
-                    tap to choose
-                  </span>
-                </button>
-              )}
-
-              {photo && (
-                <motion.div
-                  className="photo-filled"
-                  initial={{
-                    opacity: 0,
-                    scale: 1.05,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    scale: 1,
-                  }}
-                  transition={{
-                    duration: 0.7,
-                    ease: [0.22, 1, 0.36, 1],
-                  }}
-                >
-                  <img
-                    src={photo}
-                    alt={`Memory ${index + 1}`}
-                    className="photo-preview"
-                  />
-
-                  <div className="photo-image-overlay" />
-
-                  <div className="photo-filled-bottom">
-                    <div className="photo-filled-actions">
-                      <button
-                        type="button"
-                        onClick={() => openFilePicker(index)}
-                      >
-                        Ganti foto
-                      </button>
-
-                      <button
-                        type="button"
-                        onClick={() => removePhoto(index)}
-                      >
-                        Hapus foto
-                      </button>
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-
-              <span className="photo-corner photo-corner-tl" />
-              <span className="photo-corner photo-corner-tr" />
-              <span className="photo-corner photo-corner-bl" />
-              <span className="photo-corner photo-corner-br" />
-            </div>
-
-            <input
-              ref={(element) => {
-                fileInputRefs.current[index] = element;
+              initial={{
+                opacity: 0,
+                y: 20,
+                scale: 0.97,
               }}
-              type="file"
-              accept="image/*"
-              onChange={(event) =>
-                handleFileChange(event, index)
-              }
-              hidden
-            />
-          </motion.div>
-        ))}
+              animate={{
+                opacity: 1,
+                y: 0,
+                scale: 1,
+              }}
+              transition={{
+                duration: 0.7,
+                delay:
+                  0.32 +
+                  index * 0.1,
+                ease: [
+                  0.22,
+                  1,
+                  0.36,
+                  1,
+                ],
+              }}
+            >
+              <div
+                className={`photo-slot ${
+                  photo
+                    ? "photo-slot-filled"
+                    : "photo-slot-empty-state"
+                }`}
+              >
+                <div className="photo-slot-number">
+                  0{index + 1}
+                </div>
+
+                <div className="photo-slot-label">
+                  MEMORY
+                </div>
+
+                {/* =========================================
+                    EMPTY
+                ========================================== */}
+
+                {!photo && (
+                  <button
+                    type="button"
+                    className="photo-empty"
+                    onClick={() =>
+                      openFilePicker(
+                        index
+                      )
+                    }
+                    aria-label={`Tambah foto ${
+                      index + 1
+                    }`}
+                  >
+                    <span className="photo-empty-plus">
+                      +
+                    </span>
+
+                    <span className="photo-empty-title">
+                      add memory
+                    </span>
+
+                    <span className="photo-empty-hint">
+                      tap to choose
+                    </span>
+                  </button>
+                )}
+
+                {/* =========================================
+                    PHOTO
+                ========================================== */}
+
+                {photo && (
+                  <motion.div
+                    className="photo-filled"
+                    initial={{
+                      opacity: 0,
+                      scale: 1.05,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      scale: 1,
+                    }}
+                    transition={{
+                      duration: 0.7,
+                      ease: [
+                        0.22,
+                        1,
+                        0.36,
+                        1,
+                      ],
+                    }}
+                  >
+                    <img
+                      src={
+                        typeof photo ===
+                        "string"
+                          ? photo
+                          : photo.src
+                      }
+                      alt={`Memory ${
+                        index + 1
+                      }`}
+                      className="photo-preview"
+                      draggable="false"
+                    />
+
+                    <div className="photo-image-overlay" />
+
+                    <div className="photo-filled-bottom">
+                      <div className="photo-filled-actions">
+                        <button
+                          type="button"
+                          onClick={() =>
+                            openFilePicker(
+                              index
+                            )
+                          }
+                        >
+                          Ganti foto
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={() =>
+                            removePhoto(
+                              index
+                            )
+                          }
+                        >
+                          Hapus foto
+                        </button>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* =========================================
+                    CORNERS
+                ========================================== */}
+
+                <span className="photo-corner photo-corner-tl" />
+
+                <span className="photo-corner photo-corner-tr" />
+
+                <span className="photo-corner photo-corner-bl" />
+
+                <span className="photo-corner photo-corner-br" />
+              </div>
+
+              {/* ===========================================
+                  FILE INPUT
+              ============================================ */}
+
+              <input
+                ref={(element) => {
+                  fileInputRefs.current[
+                    index
+                  ] = element;
+                }}
+                type="file"
+                accept="image/*"
+                onChange={(event) =>
+                  handleFileChange(
+                    event,
+                    index
+                  )
+                }
+                hidden
+              />
+            </motion.div>
+          )
+        )}
       </motion.div>
 
       {/* =====================================================
@@ -524,7 +916,12 @@ export default function PhotoUpload({
             }}
             transition={{
               duration: 0.4,
-              ease: [0.22, 1, 0.36, 1],
+              ease: [
+                0.22,
+                1,
+                0.36,
+                1,
+              ],
             }}
           >
             {feedback}
@@ -560,7 +957,12 @@ export default function PhotoUpload({
             }}
             transition={{
               duration: 0.55,
-              ease: [0.22, 1, 0.36, 1],
+              ease: [
+                0.22,
+                1,
+                0.36,
+                1,
+              ],
             }}
           >
             <span className="photo-next-text">

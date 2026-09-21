@@ -58,7 +58,9 @@ function shuffleCards(cards) {
   const shuffled = [...cards];
 
   for (let i = shuffled.length - 1; i > 0; i--) {
-    const random = Math.floor(Math.random() * (i + 1));
+    const random = Math.floor(
+      Math.random() * (i + 1)
+    );
 
     [shuffled[i], shuffled[random]] = [
       shuffled[random],
@@ -214,23 +216,17 @@ export default function MatchingGame({ onNext }) {
   const [feedback, setFeedback] = useState("");
 
   /*
-    completionStage:
-
-    "playing"
+    playing
       = game normal
 
-    "success"
-      = game selesai, background masih terlihat,
-        lalu tulisan "tuh kan bisa" muncul
-
-    "leaving"
-      = setelah 2 detik, seluruh scene blur + fade out
+    leaving
+      = semua pasangan selesai,
+        scene langsung fade out
   */
   const [completionStage, setCompletionStage] =
     useState("playing");
 
   const compareTimer = useRef(null);
-  const successTimer = useRef(null);
   const leaveTimer = useRef(null);
 
   /* =======================================================
@@ -243,10 +239,6 @@ export default function MatchingGame({ onNext }) {
         clearTimeout(compareTimer.current);
       }
 
-      if (successTimer.current) {
-        clearTimeout(successTimer.current);
-      }
-
       if (leaveTimer.current) {
         clearTimeout(leaveTimer.current);
       }
@@ -254,7 +246,7 @@ export default function MatchingGame({ onNext }) {
   }, []);
 
   /* =======================================================
-     COMPLETION SEQUENCE
+     COMPLETION
   ======================================================= */
 
   useEffect(() => {
@@ -263,21 +255,17 @@ export default function MatchingGame({ onNext }) {
       cards.length > 0 &&
       completionStage === "playing"
     ) {
-      /*
-        Tahap pertama:
-
-        Jangan langsung menghilangkan halaman.
-
-        Kita beri sedikit waktu supaya pasangan terakhir
-        benar-benar terasa selesai terlebih dahulu.
-      */
-
       setLocked(true);
       setFeedback("");
 
-      successTimer.current = setTimeout(() => {
-        setCompletionStage("success");
-      }, 350);
+      /*
+        Beri sedikit waktu agar pasangan terakhir
+        selesai terlihat, kemudian langsung fade out.
+      */
+
+      leaveTimer.current = setTimeout(() => {
+        setCompletionStage("leaving");
+      }, 450);
     }
   }, [
     matched,
@@ -286,32 +274,18 @@ export default function MatchingGame({ onNext }) {
   ]);
 
   useEffect(() => {
-    if (completionStage !== "success") {
-      return;
-    }
-
-    /*
-      "tuh kan bisa" tampil selama kurang lebih 2 detik.
-    */
-
-    leaveTimer.current = setTimeout(() => {
-      setCompletionStage("leaving");
-    }, 2000);
-  }, [completionStage]);
-
-  useEffect(() => {
     if (completionStage !== "leaving") {
       return;
     }
 
     /*
-      Setelah blur + fade out mulai,
-      tunggu animasinya selesai baru pindah scene.
+      Tunggu fade-out selesai,
+      kemudian pindah ke scene berikutnya.
     */
 
     const timer = setTimeout(() => {
       onNext();
-    }, 950);
+    }, 800);
 
     return () => clearTimeout(timer);
   }, [completionStage, onNext]);
@@ -432,10 +406,6 @@ export default function MatchingGame({ onNext }) {
   return (
     <section
       className={`scene scene-game ${
-        completionStage !== "playing"
-          ? "game-completing"
-          : ""
-      } ${
         completionStage === "leaving"
           ? "game-leaving"
           : ""
@@ -496,8 +466,8 @@ export default function MatchingGame({ onNext }) {
               opacity: 0,
             }}
             transition={{
-              duration: 0.7,
-              ease: [0.22, 1, 0.36, 1],
+              duration: 0.65,
+              ease: "easeInOut",
             }}
           >
             {/* HEADER */}
@@ -622,12 +592,7 @@ export default function MatchingGame({ onNext }) {
               transition={{
                 duration: 0.9,
                 delay: 0.15,
-                ease: [
-                  0.22,
-                  1,
-                  0.36,
-                  1,
-                ],
+                ease: [0.22, 1, 0.36, 1],
               }}
             >
               {cards.map(
@@ -712,6 +677,7 @@ export default function MatchingGame({ onNext }) {
                       }}
                     >
                       <span className="card-inner">
+
                         {/* FRONT */}
 
                         <span className="card-front">
@@ -739,17 +705,16 @@ export default function MatchingGame({ onNext }) {
 
                           <VisualElement
                             type={
-                              card.element
-                                .type
+                              card.element.type
                             }
                             color={
-                              card.element
-                                .color
+                              card.element.color
                             }
                           />
 
                           <span className="card-back-shine" />
                         </span>
+
                       </span>
                     </motion.button>
                   );
@@ -778,73 +743,6 @@ export default function MatchingGame({ onNext }) {
         )}
 
         {/* =================================================
-            SUCCESS MESSAGE
-        ================================================= */}
-
-        {completionStage === "success" && (
-          <motion.div
-            key="success"
-            className="matching-success-overlay"
-            initial={{
-              opacity: 0,
-            }}
-            animate={{
-              opacity: 1,
-            }}
-            exit={{
-              opacity: 0,
-            }}
-            transition={{
-              duration: 0.8,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-          >
-            <motion.div
-              className="matching-success-blur"
-              initial={{
-                opacity: 0,
-                backdropFilter: "blur(0px)",
-              }}
-              animate={{
-                opacity: 1,
-                backdropFilter: "blur(5px)",
-              }}
-              transition={{
-                duration: 1.15,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-            />
-
-            <motion.div
-              className="matching-success-message"
-              initial={{
-                opacity: 0,
-                y: 22,
-                scale: 0.96,
-                filter: "blur(8px)",
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                filter: "blur(0px)",
-              }}
-              transition={{
-                duration: 1,
-                delay: 0.25,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-            >
-              <span className="success-message-line" />
-
-              <p>tuh kan bisa</p>
-
-              <span className="success-message-line success-message-line-right" />
-            </motion.div>
-          </motion.div>
-        )}
-
-        {/* =================================================
             LEAVING
         ================================================= */}
 
@@ -854,15 +752,15 @@ export default function MatchingGame({ onNext }) {
             className="matching-leaving-overlay"
             initial={{
               opacity: 0,
-              backdropFilter: "blur(5px)",
+              backdropFilter: "blur(0px)",
             }}
             animate={{
               opacity: 1,
-              backdropFilter: "blur(22px)",
+              backdropFilter: "blur(18px)",
             }}
             transition={{
-              duration: 0.95,
-              ease: [0.22, 1, 0.36, 1],
+              duration: 0.8,
+              ease: "easeInOut",
             }}
           />
         )}
