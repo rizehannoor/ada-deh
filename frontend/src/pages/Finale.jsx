@@ -231,7 +231,8 @@ function drawImageCover(
 /* =========================================================
    PHOTO FRAME
    PNG ONLY
-   Supports controlled rotation
+   THIN WHITE PLAIN FRAME
+   NO GRADIENT
 ========================================================= */
 
 function drawPhotoFrame(
@@ -244,7 +245,7 @@ function drawPhotoFrame(
   z = 1,
   rotation = 0
 ) {
-  const radius = 42;
+  const radius = 0;
 
   ctx.save();
 
@@ -271,38 +272,24 @@ function drawPhotoFrame(
 
   /* -------------------------------------------------------
      SOFT SHADOW
+     Kept subtle so the white frame remains clean.
   ------------------------------------------------------- */
 
   ctx.shadowColor =
-    "rgba(0, 0, 0, 0.58)";
+    "rgba(0, 0, 0, 0.32)";
 
-  ctx.shadowBlur = 55;
+  ctx.shadowBlur = 28;
 
-  ctx.shadowOffsetY = 24;
-
-  drawRoundedRect(
-    ctx,
-    x,
-    y,
-    width,
-    height,
-    radius,
-    "#10070f"
-  );
-
-
-  ctx.shadowColor =
-    "transparent";
+  ctx.shadowOffsetY = 12;
 
 
   /* -------------------------------------------------------
-     SOLID OUTER FRAME
+     THIN SOLID WHITE OUTER FRAME
+     NO GRADIENT
   ------------------------------------------------------- */
 
   const frameColor =
-    z === 2
-      ? COLORS.rose
-      : COLORS.dustyRose;
+    "#ffffff";
 
   drawRoundedRect(
     ctx,
@@ -315,21 +302,28 @@ function drawPhotoFrame(
   );
 
 
+  ctx.shadowColor =
+    "transparent";
+
+
   /* -------------------------------------------------------
-     DARK PHOTO BASE
+     PHOTO AREA
+     THIN 7PX WHITE FRAME
   ------------------------------------------------------- */
 
-  const padding = 14;
+  const padding = 7;
 
-  drawRoundedRect(
-    ctx,
-    x + padding,
-    y + padding,
-    width - padding * 2,
-    height - padding * 2,
-    radius - 10,
-    "#09050b"
-  );
+  const photoX =
+    x + padding;
+
+  const photoY =
+    y + padding;
+
+  const photoWidth =
+    width - padding * 2;
+
+  const photoHeight =
+    height - padding * 2;
 
 
   /* -------------------------------------------------------
@@ -340,12 +334,11 @@ function drawPhotoFrame(
 
   ctx.beginPath();
 
-  ctx.roundRect(
-    x + padding,
-    y + padding,
-    width - padding * 2,
-    height - padding * 2,
-    radius - 10
+  ctx.rect(
+    photoX,
+    photoY,
+    photoWidth,
+    photoHeight
   );
 
   ctx.clip();
@@ -354,126 +347,35 @@ function drawPhotoFrame(
   drawImageCover(
     ctx,
     image,
-    x + padding,
-    y + padding,
-    width - padding * 2,
-    height - padding * 2
+    photoX,
+    photoY,
+    photoWidth,
+    photoHeight
   );
 
   ctx.restore();
 
 
   /* -------------------------------------------------------
-     PHOTO INNER SHADOW
+     NO PHOTO GRADIENT
+     The photo remains exactly as uploaded/cropped.
   ------------------------------------------------------- */
-
-  const photoGradient =
-    ctx.createLinearGradient(
-      x,
-      y,
-      x,
-      y + height
-    );
-
-  photoGradient.addColorStop(
-    0,
-    "rgba(0, 0, 0, 0.04)"
-  );
-
-  photoGradient.addColorStop(
-    0.65,
-    "rgba(0, 0, 0, 0.00)"
-  );
-
-  photoGradient.addColorStop(
-    1,
-    "rgba(0, 0, 0, 0.18)"
-  );
-
-  ctx.save();
-
-  ctx.beginPath();
-
-  ctx.roundRect(
-    x + padding,
-    y + padding,
-    width - padding * 2,
-    height - padding * 2,
-    radius - 10
-  );
-
-  ctx.clip();
-
-  ctx.fillStyle =
-    photoGradient;
-
-  ctx.fillRect(
-    x + padding,
-    y + padding,
-    width - padding * 2,
-    height - padding * 2
-  );
-
-  ctx.restore();
 
 
   /* -------------------------------------------------------
-     INNER WHITE LINE
+     NO INNER COLORED LINE
   ------------------------------------------------------- */
-
-  drawRoundedRectStroke(
-    ctx,
-    x + 20,
-    y + 20,
-    width - 40,
-    height - 40,
-    radius - 15,
-    "rgba(255, 248, 252, 0.44)",
-    2
-  );
 
 
   /* -------------------------------------------------------
-     OUTER FINE LINE
+     NO OUTER COLORED LINE
   ------------------------------------------------------- */
-
-  drawRoundedRectStroke(
-    ctx,
-    x,
-    y,
-    width,
-    height,
-    radius,
-    "rgba(231, 191, 210, 0.78)",
-    3
-  );
 
 
   /* -------------------------------------------------------
-     HERO ACCENT
+     NO HERO ACCENT
+     All photos use the same plain white frame.
   ------------------------------------------------------- */
-
-  if (z === 2) {
-    ctx.save();
-
-    ctx.shadowColor =
-      "rgba(212, 154, 183, 0.28)";
-
-    ctx.shadowBlur = 26;
-
-    drawRoundedRectStroke(
-      ctx,
-      x - 1,
-      y - 1,
-      width + 2,
-      height + 2,
-      radius + 1,
-      "rgba(231, 191, 210, 0.35)",
-      2
-    );
-
-    ctx.restore();
-  }
 
   ctx.restore();
 }
@@ -2309,7 +2211,8 @@ export default function Finale({
 
         {/* =================================================
             PHOTO PREVIEW
-            TIDAK DIUBAH
+            THIN WHITE PLAIN FRAME
+            NO GRADIENT
         ================================================= */}
 
         <motion.div
@@ -2347,6 +2250,13 @@ export default function Finale({
                     index + 1
                   }`}
                   key={index}
+                  style={{
+                    backgroundColor: "#ffffff",
+                    border: "7px solid #ffffff",
+                    borderRadius: "0",
+                    boxSizing: "border-box",
+                    overflow: "hidden",
+                  }}
                 >
 
                   <img
@@ -2354,6 +2264,13 @@ export default function Finale({
                     alt={`Memory ${
                       index + 1
                     }`}
+                    style={{
+                      display: "block",
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      borderRadius: "0",
+                    }}
                   />
 
                 </div>
@@ -2365,6 +2282,12 @@ export default function Finale({
                     index + 1
                   } is-empty`}
                   key={index}
+                  style={{
+                    backgroundColor: "#ffffff",
+                    border: "7px solid #ffffff",
+                    borderRadius: "0",
+                    boxSizing: "border-box",
+                  }}
                 />
 
               );
@@ -2653,15 +2576,57 @@ export default function Finale({
 
             <span>
               {isDownloading
-                ? "creating memory..."
-                : "save this memory"}
+                ? "sedang menyimpan kenangan..."
+                : "simpan kenangan ini"}
             </span>
 
+
+            {/* DOWNLOAD ICON */}
+
             <span
-              className="save-arrow"
+              className="save-download-icon"
               aria-hidden="true"
             >
-              →
+              <svg
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+
+                {/* VERTICAL ARROW */}
+
+                <path
+                  d="M12 3V14"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3.5"
+                  strokeLinecap="round"
+                />
+
+
+                {/* ARROW HEAD */}
+
+                <path
+                  d="M7.5 10.5L12 15L16.5 10.5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+
+
+                {/* DOWNLOAD BASE */}
+
+                <path
+                  d="M4 17V18.5C4 19.9 5.1 21 6.5 21H17.5C18.9 21 20 19.9 20 18.5V17"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+
+              </svg>
             </span>
 
           </button>

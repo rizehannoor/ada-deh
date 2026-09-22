@@ -14,6 +14,7 @@ Biasanya aku lebih suka bercanda, jahilin kamu, atau bikin kamu ngambek. Tapi ka
 Jadi sebelum semuanya selesai, aku mau ninggalin beberapa kalimat kecil yang mungkin bisa kamu baca lagi kapan pun kamu mau.`,
     quote: "Some things are easier to write than to say.",
   },
+
   {
     number: "02",
     section: "THE LITTLE THINGS",
@@ -26,6 +27,7 @@ Cara kamu membalas pesan, cara kamu tiba-tiba ngambek, cara kamu bercanda, bahka
 Tapi justru dari hal-hal kecil itu, kamu jadi seseorang yang terasa berbeda.`,
     quote: "It is always the little things that stay.",
   },
+
   {
     number: "03",
     section: "SOMEWHERE BETWEEN",
@@ -40,6 +42,7 @@ Tapi entah sejak kapan, semua percakapan kecil itu mulai punya tempatnya sendiri
 Dan ternyata, beberapa orang memang datang tanpa rencana, lalu perlahan menjadi bagian dari cerita.`,
     quote: "Maybe some stories begin without us realizing it.",
   },
+
   {
     number: "04",
     section: "FOR THE YEAR AHEAD",
@@ -52,6 +55,7 @@ Semoga kamu selalu punya alasan untuk tersenyum, orang-orang yang membuat kamu m
 Kalau nanti ada hari yang terasa berat, semoga kamu selalu ingat kalau kamu sudah melewati banyak hal sampai sejauh ini.`,
     quote: "May the next chapter be gentle with you.",
   },
+
   {
     number: "05",
     section: "ONE LAST THING",
@@ -147,15 +151,42 @@ export default function BirthdayLetter({
   return (
     <section className="birthday-letter-scene">
 
-      {/* BACKGROUND */}
+      {/* =====================================================
+          BRIGHT PURPLE BACKGROUND
+      ===================================================== */}
+
       <div className="birthday-letter-background">
-        <div className="birthday-letter-glow birthday-letter-glow-one" />
-        <div className="birthday-letter-glow birthday-letter-glow-two" />
-        <div className="birthday-letter-glow birthday-letter-glow-three" />
+
+        <div
+          className="
+            birthday-letter-glow
+            birthday-letter-glow-one
+          "
+        />
+
+        <div
+          className="
+            birthday-letter-glow
+            birthday-letter-glow-two
+          "
+        />
+
+        <div
+          className="
+            birthday-letter-glow
+            birthday-letter-glow-three
+          "
+        />
+
       </div>
 
-      {/* FLOATING HEARTS */}
+
+      {/* =====================================================
+          FLOATING HEARTS
+      ===================================================== */}
+
       <div className="birthday-letter-hearts">
+
         {Array.from({ length: 18 }).map(
           (_, index) => (
             <span
@@ -171,9 +202,14 @@ export default function BirthdayLetter({
             </span>
           )
         )}
+
       </div>
 
-      {/* TOP BAR */}
+
+      {/* =====================================================
+          TOP BAR
+      ===================================================== */}
+
       <header className="birthday-letter-topbar">
 
         <div className="birthday-letter-topbar-left">
@@ -182,9 +218,13 @@ export default function BirthdayLetter({
           </span>
         </div>
 
+
         <div className="birthday-letter-topbar-center">
+
           <span>
-            {String(currentPage + 1).padStart(2, "0")}
+            {String(
+              currentPage + 1
+            ).padStart(2, "0")}
           </span>
 
           <span className="birthday-letter-topbar-slash">
@@ -192,19 +232,29 @@ export default function BirthdayLetter({
           </span>
 
           <span>
-            {String(LETTER_PAGES.length).padStart(2, "0")}
+            {String(
+              LETTER_PAGES.length
+            ).padStart(2, "0")}
           </span>
+
         </div>
 
+
         <div className="birthday-letter-topbar-right">
+
           <span className="birthday-letter-small-label">
             FOR YOU
           </span>
+
         </div>
 
       </header>
 
-      {/* MAIN */}
+
+      {/* =====================================================
+          MAIN
+      ===================================================== */}
+
       <main className="birthday-letter-main">
 
         <motion.div
@@ -242,7 +292,10 @@ export default function BirthdayLetter({
           }}
         >
 
-          {/* LETTER PAGE */}
+          {/* =================================================
+              LETTER PAGE
+          ================================================= */}
+
           <AnimatePresence
             mode="wait"
             custom={direction}
@@ -277,6 +330,7 @@ export default function BirthdayLetter({
                   "inset(0 0 0 0)",
 
                 x: 0,
+
                 scaleX: 1,
                 scaleY: 1,
               }}
@@ -333,7 +387,10 @@ export default function BirthdayLetter({
 
               <div className="birthday-letter-page-inner">
 
-                {/* PAGE HEADER */}
+                {/* =================================================
+                    PAGE HEADER
+                ================================================= */}
+
                 <div className="birthday-letter-page-header">
 
                   <span className="birthday-letter-page-number">
@@ -346,8 +403,14 @@ export default function BirthdayLetter({
 
                 </div>
 
-                {/* PAGE CONTENT */}
+
+                {/* =================================================
+                    PAGE CONTENT
+                ================================================= */}
+
                 <div className="birthday-letter-page-content">
+
+                  {/* TITLE */}
 
                   <motion.h2
                     className="birthday-letter-heading"
@@ -371,6 +434,9 @@ export default function BirthdayLetter({
                     {page.title}
                   </motion.h2>
 
+
+                  {/* SUBTITLE */}
+
                   <motion.p
                     className="birthday-letter-subtitle"
 
@@ -393,6 +459,9 @@ export default function BirthdayLetter({
                     {page.subtitle}
                   </motion.p>
 
+
+                  {/* DIVIDER */}
+
                   <motion.div
                     className="birthday-letter-divider"
 
@@ -412,6 +481,9 @@ export default function BirthdayLetter({
                       ease: "easeOut",
                     }}
                   />
+
+
+                  {/* BODY */}
 
                   <motion.p
                     className="birthday-letter-text"
@@ -434,6 +506,9 @@ export default function BirthdayLetter({
                   >
                     {page.text}
                   </motion.p>
+
+
+                  {/* QUOTE */}
 
                   <motion.div
                     className="birthday-letter-quote"
@@ -465,6 +540,9 @@ export default function BirthdayLetter({
 
                   </motion.div>
 
+
+                  {/* SIGNATURE */}
+
                   {page.signature && (
                     <motion.div
                       className="birthday-letter-signature"
@@ -488,7 +566,11 @@ export default function BirthdayLetter({
 
                 </div>
 
-                {/* PAGE FOOTER */}
+
+                {/* =================================================
+                    PAGE FOOTER
+                ================================================= */}
+
                 <div className="birthday-letter-page-footer">
 
                   <span>
@@ -507,14 +589,22 @@ export default function BirthdayLetter({
 
           </AnimatePresence>
 
-          {/* NAVIGATION */}
+
+          {/* =====================================================
+              NAVIGATION
+          ===================================================== */}
+
           <div className="birthday-letter-navigation">
 
-            {/* BACK PAGE */}
+            {/* BACK */}
+
             {currentPage > 0 ? (
               <button
                 type="button"
-                className="birthday-letter-nav-button birthday-letter-back"
+                className="
+                  birthday-letter-nav-button
+                  birthday-letter-back
+                "
                 onClick={handleBack}
                 disabled={isAnimating}
                 aria-label="Previous page"
@@ -527,7 +617,9 @@ export default function BirthdayLetter({
               <div />
             )}
 
+
             {/* PAGE INDICATOR */}
+
             <div className="birthday-letter-navigation-center">
 
               <div className="birthday-letter-dots">
@@ -547,22 +639,38 @@ export default function BirthdayLetter({
 
               </div>
 
+
               <div className="birthday-letter-count">
-                {String(currentPage + 1).padStart(2, "0")}
+
+                {String(
+                  currentPage + 1
+                ).padStart(2, "0")}
+
                 {" "}
+
                 /
+
                 {" "}
-                {String(LETTER_PAGES.length).padStart(2, "0")}
+
+                {String(
+                  LETTER_PAGES.length
+                ).padStart(2, "0")}
+
               </div>
 
             </div>
 
-            {/* NEXT PAGE */}
+
+            {/* NEXT */}
+
             {currentPage <
             LETTER_PAGES.length - 1 ? (
               <button
                 type="button"
-                className="birthday-letter-nav-button birthday-letter-next"
+                className="
+                  birthday-letter-nav-button
+                  birthday-letter-next
+                "
                 onClick={handleNext}
                 disabled={isAnimating}
                 aria-label="Next page"
@@ -577,7 +685,11 @@ export default function BirthdayLetter({
 
           </div>
 
-          {/* BACK TO MEMORY — ALWAYS VISIBLE */}
+
+          {/* =====================================================
+              BACK TO MEMORY
+          ===================================================== */}
+
           <button
             type="button"
             className="birthday-letter-memory-link"
@@ -585,16 +697,16 @@ export default function BirthdayLetter({
             disabled={isAnimating}
             aria-label="Back to memory"
           >
-            <span className="birthday-letter-memory-icon">
-              ↩
-            </span>
-
             <span className="birthday-letter-memory-text">
               BACK TO MEMORY
             </span>
           </button>
 
-          {/* CENTER HEART */}
+
+          {/* =====================================================
+              CENTER HEART
+          ===================================================== */}
+
           <div className="birthday-letter-center-heart">
             ♡
           </div>
@@ -603,11 +715,17 @@ export default function BirthdayLetter({
 
       </main>
 
-      {/* BOTTOM NOTE */}
+
+      {/* =====================================================
+          BOTTOM NOTE
+      ===================================================== */}
+
       <div className="birthday-letter-bottom-note">
+
         <span>
           take your time.
         </span>
+
       </div>
 
     </section>
