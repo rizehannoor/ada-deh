@@ -11,85 +11,127 @@ import MatchingGame from "./pages/MatchingGame";
 import PhotoTransition from "./pages/PhotoTransition";
 import PhotoUpload from "./pages/PhotoUpload";
 import Finale from "./pages/Finale";
+import BirthdayLetter from "./pages/BirthdayLetter";
 
-const scenes = [
-  Silence,
-  Mystery,
-  Letter,
-  Teasing,
-  GameTransition,
-  MatchingGame,
-  PhotoTransition,
-  PhotoUpload,
-  Finale,
-];
-
-const transitionVariants = {
-  initial: {
-    opacity: 0,
-  },
-
-  animate: {
-    opacity: 1,
-  },
-
-  exit: {
-    opacity: 0,
-  },
-};
-
-export default function App() {
-  const [scene, setScene] = useState(0);
-
+function App() {
   const [photos, setPhotos] = useState([
     null,
     null,
     null,
   ]);
 
-  const CurrentScene = scenes[scene];
+  const [scene, setScene] = useState(() => {
+    const params = new URLSearchParams(
+      window.location.search
+    );
+
+    const requestedScene = Number(
+      params.get("scene")
+    );
+
+    if (
+      Number.isInteger(requestedScene) &&
+      requestedScene >= 0 &&
+      requestedScene <= 9
+    ) {
+      return requestedScene;
+    }
+
+    return 0;
+  });
 
   const nextScene = () => {
-    setScene((current) =>
-      Math.min(
-        current + 1,
-        scenes.length - 1
-      )
-    );
+    setScene((currentScene) => {
+      const nextSceneIndex = currentScene + 1;
+
+      if (nextSceneIndex > 9) {
+        return 9;
+      }
+
+      return nextSceneIndex;
+    });
   };
 
+  const previousScene = () => {
+    setScene((currentScene) => {
+      const previousSceneIndex =
+        currentScene - 1;
+
+      if (previousSceneIndex < 0) {
+        return 0;
+      }
+
+      return previousSceneIndex;
+    });
+  };
+
+  const goToScene = (targetScene) => {
+    if (
+      Number.isInteger(targetScene) &&
+      targetScene >= 0 &&
+      targetScene <= 9
+    ) {
+      setScene(targetScene);
+    }
+  };
+
+  const scenes = [
+    <Silence onNext={nextScene} />,
+
+    <Mystery onNext={nextScene} />,
+
+    <Letter onNext={nextScene} />,
+
+    <Teasing onNext={nextScene} />,
+
+    <GameTransition onNext={nextScene} />,
+
+    <MatchingGame onNext={nextScene} />,
+
+    <PhotoTransition onNext={nextScene} />,
+
+    <PhotoUpload
+      photos={photos}
+      setPhotos={setPhotos}
+      onNext={nextScene}
+    />,
+
+    <Finale
+      photos={photos}
+      onNext={nextScene}
+    />,
+
+    <BirthdayLetter
+      onNext={() => goToScene(9)}
+      onBack={() => goToScene(8)}
+    />,
+  ];
+
   return (
-    <main className="app-shell">
-      <div
-        className="global-vignette"
-        aria-hidden="true"
-      />
-
-      <div
-        className="global-grain"
-        aria-hidden="true"
-      />
-
+    <main className="app">
       <AnimatePresence mode="wait">
         <motion.div
           key={scene}
           className="scene-wrapper"
-          variants={transitionVariants}
-          initial="initial"
-          animate="animate"
-          exit="exit"
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+          }}
+          exit={{
+            opacity: 0,
+          }}
           transition={{
             duration: 0.65,
             ease: "easeInOut",
           }}
         >
-          <CurrentScene
-            onNext={nextScene}
-            photos={photos}
-            setPhotos={setPhotos}
-          />
+          {scenes[scene]}
         </motion.div>
       </AnimatePresence>
     </main>
   );
 }
+
+export default App;

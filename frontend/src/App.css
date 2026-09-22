@@ -3641,1191 +3641,6 @@ button:focus-visible {
   }
 }
 
-
-/* =========================================================
-   FINALE
-========================================================= */
-
-.scene-finale {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  isolation: isolate;
-  color: #ffffff;
-}
-
-
-/* =========================================================
-   COSMIC BACKGROUND
-========================================================= */
-
-.scene-finale .cosmic-background {
-  position: absolute;
-  inset: 0;
-  z-index: -5;
-  overflow: hidden;
-
-  background:
-    radial-gradient(
-      circle at 18% 22%,
-      rgba(255, 20, 147, 0.13),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 82% 62%,
-      rgba(126, 52, 255, 0.12),
-      transparent 34%
-    ),
-    linear-gradient(
-      145deg,
-      #050107 0%,
-      #100316 45%,
-      #050108 100%
-    );
-}
-
-.scene-finale .cosmic-nebula {
-  position: absolute;
-
-  border-radius: 50%;
-
-  filter: blur(90px);
-
-  pointer-events: none;
-}
-
-.scene-finale .cosmic-nebula-one {
-  width: 420px;
-  height: 420px;
-
-  left: -160px;
-  top: 8%;
-
-  background:
-    rgba(255, 20, 147, 0.16);
-}
-
-.scene-finale .cosmic-nebula-two {
-  width: 480px;
-  height: 480px;
-
-  right: -180px;
-  top: 38%;
-
-  background:
-    rgba(123, 47, 255, 0.15);
-}
-
-.scene-finale .cosmic-nebula-three {
-  width: 300px;
-  height: 300px;
-
-  left: 45%;
-  bottom: -160px;
-
-  background:
-    rgba(255, 20, 147, 0.09);
-}
-
-.scene-finale .cosmic-stars {
-  position: absolute;
-
-  inset: 0;
-
-  pointer-events: none;
-
-  opacity: 0.5;
-}
-
-.scene-finale .cosmic-stars-one {
-  background-image:
-    radial-gradient(
-      circle,
-      rgba(255, 255, 255, 0.8) 0 1px,
-      transparent 1.5px
-    );
-
-  background-size:
-    180px 210px;
-
-  background-position:
-    20px 30px;
-}
-
-.scene-finale .cosmic-stars-two {
-  background-image:
-    radial-gradient(
-      circle,
-      rgba(255, 180, 230, 0.5) 0 1px,
-      transparent 1.5px
-    );
-
-  background-size:
-    260px 280px;
-
-  background-position:
-    90px 120px;
-
-  opacity: 0.35;
-}
-
-.scene-finale .cosmic-moon {
-  position: absolute;
-
-  width: 280px;
-  height: 280px;
-
-  right: 8%;
-  top: 10%;
-
-  border-radius: 50%;
-
-  opacity: 0.08;
-
-  background:
-    radial-gradient(
-      circle at 35% 35%,
-      rgba(255, 255, 255, 0.7),
-      rgba(255, 255, 255, 0.08) 45%,
-      transparent 72%
-    );
-
-  filter: blur(1px);
-}
-
-.scene-finale .cosmic-horizon {
-  position: absolute;
-
-  left: -10%;
-  right: -10%;
-
-  bottom: -25%;
-
-  height: 45%;
-
-  border-radius: 50% 50% 0 0;
-
-  background:
-    radial-gradient(
-      ellipse at center,
-      rgba(255, 20, 147, 0.10),
-      transparent 65%
-    );
-
-  filter: blur(18px);
-}
-
-.scene-finale .cosmic-vignette {
-  position: absolute;
-
-  inset: 0;
-
-  background:
-    radial-gradient(
-      ellipse at center,
-      transparent 40%,
-      rgba(0, 0, 0, 0.38) 100%
-    );
-
-  pointer-events: none;
-}
-
-.scene-finale .cosmic-grain {
-  position: absolute;
-
-  inset: 0;
-
-  opacity: 0.055;
-
-  pointer-events: none;
-
-  background-image:
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
-}
-
-
-/* =========================================================
-   AMBIENT GLOW
-========================================================= */
-
-.scene-finale .ambient-glow {
-  position: absolute;
-
-  width: 260px;
-  height: 260px;
-
-  border-radius: 50%;
-
-  pointer-events: none;
-
-  filter: blur(90px);
-
-  opacity: 0.18;
-
-  z-index: -2;
-}
-
-.scene-finale .ambient-glow-left {
-  left: -150px;
-  top: 40%;
-
-  background:
-    #ff1493;
-}
-
-.scene-finale .ambient-glow-right {
-  right: -150px;
-  top: 58%;
-
-  background:
-    #8e2dff;
-}
-
-
-/* =========================================================
-   CONTENT
-========================================================= */
-
-.scene-finale .finale-content {
-  position: relative;
-
-  z-index: 2;
-
-  width: min(920px, 92%);
-
-  padding:
-    70px
-    0
-    55px;
-
-  margin: auto;
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  text-align: center;
-}
-
-
-/* =========================================================
-   TYPOGRAPHY
-========================================================= */
-
-.scene-finale .finale-eyebrow {
-  margin: 0 0 15px;
-
-  color:
-    rgba(255, 255, 255, 0.38);
-
-  font-family:
-    "Manrope",
-    sans-serif;
-
-  font-size: 0.55rem;
-
-  font-weight: 600;
-
-  letter-spacing: 0.25em;
-
-  text-transform: uppercase;
-}
-
-.scene-finale .finale-title {
-  margin: 0;
-
-  color: #ffffff;
-
-  font-family:
-    "Bodoni Moda",
-    "Cormorant Garamond",
-    Georgia,
-    serif;
-
-  font-size:
-    clamp(
-      2.7rem,
-      6vw,
-      5.2rem
-    );
-
-  font-weight: 400;
-
-  line-height: 0.94;
-
-  letter-spacing: -0.045em;
-}
-
-.scene-finale .finale-title span {
-  color:
-    rgba(255, 255, 255, 0.92);
-
-  font-style: italic;
-}
-
-.scene-finale .finale-message {
-  max-width: 470px;
-
-  margin:
-    25px
-    0
-    0;
-
-  color:
-    rgba(255, 255, 255, 0.48);
-
-  font-family:
-    "Manrope",
-    sans-serif;
-
-  font-size: 0.7rem;
-
-  line-height: 1.9;
-
-  letter-spacing: 0.015em;
-}
-
-
-/* =========================================================
-   PHOTO STRIP
-   3:4 PORTRAIT
-========================================================= */
-
-.scene-finale .finale-photo-strip {
-  width: min(650px, 92%);
-
-  margin-top: 42px;
-
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 1fr)
-    minmax(0, 1fr);
-
-  grid-template-rows:
-    auto
-    auto;
-
-  gap:
-    18px
-    18px;
-
-  align-items: start;
-
-  justify-items: center;
-}
-
-
-/* =========================================================
-   PHOTO
-========================================================= */
-
-.scene-finale .finale-photo {
-  position: relative;
-
-  width: 100%;
-
-  aspect-ratio: 3 / 4;
-
-  overflow: hidden;
-
-  background:
-    rgba(255, 255, 255, 0.035);
-
-  border:
-    1px solid
-    rgba(255, 255, 255, 0.10);
-
-  box-shadow:
-    0 24px 60px
-    rgba(0, 0, 0, 0.40);
-
-  isolation: isolate;
-}
-
-.scene-finale .finale-photo img {
-  width: 100%;
-  height: 100%;
-
-  display: block;
-
-  object-fit: cover;
-
-  object-position: center;
-
-  transition:
-    filter 0.5s ease,
-    transform 0.6s
-    cubic-bezier(
-      0.22,
-      1,
-      0.36,
-      1
-    );
-}
-
-.scene-finale .finale-photo:hover img {
-  transform: scale(1.025);
-}
-
-.scene-finale .finale-photo.is-empty {
-  opacity: 0.18;
-}
-
-
-/* =========================================================
-   PHOTO 3
-   CENTERED
-========================================================= */
-
-.scene-finale .finale-photo-3 {
-  grid-column: 1 / 3;
-
-  width: min(50%, 285px);
-
-  aspect-ratio: 3 / 4;
-
-  justify-self: center;
-}
-
-
-/* =========================================================
-   FRAME PREVIEW — CLASSIC
-========================================================= */
-
-.scene-finale .frame-preview-classic
-.finale-photo {
-  border:
-    3px solid
-    rgba(255, 255, 255, 0.72);
-
-  box-shadow:
-    0 24px 65px
-    rgba(0, 0, 0, 0.42);
-}
-
-
-/* =========================================================
-   FRAME PREVIEW — MINIMAL
-========================================================= */
-
-.scene-finale .frame-preview-minimal
-.finale-photo {
-  border:
-    1px solid
-    rgba(255, 255, 255, 0.28);
-
-  box-shadow:
-    0 20px 55px
-    rgba(0, 0, 0, 0.32);
-}
-
-
-/* =========================================================
-   FRAME PREVIEW — PINK GLOW
-========================================================= */
-
-.scene-finale .frame-preview-pink
-.finale-photo {
-  border:
-    2px solid
-    rgba(255, 85, 190, 0.72);
-
-  box-shadow:
-    0 0 28px
-    rgba(255, 20, 147, 0.18),
-
-    0 24px 65px
-    rgba(0, 0, 0, 0.40);
-}
-
-
-/* =========================================================
-   FRAME PREVIEW — POLAROID
-========================================================= */
-
-.scene-finale .frame-preview-polaroid
-.finale-photo {
-  padding:
-    8px
-    8px
-    30px;
-
-  background:
-    #f8f4f7;
-
-  border: none;
-
-  box-shadow:
-    0 24px 65px
-    rgba(0, 0, 0, 0.45);
-}
-
-.scene-finale .frame-preview-polaroid
-.finale-photo img {
-  height: 100%;
-}
-
-
-/* =========================================================
-   FRAME PREVIEW — FILM
-========================================================= */
-
-.scene-finale .frame-preview-film
-.finale-photo {
-  border:
-    4px solid
-    rgba(255, 255, 255, 0.82);
-
-  box-shadow:
-    0 24px 65px
-    rgba(0, 0, 0, 0.42);
-}
-
-.scene-finale .frame-preview-film
-.finale-photo::before,
-.scene-finale .frame-preview-film
-.finale-photo::after {
-  content: "";
-
-  position: absolute;
-
-  top: 0;
-  bottom: 0;
-
-  width: 7px;
-
-  z-index: 3;
-
-  background:
-    repeating-linear-gradient(
-      to bottom,
-      transparent 0 12px,
-      rgba(255, 255, 255, 0.9) 12px 22px,
-      transparent 22px 36px
-    );
-
-  pointer-events: none;
-}
-
-.scene-finale .frame-preview-film
-.finale-photo::before {
-  left: -1px;
-}
-
-.scene-finale .frame-preview-film
-.finale-photo::after {
-  right: -1px;
-}
-
-
-/* =========================================================
-   EDITOR
-========================================================= */
-
-.scene-finale .finale-editor {
-  width: min(650px, 92%);
-
-  margin-top: 25px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 11px;
-}
-
-.scene-finale .editor-row {
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  gap: 17px;
-}
-
-.scene-finale .editor-label {
-  flex:
-    0 0 45px;
-
-  color:
-    rgba(255, 255, 255, 0.27);
-
-  font-family:
-    "Manrope",
-    sans-serif;
-
-  font-size: 0.46rem;
-
-  font-weight: 600;
-
-  letter-spacing: 0.16em;
-
-  text-align: right;
-
-  text-transform: uppercase;
-}
-
-.scene-finale .editor-choice-list {
-  display: flex;
-
-  flex-wrap: wrap;
-
-  justify-content: center;
-
-  gap: 5px;
-}
-
-.scene-finale .editor-choice {
-  appearance: none;
-
-  min-height: 29px;
-
-  padding:
-    0
-    11px;
-
-  border:
-    1px solid
-    transparent;
-
-  border-radius: 999px;
-
-  background:
-    rgba(255, 255, 255, 0.035);
-
-  color:
-    rgba(255, 255, 255, 0.36);
-
-  font-family:
-    "Manrope",
-    sans-serif;
-
-  font-size: 0.46rem;
-
-  letter-spacing: 0.02em;
-
-  cursor: pointer;
-
-  transition:
-    color 0.25s ease,
-    border-color 0.25s ease,
-    background 0.25s ease,
-    transform 0.25s ease;
-}
-
-.scene-finale .editor-choice:hover {
-  color:
-    rgba(255, 255, 255, 0.72);
-
-  border-color:
-    rgba(255, 255, 255, 0.12);
-
-  background:
-    rgba(255, 255, 255, 0.055);
-
-  transform:
-    translateY(-1px);
-}
-
-.scene-finale .editor-choice.active {
-  color:
-    #ffffff;
-
-  border-color:
-    rgba(255, 80, 185, 0.52);
-
-  background:
-    rgba(255, 20, 147, 0.10);
-}
-
-
-/* =========================================================
-   DOWNLOAD
-========================================================= */
-
-.scene-finale .finale-actions {
-  margin-top: 29px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-}
-
-.scene-finale .finale-save-button {
-  appearance: none;
-
-  display: inline-flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  gap: 24px;
-
-  min-width: 205px;
-
-  height: 45px;
-
-  padding:
-    0
-    20px;
-
-  border:
-    1px solid
-    rgba(255, 255, 255, 0.18);
-
-  border-radius: 999px;
-
-  background:
-    rgba(255, 255, 255, 0.045);
-
-  color:
-    rgba(255, 255, 255, 0.86);
-
-  font-family:
-    "Manrope",
-    sans-serif;
-
-  font-size: 0.55rem;
-
-  font-weight: 500;
-
-  letter-spacing: 0.08em;
-
-  cursor: pointer;
-
-  transition:
-    transform 0.35s
-    cubic-bezier(
-      0.22,
-      1,
-      0.36,
-      1
-    ),
-    background 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.scene-finale .finale-save-button:hover:not(:disabled) {
-  transform:
-    translateY(-2px);
-
-  border-color:
-    rgba(255, 100, 195, 0.48);
-
-  background:
-    rgba(255, 20, 147, 0.09);
-
-  box-shadow:
-    0 12px 35px
-    rgba(255, 20, 147, 0.10);
-}
-
-.scene-finale .finale-save-button:active:not(:disabled) {
-  transform:
-    translateY(0);
-}
-
-.scene-finale .finale-save-button:disabled {
-  opacity: 0.4;
-
-  cursor: default;
-}
-
-.scene-finale .save-arrow {
-  font-size: 0.85rem;
-
-  transition:
-    transform 0.3s ease;
-}
-
-.scene-finale .finale-save-button:hover
-.save-arrow {
-  transform:
-    translateX(4px);
-}
-
-.scene-finale .finale-quality {
-  margin:
-    8px
-    0
-    0;
-
-  color:
-    rgba(255, 255, 255, 0.20);
-
-  font-family:
-    "Manrope",
-    sans-serif;
-
-  font-size: 0.38rem;
-
-  letter-spacing: 0.14em;
-
-  text-transform: uppercase;
-}
-
-.scene-finale .finale-signature {
-  margin:
-    19px
-    0
-    0;
-
-  color:
-    rgba(255, 255, 255, 0.20);
-
-  font-family:
-    "Bodoni Moda",
-    Georgia,
-    serif;
-
-  font-size: 0.68rem;
-
-  font-style: italic;
-}
-
-
-/* =========================================================
-   FINALE MOBILE
-========================================================= */
-
-@media (max-width: 760px) {
-
-  .scene-finale {
-    min-height: 100svh;
-  }
-
-  .scene-finale .finale-content {
-    width: 91%;
-
-    padding:
-      45px
-      0
-      35px;
-  }
-
-  .scene-finale .finale-eyebrow {
-    margin-bottom: 12px;
-
-    font-size: 0.43rem;
-
-    letter-spacing: 0.19em;
-  }
-
-  .scene-finale .finale-title {
-    font-size:
-      clamp(
-        2.35rem,
-        12vw,
-        3.5rem
-      );
-  }
-
-  .scene-finale .finale-message {
-    max-width: 390px;
-
-    margin-top: 19px;
-
-    font-size: 0.59rem;
-
-    line-height: 1.75;
-  }
-
-
-  /* =====================================================
-     PHOTO 3:4 — MOBILE
-  ===================================================== */
-
-  .scene-finale .finale-photo-strip {
-    width:
-      min(
-        470px,
-        94%
-      );
-
-    margin-top: 29px;
-
-    grid-template-columns:
-      minmax(0, 1fr)
-      minmax(0, 1fr);
-
-    gap:
-      9px
-      9px;
-  }
-
-  .scene-finale .finale-photo {
-    width: 100%;
-
-    aspect-ratio: 3 / 4;
-
-    border-width: 1px;
-  }
-
-  .scene-finale .finale-photo-3 {
-    width:
-      min(
-        48%,
-        190px
-      );
-
-    aspect-ratio: 3 / 4;
-  }
-
-  .scene-finale .frame-preview-classic
-  .finale-photo {
-    border-width: 2px;
-  }
-
-  .scene-finale .frame-preview-polaroid
-  .finale-photo {
-    padding:
-      5px
-      5px
-      18px;
-  }
-
-  .scene-finale .frame-preview-film
-  .finale-photo {
-    border-width: 3px;
-  }
-
-
-  /* =====================================================
-     EDITOR
-  ===================================================== */
-
-  .scene-finale .finale-editor {
-    width:
-      min(
-        470px,
-        94%
-      );
-
-    margin-top: 19px;
-
-    gap: 8px;
-  }
-
-  .scene-finale .editor-row {
-    align-items: flex-start;
-
-    gap: 8px;
-  }
-
-  .scene-finale .editor-label {
-    flex:
-      0 0 36px;
-
-    padding-top: 7px;
-
-    font-size: 0.37rem;
-  }
-
-  .scene-finale .editor-choice-list {
-    justify-content: flex-start;
-
-    gap: 4px;
-  }
-
-  .scene-finale .editor-choice {
-    min-height: 26px;
-
-    padding:
-      0
-      8px;
-
-    font-size: 0.39rem;
-  }
-
-
-  /* =====================================================
-     DOWNLOAD
-  ===================================================== */
-
-  .scene-finale .finale-actions {
-    margin-top: 23px;
-  }
-
-  .scene-finale .finale-save-button {
-    min-width: 185px;
-
-    height: 41px;
-
-    gap: 18px;
-
-    font-size: 0.49rem;
-  }
-
-  .scene-finale .finale-quality {
-    font-size: 0.32rem;
-  }
-
-  .scene-finale .finale-signature {
-    margin-top: 14px;
-
-    font-size: 0.59rem;
-  }
-
-  .scene-finale .cosmic-moon {
-    width: 180px;
-    height: 180px;
-
-    right: -40px;
-    top: 5%;
-  }
-}
-
-
-/* =========================================================
-   SMALL PHONES
-========================================================= */
-
-@media (max-width: 430px) {
-
-  .scene-finale .finale-content {
-    width: 93%;
-
-    padding-top: 35px;
-
-    padding-bottom: 25px;
-  }
-
-  .scene-finale .finale-eyebrow {
-    font-size: 0.38rem;
-  }
-
-  .scene-finale .finale-title {
-    font-size: 2.25rem;
-  }
-
-  .scene-finale .finale-message {
-    max-width: 330px;
-
-    font-size: 0.54rem;
-  }
-
-
-  /* =====================================================
-     3:4 PHOTOS — SMALL PHONE
-  ===================================================== */
-
-  .scene-finale .finale-photo-strip {
-    width: 94%;
-
-    margin-top: 24px;
-
-    gap: 7px;
-  }
-
-  .scene-finale .finale-photo {
-    aspect-ratio: 3 / 4;
-  }
-
-  .scene-finale .finale-photo-3 {
-    width:
-      min(
-        50%,
-        165px
-      );
-
-    aspect-ratio: 3 / 4;
-  }
-
-  .scene-finale .finale-editor {
-    width: 94%;
-
-    margin-top: 15px;
-  }
-
-  .scene-finale .editor-row {
-    gap: 5px;
-  }
-
-  .scene-finale .editor-label {
-    flex-basis: 31px;
-
-    font-size: 0.33rem;
-  }
-
-  .scene-finale .editor-choice {
-    min-height: 24px;
-
-    padding:
-      0
-      7px;
-
-    font-size: 0.35rem;
-  }
-
-  .scene-finale .finale-actions {
-    margin-top: 19px;
-  }
-
-  .scene-finale .finale-save-button {
-    min-width: 172px;
-
-    height: 38px;
-
-    font-size: 0.45rem;
-  }
-
-  .scene-finale .finale-quality {
-    margin-top: 6px;
-
-    font-size: 0.28rem;
-  }
-
-  .scene-finale .finale-signature {
-    font-size: 0.53rem;
-  }
-}
-
-
-/* =========================================================
-   VERY SHORT SCREEN
-========================================================= */
-
-@media (max-height: 720px) {
-
-  .scene-finale .finale-content {
-    padding-top: 28px;
-
-    padding-bottom: 20px;
-  }
-
-  .scene-finale .finale-message {
-    margin-top: 12px;
-  }
-
-  .scene-finale .finale-photo-strip {
-    margin-top: 20px;
-  }
-
-  .scene-finale .finale-editor {
-    margin-top: 12px;
-  }
-
-  .scene-finale .finale-actions {
-    margin-top: 15px;
-  }
-
-  .scene-finale .finale-signature {
-    margin-top: 10px;
-  }
-}
-
 /* =========================================================
    BIRTHDAY SPARKLES
    ADD-ON — DOES NOT REPLACE EXISTING PHOTO UPLOAD CSS
@@ -7153,3 +5968,4802 @@ button:focus-visible {
       9px;
   }
 }
+
+/* =========================================================
+   BIRTHDAY LETTER EXPERIENCE
+   NEW PAGE ONLY
+========================================================= */
+
+.birthday-letter-scene,
+.birthday-letter-page-two {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff8fc;
+  background:
+    radial-gradient(
+      circle at 18% 18%,
+      rgba(255, 20, 147, 0.13),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 82% 55%,
+      rgba(126, 52, 255, 0.13),
+      transparent 34%
+    ),
+    linear-gradient(
+      145deg,
+      #050107 0%,
+      #100316 42%,
+      #050108 100%
+    );
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.birthday-letter-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -2;
+  pointer-events: none;
+}
+
+
+.birthday-letter-glow {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.7;
+}
+
+
+.birthday-letter-glow-one {
+  top: -180px;
+  left: -160px;
+  background: rgba(255, 20, 147, 0.14);
+}
+
+
+.birthday-letter-glow-two {
+  right: -180px;
+  top: 30%;
+  background: rgba(126, 52, 255, 0.13);
+}
+
+
+.birthday-letter-glow-three {
+  bottom: -220px;
+  left: 30%;
+  background: rgba(212, 154, 183, 0.12);
+}
+
+
+.birthday-letter-stars {
+  position: absolute;
+  inset: 0;
+  opacity: 0.32;
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(255, 248, 252, 0.7) 1px,
+      transparent 1px
+    );
+  background-size: 110px 110px;
+}
+
+
+.birthday-letter-stars-one {
+  transform: translate(
+    25px,
+    10px
+  );
+}
+
+
+.birthday-letter-stars-two {
+  background-size: 170px 170px;
+  opacity: 0.18;
+  transform: translate(
+    -40px,
+    -30px
+  );
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.birthday-letter-content {
+  position: relative;
+  width: min(
+    92%,
+    720px
+  );
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 70px 24px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+
+.birthday-letter-eyebrow {
+  margin: 0 0 18px;
+  font-family:
+    Arial,
+    sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.32em;
+  color: #d49ab7;
+}
+
+
+.birthday-letter-title {
+  margin: 0;
+  font-family:
+    Georgia,
+    serif;
+  font-size: clamp(
+    48px,
+    9vw,
+    82px
+  );
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+
+.birthday-letter-title span {
+  color: #d49ab7;
+  font-style: italic;
+}
+
+
+.birthday-letter-intro {
+  margin: 24px 0 0;
+  color: rgba(
+    255,
+    248,
+    252,
+    0.62
+  );
+  font-family:
+    Georgia,
+    serif;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   ENVELOPE
+========================================================= */
+
+.birthday-envelope-wrapper {
+  position: relative;
+  width: min(
+    470px,
+    82vw
+  );
+  aspect-ratio: 1.48 / 1;
+  margin-top: 54px;
+  perspective: 1400px;
+}
+
+
+.birthday-envelope-button {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  perspective: 1400px;
+  outline: none;
+}
+
+
+.birthday-envelope-button:focus-visible {
+  outline: 1px solid #e7bfd2;
+  outline-offset: 12px;
+  border-radius: 18px;
+}
+
+
+.birthday-envelope-shadow {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: -20px;
+  height: 55px;
+  border-radius: 50%;
+  background: rgba(
+    0,
+    0,
+    0,
+    0.52
+  );
+  filter: blur(24px);
+}
+
+
+.birthday-envelope-body {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  background:
+    linear-gradient(
+      145deg,
+      #5b274c 0%,
+      #35182f 48%,
+      #241020 100%
+    );
+  border: 1px solid rgba(
+    231,
+    191,
+    210,
+    0.28
+  );
+  box-shadow:
+    0 28px 70px rgba(
+      0,
+      0,
+      0,
+      0.42
+    ),
+    0 0 50px rgba(
+      212,
+      154,
+      183,
+      0.08
+    );
+}
+
+
+/* =========================================================
+   ENVELOPE FOLDS
+========================================================= */
+
+.birthday-envelope-left,
+.birthday-envelope-right,
+.birthday-envelope-bottom {
+  position: absolute;
+  inset: 0;
+}
+
+
+.birthday-envelope-left {
+  clip-path: polygon(
+    0 0,
+    51% 51%,
+    0 100%
+  );
+  background:
+    linear-gradient(
+      145deg,
+      rgba(
+        231,
+        191,
+        210,
+        0.12
+      ),
+      rgba(
+        0,
+        0,
+        0,
+        0.16
+      )
+    );
+}
+
+
+.birthday-envelope-right {
+  clip-path: polygon(
+    100% 0,
+    49% 51%,
+    100% 100%
+  );
+  background:
+    linear-gradient(
+      215deg,
+      rgba(
+        231,
+        191,
+        210,
+        0.11
+      ),
+      rgba(
+        0,
+        0,
+        0,
+        0.18
+      )
+    );
+}
+
+
+.birthday-envelope-bottom {
+  clip-path: polygon(
+    0 100%,
+    50% 45%,
+    100% 100%
+  );
+  background:
+    linear-gradient(
+      180deg,
+      rgba(
+        111,
+        49,
+        94,
+        0.4
+      ),
+      rgba(
+        75,
+        32,
+        63,
+        0.95
+      )
+    );
+}
+
+
+/* =========================================================
+   FLAP
+========================================================= */
+
+.birthday-envelope-flap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 62%;
+  z-index: 7;
+  transform-origin: top center;
+  transform-style: preserve-3d;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    50% 100%
+  );
+  background:
+    linear-gradient(
+      145deg,
+      #75405f 0%,
+      #52263f 50%,
+      #341529 100%
+    );
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  box-shadow:
+    0 12px 25px rgba(
+      0,
+      0,
+      0,
+      0.2
+    );
+}
+
+
+/* =========================================================
+   LETTER PAPER
+========================================================= */
+
+.birthday-envelope-paper {
+  position: absolute;
+  z-index: 4;
+  left: 9%;
+  right: 9%;
+  bottom: 5%;
+  height: 86%;
+  border-radius: 10px;
+  background:
+    linear-gradient(
+      145deg,
+      #fff8fc,
+      #f4dce8
+    );
+  color: #341529;
+  box-shadow:
+    0 15px 45px rgba(
+      0,
+      0,
+      0,
+      0.28
+    );
+}
+
+
+.birthday-paper-inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.birthday-paper-small {
+  font-family:
+    Arial,
+    sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: #8c5575;
+}
+
+
+.birthday-paper-title {
+  margin-top: 12px;
+  font-family:
+    Georgia,
+    serif;
+  font-size: 27px;
+  font-style: italic;
+}
+
+
+.birthday-paper-line {
+  width: 70px;
+  height: 1px;
+  margin-top: 15px;
+  background: #b9789d;
+}
+
+
+/* =========================================================
+   SEAL
+========================================================= */
+
+.birthday-envelope-seal {
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  top: 51%;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(
+    -50%,
+    -50%
+  );
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #e7bfd2,
+      #b9789d 42%,
+      #6f315e 100%
+    );
+  border: 1px solid rgba(
+    255,
+    248,
+    252,
+    0.4
+  );
+  box-shadow:
+    0 8px 30px rgba(
+      0,
+      0,
+      0,
+      0.3
+    ),
+    0 0 30px rgba(
+      212,
+      154,
+      183,
+      0.22
+    );
+}
+
+
+.birthday-envelope-seal span {
+  color: #fff8fc;
+  font-family:
+    Georgia,
+    serif;
+  font-size: 25px;
+}
+
+
+/* =========================================================
+   OPENING GLOW
+========================================================= */
+
+.birthday-envelope-opening-glow {
+  position: absolute;
+  z-index: 12;
+  left: 50%;
+  top: 48%;
+  width: 80px;
+  height: 80px;
+  transform: translate(
+    -50%,
+    -50%
+  );
+  border-radius: 50%;
+  background: #e7bfd2;
+  filter: blur(18px);
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   SPARKLES
+========================================================= */
+
+.birthday-letter-sparkle {
+  position: absolute;
+  z-index: 20;
+  display: block;
+  border-radius: 50%;
+  background: #e7bfd2;
+  box-shadow:
+    0 0 10px #d49ab7,
+    0 0 24px rgba(
+      212,
+      154,
+      183,
+      0.75
+    );
+  pointer-events: none;
+}
+
+
+.birthday-letter-sparkle::before,
+.birthday-letter-sparkle::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(
+    -50%,
+    -50%
+  );
+  background: rgba(
+    255,
+    248,
+    252,
+    0.8
+  );
+}
+
+
+.birthday-letter-sparkle::before {
+  width: 1px;
+  height: 16px;
+}
+
+
+.birthday-letter-sparkle::after {
+  width: 16px;
+  height: 1px;
+}
+
+
+/* =========================================================
+   HINT
+========================================================= */
+
+.birthday-letter-hint {
+  margin: 28px 0 0;
+  font-family:
+    Arial,
+    sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(
+    255,
+    248,
+    252,
+    0.42
+  );
+}
+
+
+/* =========================================================
+   OPENED MESSAGE
+========================================================= */
+
+.birthday-letter-opened-message {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+
+.birthday-letter-opened-message span {
+  font-family:
+    Georgia,
+    serif;
+  font-style: italic;
+  color: rgba(
+    255,
+    248,
+    252,
+    0.6
+  );
+}
+
+
+.birthday-letter-opened-message button {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid rgba(
+    231,
+    191,
+    210,
+    0.3
+  );
+  border-radius: 999px;
+  padding: 12px 20px;
+  background: rgba(
+    111,
+    49,
+    94,
+    0.18
+  );
+  color: #fff8fc;
+  font-family:
+    Arial,
+    sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+.birthday-letter-opened-message button:hover {
+  background: rgba(
+    212,
+    154,
+    183,
+    0.14
+  );
+  border-color: rgba(
+    231,
+    191,
+    210,
+    0.58
+  );
+  transform: translateY(-2px);
+}
+
+
+.birthday-letter-opened-message button span {
+  color: #e7bfd2;
+  font-family:
+    Arial,
+    sans-serif;
+  font-style: normal;
+}
+
+
+/* =========================================================
+   PAGE 2
+========================================================= */
+
+.birthday-letter-page-two {
+  align-items: flex-start;
+  overflow-y: auto;
+}
+
+
+.birthday-letter-page-content {
+  position: relative;
+  width: min(
+    94%,
+    780px
+  );
+  padding: 70px 20px 80px;
+  box-sizing: border-box;
+}
+
+
+.birthday-letter-page-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+
+.birthday-letter-page-header span {
+  font-family:
+    Arial,
+    sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  color: #d49ab7;
+}
+
+
+.birthday-letter-page-header div {
+  width: 120px;
+  height: 1px;
+  background: rgba(
+    212,
+    154,
+    183,
+    0.28
+  );
+}
+
+
+.birthday-letter-page-header small {
+  text-align: right;
+  color: rgba(
+    255,
+    248,
+    252,
+    0.35
+  );
+  font-family:
+    Arial,
+    sans-serif;
+}
+
+
+/* =========================================================
+   LETTER PAPER
+========================================================= */
+
+.birthday-letter-paper-page {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  padding: 1px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(
+        231,
+        191,
+        210,
+        0.46
+      ),
+      rgba(
+        111,
+        49,
+        94,
+        0.22
+      ),
+      rgba(
+        126,
+        52,
+        255,
+        0.18
+      )
+    );
+  box-shadow:
+    0 35px 100px rgba(
+      0,
+      0,
+      0,
+      0.48
+    );
+}
+
+
+.birthday-letter-paper-glow {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  right: -120px;
+  top: -120px;
+  border-radius: 50%;
+  background: rgba(
+    212,
+    154,
+    183,
+    0.14
+  );
+  filter: blur(65px);
+}
+
+
+.birthday-letter-paper-content {
+  position: relative;
+  z-index: 2;
+  padding:
+    55px
+    clamp(
+      30px,
+      7vw,
+      78px
+    )
+    62px;
+  border-radius: 17px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(
+        25,
+        9,
+        27,
+        0.98
+      ),
+      rgba(
+        12,
+        5,
+        14,
+        0.99
+      )
+    );
+}
+
+
+/* =========================================================
+   LETTER TYPOGRAPHY
+========================================================= */
+
+.birthday-letter-date {
+  margin: 0 0 25px;
+  font-family:
+    Georgia,
+    serif;
+  font-size: 18px;
+  font-style: italic;
+  color: #d49ab7;
+}
+
+
+.birthday-letter-paper-content h2 {
+  margin: 0;
+  font-family:
+    Georgia,
+    serif;
+  font-size: clamp(
+    38px,
+    7vw,
+    58px
+  );
+  font-weight: 400;
+  line-height: 1;
+  color: #fff8fc;
+}
+
+
+.birthday-letter-divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin:
+    28px
+    0
+    34px;
+}
+
+
+.birthday-letter-divider span {
+  flex: 1;
+  height: 1px;
+  background: rgba(
+    212,
+    154,
+    183,
+    0.24
+  );
+}
+
+
+.birthday-letter-divider b {
+  font-family:
+    Georgia,
+    serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #d49ab7;
+}
+
+
+.birthday-letter-paper-content > p {
+  margin:
+    0
+    0
+    24px;
+  color: rgba(
+    255,
+    248,
+    252,
+    0.68
+  );
+  font-family:
+    Georgia,
+    serif;
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+
+.birthday-letter-paper-content
+  .birthday-letter-highlight {
+  padding:
+    20px
+    22px;
+  border-left:
+    2px
+    solid
+    #b9789d;
+  background: rgba(
+    111,
+    49,
+    94,
+    0.12
+  );
+  color: #e7bfd2;
+  font-size: 18px;
+  font-style: italic;
+}
+
+
+.birthday-letter-paper-content
+  .birthday-letter-closing {
+  margin-top: 38px;
+  color: #fff8fc;
+  font-size: 19px;
+  font-style: italic;
+}
+
+
+.birthday-letter-signature {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  margin-top: 46px;
+  text-align: right;
+}
+
+
+.birthday-letter-signature span {
+  color: rgba(
+    255,
+    248,
+    252,
+    0.38
+  );
+  font-family:
+    Georgia,
+    serif;
+  font-size: 14px;
+  font-style: italic;
+}
+
+
+.birthday-letter-signature strong {
+  color: #d49ab7;
+  font-family:
+    Georgia,
+    serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.birthday-letter-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 24px;
+}
+
+
+.birthday-letter-navigation button {
+  border: 0;
+  background: transparent;
+  color: rgba(
+    255,
+    248,
+    252,
+    0.64
+  );
+  font-family:
+    Arial,
+    sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 12px 4px;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+.birthday-letter-navigation button:hover {
+  color: #fff8fc;
+}
+
+
+.birthday-letter-back:hover {
+  transform: translateX(-3px);
+}
+
+
+.birthday-letter-finish:hover {
+  transform: translateX(3px);
+}
+
+
+.birthday-letter-page-number {
+  color: rgba(
+    255,
+    248,
+    252,
+    0.28
+  );
+  font-family:
+    Arial,
+    sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .birthday-letter-content {
+    padding:
+      55px
+      18px;
+  }
+
+
+  .birthday-letter-eyebrow {
+    font-size: 10px;
+  }
+
+
+  .birthday-letter-title {
+    font-size: 51px;
+  }
+
+
+  .birthday-letter-intro {
+    font-size: 15px;
+  }
+
+
+  .birthday-envelope-wrapper {
+    width: min(
+      390px,
+      86vw
+    );
+    margin-top: 42px;
+  }
+
+
+  .birthday-envelope-seal {
+    width: 55px;
+    height: 55px;
+  }
+
+
+  .birthday-envelope-seal span {
+    font-size: 22px;
+  }
+
+
+  .birthday-letter-page-content {
+    padding:
+      45px
+      14px
+      60px;
+  }
+
+
+  .birthday-letter-page-header {
+    grid-template-columns:
+      1fr
+      auto;
+  }
+
+
+  .birthday-letter-page-header div {
+    display: none;
+  }
+
+
+  .birthday-letter-page-header small {
+    text-align: right;
+  }
+
+
+  .birthday-letter-paper-content {
+    padding:
+      40px
+      25px
+      45px;
+  }
+
+
+  .birthday-letter-paper-content h2 {
+    font-size: 38px;
+  }
+
+
+  .birthday-letter-paper-content > p {
+    font-size: 16px;
+    line-height: 1.85;
+  }
+
+
+  .birthday-letter-navigation {
+    margin-top: 18px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (
+  prefers-reduced-motion: reduce
+) {
+
+  .birthday-letter-scene *,
+  .birthday-letter-page-two * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+}
+
+/* =========================================================
+   FINALE — LETTER ENVELOPE
+   ========================================================= */
+
+.scene-finale .finale-letter-area {
+  position: relative;
+  z-index: 8;
+  width: min(100%, 420px);
+  margin: 34px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  perspective: 1200px;
+}
+
+
+/* ---------------------------------------------------------
+   SMALL LABEL
+--------------------------------------------------------- */
+
+.scene-finale .finale-letter-eyebrow {
+  margin: 0 0 14px;
+  color: rgba(231, 191, 210, 0.62);
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+
+/* ---------------------------------------------------------
+   ENVELOPE BUTTON
+--------------------------------------------------------- */
+
+.scene-finale .finale-envelope-button {
+  position: relative;
+  width: 170px;
+  height: 118px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+  overflow: visible;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* ---------------------------------------------------------
+   ENVELOPE CONTAINER
+--------------------------------------------------------- */
+
+.scene-finale .finale-envelope {
+  position: relative;
+  width: 170px;
+  height: 112px;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  filter:
+    drop-shadow(0 20px 24px rgba(0, 0, 0, 0.42))
+    drop-shadow(0 0 22px rgba(185, 120, 157, 0.14));
+}
+
+
+/* ---------------------------------------------------------
+   ENVELOPE BACK
+--------------------------------------------------------- */
+
+.scene-finale .envelope-back {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  border: 1px solid rgba(231, 191, 210, 0.48);
+  border-radius: 4px 4px 7px 7px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(111, 49, 94, 0.96),
+      rgba(62, 25, 52, 0.98)
+    );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 248, 252, 0.12),
+    inset 0 -18px 30px rgba(0, 0, 0, 0.18);
+}
+
+
+/* ---------------------------------------------------------
+   ENVELOPE INNER GLOW
+--------------------------------------------------------- */
+
+.scene-finale .envelope-back::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(231, 191, 210, 0.16),
+      transparent 55%
+    );
+  pointer-events: none;
+}
+
+
+/* ---------------------------------------------------------
+   LETTER INSIDE
+--------------------------------------------------------- */
+
+.scene-finale .envelope-letter {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 9px;
+  z-index: 2;
+  height: 83px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 17px;
+  border-radius: 3px 3px 0 0;
+  background:
+    linear-gradient(
+      180deg,
+      #fff8fc 0%,
+      #f0dce7 100%
+    );
+  box-shadow:
+    0 -5px 18px rgba(0, 0, 0, 0.14);
+  color: #5a284c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 11px;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  transform-origin: bottom center;
+}
+
+
+/* ---------------------------------------------------------
+   LETTER TOP LINE
+--------------------------------------------------------- */
+
+.scene-finale .envelope-letter::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  top: 9px;
+  height: 1px;
+  background: rgba(111, 49, 94, 0.15);
+}
+
+
+/* ---------------------------------------------------------
+   LEFT FOLD
+--------------------------------------------------------- */
+
+.scene-finale .envelope-fold-left {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 4;
+  width: 0;
+  height: 0;
+  border-top: 112px solid transparent;
+  border-right: 88px solid rgba(99, 39, 80, 0.96);
+  border-bottom: 0 solid transparent;
+  filter: brightness(0.96);
+}
+
+
+/* ---------------------------------------------------------
+   RIGHT FOLD
+--------------------------------------------------------- */
+
+.scene-finale .envelope-fold-right {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+  width: 0;
+  height: 0;
+  border-top: 112px solid transparent;
+  border-left: 88px solid rgba(99, 39, 80, 0.96);
+  border-bottom: 0 solid transparent;
+  filter: brightness(0.92);
+}
+
+
+/* ---------------------------------------------------------
+   BOTTOM FOLD
+--------------------------------------------------------- */
+
+.scene-finale .envelope-fold-bottom {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 5;
+  width: 0;
+  height: 0;
+  border-left: 85px solid transparent;
+  border-right: 85px solid transparent;
+  border-bottom: 67px solid #71375f;
+  filter:
+    drop-shadow(
+      0 -1px 0 rgba(231, 191, 210, 0.18)
+    );
+}
+
+
+/* ---------------------------------------------------------
+   BOTTOM FOLD HIGHLIGHT
+--------------------------------------------------------- */
+
+.scene-finale .envelope-fold-bottom::after {
+  content: "";
+  position: absolute;
+  left: -82px;
+  bottom: 64px;
+  width: 164px;
+  height: 1px;
+  background: rgba(255, 248, 252, 0.17);
+  transform: rotate(0deg);
+}
+
+
+/* ---------------------------------------------------------
+   TOP FLAP
+--------------------------------------------------------- */
+
+.scene-finale .envelope-flap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 7;
+  width: 0;
+  height: 0;
+  border-left: 85px solid transparent;
+  border-right: 85px solid transparent;
+  border-top: 65px solid #8a4b72;
+  transform-origin: 50% 0%;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+  filter:
+    drop-shadow(
+      0 3px 5px rgba(0, 0, 0, 0.2)
+    );
+}
+
+
+/* ---------------------------------------------------------
+   FLAP INNER LINE
+--------------------------------------------------------- */
+
+.scene-finale .envelope-flap::after {
+  content: "";
+  position: absolute;
+  left: -72px;
+  top: -58px;
+  width: 144px;
+  height: 1px;
+  background: rgba(255, 248, 252, 0.2);
+  transform: rotate(0deg);
+}
+
+
+/* ---------------------------------------------------------
+   HEART SEAL
+--------------------------------------------------------- */
+
+.scene-finale .envelope-seal {
+  position: absolute;
+  left: -19px;
+  top: -16px;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 248, 252, 0.45);
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #e9c0d5,
+      #a75d87 58%,
+      #6f315e 100%
+    );
+  color: #fff8fc;
+  font-family: Georgia, serif;
+  font-size: 17px;
+  line-height: 1;
+  text-shadow:
+    0 1px 5px rgba(75, 32, 63, 0.55);
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.26),
+    0 0 20px rgba(212, 154, 183, 0.24);
+  transform: translateZ(3px);
+}
+
+
+/* ---------------------------------------------------------
+   ENVELOPE SPARKLES
+--------------------------------------------------------- */
+
+.scene-finale .finale-envelope-sparkles {
+  position: absolute;
+  inset: -55px -60px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+
+/* ---------------------------------------------------------
+   INDIVIDUAL SPARKLE
+--------------------------------------------------------- */
+
+.scene-finale .envelope-sparkle {
+  position: absolute;
+  display: block;
+  color: rgba(231, 191, 210, 0.82);
+  font-family: Georgia, serif;
+  line-height: 1;
+  opacity: 0;
+  text-shadow:
+    0 0 10px rgba(212, 154, 183, 0.75),
+    0 0 22px rgba(111, 49, 94, 0.5);
+}
+
+
+/* ---------------------------------------------------------
+   SPARKLE POSITIONS
+--------------------------------------------------------- */
+
+.scene-finale .sparkle-a {
+  left: 10%;
+  top: 40%;
+  font-size: 16px;
+}
+
+.scene-finale .sparkle-b {
+  left: 25%;
+  top: 5%;
+  font-size: 10px;
+}
+
+.scene-finale .sparkle-c {
+  right: 12%;
+  top: 28%;
+  font-size: 17px;
+}
+
+.scene-finale .sparkle-d {
+  right: 25%;
+  top: 70%;
+  font-size: 11px;
+}
+
+.scene-finale .sparkle-e {
+  left: 38%;
+  top: 82%;
+  font-size: 13px;
+}
+
+.scene-finale .sparkle-f {
+  left: 5%;
+  top: 72%;
+  font-size: 22px;
+}
+
+
+/* ---------------------------------------------------------
+   SPARKLE ANIMATION
+--------------------------------------------------------- */
+
+.scene-finale .finale-letter-area.is-opening
+  .envelope-sparkle {
+  animation:
+    envelopeSparkleBurst 1.2s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    forwards;
+}
+
+.scene-finale .finale-letter-area.is-opening
+  .sparkle-a {
+  --sx: -34px;
+  --sy: -65px;
+}
+
+.scene-finale .finale-letter-area.is-opening
+  .sparkle-b {
+  --sx: -12px;
+  --sy: -84px;
+}
+
+.scene-finale .finale-letter-area.is-opening
+  .sparkle-c {
+  --sx: 42px;
+  --sy: -58px;
+}
+
+.scene-finale .finale-letter-area.is-opening
+  .sparkle-d {
+  --sx: 38px;
+  --sy: -20px;
+}
+
+.scene-finale .finale-letter-area.is-opening
+  .sparkle-e {
+  --sx: 12px;
+  --sy: -42px;
+}
+
+.scene-finale .finale-letter-area.is-opening
+  .sparkle-f {
+  --sx: -48px;
+  --sy: -30px;
+}
+
+
+@keyframes envelopeSparkleBurst {
+  0% {
+    opacity: 0;
+    transform:
+      translate(0, 15px)
+      scale(0.2)
+      rotate(0deg);
+  }
+
+  18% {
+    opacity: 1;
+    transform:
+      translate(
+        calc(var(--sx) * 0.2),
+        calc(var(--sy) * 0.2)
+      )
+      scale(1);
+  }
+
+  65% {
+    opacity: 0.85;
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      translate(
+        var(--sx),
+        var(--sy)
+      )
+      scale(0.35)
+      rotate(80deg);
+  }
+}
+
+
+/* ---------------------------------------------------------
+   ENVELOPE HOVER GLOW
+--------------------------------------------------------- */
+
+@media (hover: hover) and (pointer: fine) {
+  .scene-finale
+    .finale-envelope-button:not(:disabled)::after {
+    content: "";
+    position: absolute;
+    inset: 20px;
+    border-radius: 50%;
+    background:
+      radial-gradient(
+        circle,
+        rgba(212, 154, 183, 0.18),
+        transparent 68%
+      );
+    filter: blur(14px);
+    opacity: 0;
+    transition:
+      opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .scene-finale
+    .finale-envelope-button:not(:disabled):hover::after {
+    opacity: 1;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   LETTER HINT
+--------------------------------------------------------- */
+
+.scene-finale .finale-letter-hint {
+  margin: 7px 0 0;
+  color: rgba(255, 248, 252, 0.48);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12px;
+  font-style: italic;
+  letter-spacing: 0.025em;
+}
+
+
+/* ---------------------------------------------------------
+   OPENING TEXT
+--------------------------------------------------------- */
+
+.scene-finale .finale-letter-open-text {
+  position: absolute;
+  bottom: -20px;
+  margin: 0;
+  color: rgba(231, 191, 210, 0.72);
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+
+/* ---------------------------------------------------------
+   OPENING STATE
+--------------------------------------------------------- */
+
+.scene-finale .finale-letter-area.is-opening
+  .finale-envelope {
+  filter:
+    drop-shadow(
+      0 22px 28px rgba(0, 0, 0, 0.48)
+    )
+    drop-shadow(
+      0 0 35px rgba(212, 154, 183, 0.28)
+    );
+}
+
+
+/* ---------------------------------------------------------
+   DISABLED BUTTON
+--------------------------------------------------------- */
+
+.scene-finale .finale-envelope-button:disabled {
+  cursor: default;
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+--------------------------------------------------------- */
+
+@media (max-width: 600px) {
+  .scene-finale .finale-letter-area {
+    width: 100%;
+    margin-top: 27px;
+  }
+
+  .scene-finale .finale-letter-eyebrow {
+    margin-bottom: 10px;
+    font-size: 8px;
+    letter-spacing: 0.28em;
+  }
+
+  .scene-finale .finale-envelope-button {
+    width: 145px;
+    height: 103px;
+  }
+
+  .scene-finale .finale-envelope {
+    width: 145px;
+    height: 96px;
+  }
+
+  .scene-finale .envelope-fold-left {
+    border-top-width: 96px;
+    border-right-width: 75px;
+  }
+
+  .scene-finale .envelope-fold-right {
+    border-top-width: 96px;
+    border-left-width: 75px;
+  }
+
+  .scene-finale .envelope-fold-bottom {
+    border-left-width: 72px;
+    border-right-width: 72px;
+    border-bottom-width: 58px;
+  }
+
+  .scene-finale .envelope-flap {
+    border-left-width: 72px;
+    border-right-width: 72px;
+    border-top-width: 58px;
+  }
+
+  .scene-finale .envelope-letter {
+    left: 15px;
+    right: 15px;
+    height: 71px;
+    padding-top: 14px;
+    font-size: 9px;
+  }
+
+  .scene-finale .envelope-seal {
+    left: -17px;
+    top: -14px;
+    width: 34px;
+    height: 34px;
+    font-size: 15px;
+  }
+
+  .scene-finale .finale-letter-hint {
+    font-size: 11px;
+  }
+
+  .scene-finale .finale-letter-open-text {
+    bottom: -17px;
+    font-size: 8px;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   VERY SMALL PHONES
+--------------------------------------------------------- */
+
+@media (max-width: 380px) {
+  .scene-finale .finale-letter-area {
+    margin-top: 21px;
+  }
+
+  .scene-finale .finale-envelope-button {
+    transform: scale(0.9);
+    margin: -5px 0;
+  }
+
+  .scene-finale .finale-letter-hint {
+    margin-top: 2px;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   REDUCED MOTION
+--------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .scene-finale .envelope-sparkle {
+    animation: none !important;
+  }
+
+  .scene-finale .finale-envelope {
+    animation: none !important;
+  }
+}
+
+/* =========================================================
+   BIRTHDAY LETTER
+   ========================================================= */
+
+.birthday-letter-scene {
+  position: relative;
+  min-height: 100svh;
+  width: 100%;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  background:
+    radial-gradient(
+      circle at 18% 18%,
+      rgba(255, 20, 147, 0.13),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 82% 68%,
+      rgba(126, 52, 255, 0.13),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 50% 105%,
+      rgba(212, 154, 183, 0.08),
+      transparent 35%
+    ),
+    linear-gradient(
+      145deg,
+      #050107 0%,
+      #100316 45%,
+      #050108 100%
+    );
+
+  color: #fff8fc;
+}
+
+
+/* =========================================================
+   BACKGROUND
+   ========================================================= */
+
+.birthday-letter-background {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.birthday-letter-glow {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(90px);
+  opacity: 0.55;
+}
+
+.birthday-letter-glow-one {
+  width: 280px;
+  height: 280px;
+  left: -100px;
+  top: 12%;
+  background: rgba(255, 20, 147, 0.12);
+}
+
+.birthday-letter-glow-two {
+  width: 360px;
+  height: 360px;
+  right: -150px;
+  top: 38%;
+  background: rgba(126, 52, 255, 0.12);
+}
+
+.birthday-letter-glow-three {
+  width: 280px;
+  height: 280px;
+  left: 35%;
+  bottom: -170px;
+  background: rgba(212, 154, 183, 0.1);
+}
+
+
+/* =========================================================
+   STARS
+   ========================================================= */
+
+.birthday-letter-star {
+  position: absolute;
+  color: rgba(255, 248, 252, 0.5);
+  font-family: serif;
+  pointer-events: none;
+  animation: birthdayLetterTwinkle 4s ease-in-out infinite;
+}
+
+.star-one {
+  top: 16%;
+  left: 12%;
+  font-size: 13px;
+}
+
+.star-two {
+  top: 26%;
+  right: 13%;
+  font-size: 17px;
+  animation-delay: 0.8s;
+}
+
+.star-three {
+  top: 61%;
+  left: 8%;
+  font-size: 10px;
+  animation-delay: 1.4s;
+}
+
+.star-four {
+  top: 72%;
+  right: 17%;
+  font-size: 18px;
+  animation-delay: 2s;
+}
+
+.star-five {
+  bottom: 15%;
+  left: 24%;
+  font-size: 12px;
+  animation-delay: 1.1s;
+}
+
+.star-six {
+  top: 12%;
+  right: 30%;
+  font-size: 14px;
+  animation-delay: 2.4s;
+}
+
+@keyframes birthdayLetterTwinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.15);
+  }
+}
+
+
+/* =========================================================
+   GRAIN
+   ========================================================= */
+
+.birthday-letter-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.025;
+  pointer-events: none;
+
+  background-image:
+    radial-gradient(
+      rgba(255, 255, 255, 0.9) 0.5px,
+      transparent 0.5px
+    );
+
+  background-size: 4px 4px;
+}
+
+
+/* =========================================================
+   TOP BAR
+   ========================================================= */
+
+.birthday-letter-topbar {
+  position: relative;
+  z-index: 10;
+
+  width: min(
+    calc(100% - 40px),
+    900px
+  );
+
+  margin: 0 auto;
+
+  padding-top: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.birthday-letter-back {
+  appearance: none;
+  border: 0;
+  background: transparent;
+
+  color: rgba(255, 248, 252, 0.62);
+
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 8px 0;
+
+  font-family:
+    "Inter",
+    system-ui,
+    sans-serif;
+
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+
+  cursor: pointer;
+
+  transition:
+    color 0.3s ease;
+}
+
+.birthday-letter-back:hover {
+  color: #fff8fc;
+}
+
+.birthday-letter-back-arrow {
+  font-size: 17px;
+  line-height: 1;
+}
+
+.birthday-letter-page-count {
+  color: rgba(255, 248, 252, 0.4);
+
+  font-family:
+    "Inter",
+    system-ui,
+    sans-serif;
+
+  font-size: 10px;
+  letter-spacing: 0.16em;
+}
+
+.birthday-letter-page-count span {
+  margin: 0 7px;
+  color: rgba(255, 248, 252, 0.2);
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.birthday-letter-content {
+  position: relative;
+  z-index: 5;
+
+  width: min(
+    calc(100% - 40px),
+    680px
+  );
+
+  margin: auto;
+
+  padding: 45px 0 35px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* =========================================================
+   LETTER CARD
+   ========================================================= */
+
+.birthday-letter-card {
+  width: 100%;
+
+  position: relative;
+
+  padding:
+    clamp(42px, 7vw, 72px)
+    clamp(25px, 7vw, 72px);
+
+  border: 1px solid rgba(255, 248, 252, 0.12);
+
+  border-radius: 3px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 248, 252, 0.075),
+      rgba(255, 248, 252, 0.025)
+    );
+
+  box-shadow:
+    0 35px 100px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  backdrop-filter: blur(18px);
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   CARD TOP
+   ========================================================= */
+
+.birthday-letter-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  margin-bottom: 30px;
+}
+
+.birthday-letter-card-top span {
+  width: 44px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(231, 191, 210, 0.45)
+    );
+}
+
+.birthday-letter-card-top span:last-child {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(231, 191, 210, 0.45),
+      transparent
+    );
+}
+
+.birthday-letter-card-heart {
+  width: auto !important;
+  height: auto !important;
+
+  background: none !important;
+
+  color: #e7bfd2;
+
+  font-family: serif;
+  font-size: 20px;
+
+  opacity: 0.8;
+}
+
+
+/* =========================================================
+   EYEBROW
+   ========================================================= */
+
+.birthday-letter-eyebrow {
+  margin: 0 0 17px;
+
+  color: rgba(231, 191, 210, 0.68);
+
+  font-family:
+    "Inter",
+    system-ui,
+    sans-serif;
+
+  font-size: 9px;
+  font-weight: 500;
+
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.birthday-letter-title {
+  margin: 0;
+
+  color: #fff8fc;
+
+  font-family:
+    "Cormorant Garamond",
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(42px, 8vw, 72px);
+
+  font-weight: 400;
+
+  line-height: 0.95;
+
+  letter-spacing: -0.025em;
+}
+
+
+/* =========================================================
+   DIVIDER
+   ========================================================= */
+
+.birthday-letter-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  margin:
+    28px auto
+    30px;
+}
+
+.birthday-letter-divider span {
+  width: 38px;
+  height: 1px;
+
+  background: rgba(231, 191, 210, 0.22);
+}
+
+.birthday-letter-divider i {
+  color: #d49ab7;
+
+  font-family: serif;
+  font-style: normal;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   TEXT
+   ========================================================= */
+
+.birthday-letter-text {
+  color: rgba(255, 248, 252, 0.7);
+
+  font-family:
+    "Inter",
+    system-ui,
+    sans-serif;
+
+  font-size:
+    clamp(12px, 2.4vw, 14px);
+
+  line-height: 2;
+
+  letter-spacing: 0.015em;
+}
+
+
+/* =========================================================
+   SIGNATURE
+   ========================================================= */
+
+.birthday-letter-signature {
+  margin-top: 38px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.birthday-letter-signature span {
+  color: rgba(255, 248, 252, 0.38);
+
+  font-family:
+    "Inter",
+    system-ui,
+    sans-serif;
+
+  font-size: 9px;
+  letter-spacing: 0.1em;
+}
+
+.birthday-letter-signature strong {
+  color: #e7bfd2;
+
+  font-family:
+    "Cormorant Garamond",
+    "Times New Roman",
+    serif;
+
+  font-size: 25px;
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.birthday-letter-navigation {
+  width: 100%;
+
+  margin-top: 25px;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.birthday-letter-nav-button {
+  appearance: none;
+
+  border: 0;
+  background: transparent;
+
+  color: rgba(255, 248, 252, 0.48);
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 12px 0;
+
+  font-family:
+    "Inter",
+    system-ui,
+    sans-serif;
+
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    color 0.3s ease;
+}
+
+.birthday-letter-nav-button:hover {
+  color: #fff8fc;
+}
+
+.birthday-letter-nav-next {
+  justify-self: end;
+}
+
+.birthday-letter-nav-prev {
+  justify-self: start;
+}
+
+.birthday-letter-nav-button span:first-child {
+  font-size: 14px;
+}
+
+.birthday-letter-nav-button.is-disabled {
+  opacity: 0.16;
+  cursor: default;
+}
+
+
+/* =========================================================
+   DOTS
+   ========================================================= */
+
+.birthday-letter-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.birthday-letter-dot {
+  width: 5px;
+  height: 5px;
+
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+
+  background: rgba(255, 248, 252, 0.2);
+
+  cursor: pointer;
+
+  transition:
+    width 0.3s ease,
+    border-radius 0.3s ease,
+    background 0.3s ease;
+}
+
+.birthday-letter-dot.is-active {
+  width: 20px;
+
+  border-radius: 999px;
+
+  background: #d49ab7;
+}
+
+
+/* =========================================================
+   BOTTOM NOTE
+   ========================================================= */
+
+.birthday-letter-bottom-note {
+  margin: 27px 0 0;
+
+  color: rgba(255, 248, 252, 0.24);
+
+  font-family:
+    "Cormorant Garamond",
+    "Times New Roman",
+    serif;
+
+  font-size: 15px;
+  font-style: italic;
+
+  letter-spacing: 0.03em;
+}
+
+
+/* =========================================================
+   FLOATING HEARTS
+   ========================================================= */
+
+.birthday-letter-hearts {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.birthday-letter-heart {
+  position: absolute;
+
+  color: rgba(231, 191, 210, 0.18);
+
+  font-family: serif;
+
+  animation:
+    birthdayLetterFloat 8s ease-in-out infinite;
+}
+
+.heart-one {
+  left: 8%;
+  bottom: 15%;
+  font-size: 25px;
+}
+
+.heart-two {
+  right: 9%;
+  top: 27%;
+  font-size: 19px;
+  animation-delay: 1.5s;
+}
+
+.heart-three {
+  left: 17%;
+  top: 34%;
+  font-size: 13px;
+  animation-delay: 3s;
+}
+
+.heart-four {
+  right: 20%;
+  bottom: 18%;
+  font-size: 15px;
+  animation-delay: 4.2s;
+}
+
+@keyframes birthdayLetterFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.15;
+  }
+
+  50% {
+    transform: translateY(-15px) rotate(5deg);
+    opacity: 0.35;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .birthday-letter-topbar {
+    width: calc(100% - 30px);
+    padding-top: 20px;
+  }
+
+  .birthday-letter-content {
+    width: calc(100% - 30px);
+
+    padding:
+      25px 0
+      25px;
+  }
+
+  .birthday-letter-card {
+    padding:
+      42px 24px;
+  }
+
+  .birthday-letter-card-top {
+    margin-bottom: 25px;
+  }
+
+  .birthday-letter-title {
+    font-size:
+      clamp(38px, 12vw, 58px);
+  }
+
+  .birthday-letter-text {
+    font-size: 12px;
+    line-height: 1.95;
+  }
+
+  .birthday-letter-navigation {
+    margin-top: 18px;
+  }
+
+  .birthday-letter-bottom-note {
+    margin-top: 20px;
+  }
+
+  .birthday-letter-heart {
+    opacity: 0.12;
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+  .birthday-letter-card {
+    padding:
+      35px 20px;
+  }
+
+  .birthday-letter-title {
+    font-size: 37px;
+  }
+
+  .birthday-letter-text {
+    font-size: 11.5px;
+  }
+
+  .birthday-letter-back {
+    font-size: 9px;
+  }
+
+  .birthday-letter-page-count {
+    font-size: 9px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .birthday-letter-star,
+  .birthday-letter-heart {
+    animation: none;
+  }
+}
+
+/* =========================================================
+   BIRTHDAY LETTER
+   PREMIUM CINEMATIC SINGLE SHEET
+   FINAL — FIX BOTTOM OVERLAP
+   ========================================================= */
+
+.birthday-letter-scene {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      rgba(125, 35, 100, 0.23),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 12% 80%,
+      rgba(255, 42, 157, 0.075),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 88% 20%,
+      rgba(164, 60, 141, 0.09),
+      transparent 28%
+    ),
+    linear-gradient(
+      180deg,
+      #08040d 0%,
+      #120713 48%,
+      #050207 100%
+    );
+
+  color: #fff8fc;
+
+  font-family:
+    "Inter",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+}
+
+
+/* =========================================================
+   BACKGROUND
+   ========================================================= */
+
+.birthday-letter-background {
+  position: absolute;
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.birthday-letter-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.birthday-letter-glow-one {
+  width: 430px;
+  height: 430px;
+
+  top: 18%;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(184, 67, 148, 0.13) 0%,
+      rgba(130, 37, 105, 0.055) 38%,
+      transparent 72%
+    );
+
+  filter: blur(2px);
+}
+
+.birthday-letter-glow-two {
+  width: 360px;
+  height: 360px;
+
+  left: -180px;
+  bottom: -100px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 55, 168, 0.09),
+      transparent 70%
+    );
+}
+
+.birthday-letter-glow-three {
+  width: 340px;
+  height: 340px;
+
+  right: -150px;
+  top: -90px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(185, 74, 160, 0.08),
+      transparent 70%
+    );
+}
+
+
+/* =========================================================
+   FLOATING HEARTS
+   ========================================================= */
+
+.birthday-letter-hearts {
+  position: absolute;
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+.birthday-letter-floating-heart {
+  position: absolute;
+
+  left: var(--heart-left);
+  bottom: -30px;
+
+  font-size: var(--heart-size);
+
+  color:
+    rgba(255, 94, 185, 0.13);
+
+  text-shadow:
+    0 0 8px
+    rgba(255, 62, 173, 0.12);
+
+  animation:
+    birthday-letter-heart-float
+    12s linear
+    var(--heart-delay)
+    infinite;
+
+  user-select: none;
+}
+
+@keyframes birthday-letter-heart-float {
+  0% {
+    transform:
+      translate3d(0, 20px, 0)
+      rotate(0deg)
+      scale(0.8);
+
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.55;
+  }
+
+  50% {
+    transform:
+      translate3d(18px, -50vh, 0)
+      rotate(8deg)
+      scale(1);
+  }
+
+  80% {
+    opacity: 0.3;
+  }
+
+  100% {
+    transform:
+      translate3d(-22px, -110vh, 0)
+      rotate(-10deg)
+      scale(0.75);
+
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   TOP BAR
+   ========================================================= */
+
+.birthday-letter-topbar {
+  position: relative;
+
+  z-index: 10;
+
+  width:
+    min(
+      calc(100% - 48px),
+      1120px
+    );
+
+  margin: 0 auto;
+
+  padding-top: 26px;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    auto
+    1fr;
+
+  align-items: center;
+
+  pointer-events: none;
+}
+
+.birthday-letter-topbar-left {
+  justify-self: start;
+}
+
+.birthday-letter-topbar-center {
+  justify-self: center;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  font-size: 9px;
+
+  letter-spacing: 0.28em;
+
+  color:
+    rgba(255, 220, 239, 0.52);
+}
+
+.birthday-letter-topbar-right {
+  justify-self: end;
+}
+
+.birthday-letter-small-label {
+  font-size: 8px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.28em;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(255, 211, 233, 0.42);
+}
+
+.birthday-letter-topbar-slash {
+  color:
+    rgba(255, 113, 190, 0.38);
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.birthday-letter-main {
+  position: relative;
+
+  z-index: 5;
+
+  flex: 1;
+
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding:
+    28px
+    24px
+    145px;
+
+  min-height: 0;
+}
+
+
+/* =========================================================
+   PAPER STAGE
+   ========================================================= */
+
+.birthday-letter-paper-stage {
+  position: relative;
+
+  width:
+    min(
+      760px,
+      86vw
+    );
+
+  height:
+    clamp(
+      520px,
+      calc(100vh - 205px),
+      750px
+    );
+
+  min-height: 0;
+
+  display: flex;
+
+  align-items: stretch;
+
+  justify-content: center;
+
+  transform-origin: center center;
+
+  filter:
+    drop-shadow(
+      0 30px 70px
+      rgba(0, 0, 0, 0.46)
+    );
+}
+
+
+/* =========================================================
+   PAPER
+   ========================================================= */
+
+.birthday-letter-page {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+
+  background:
+    radial-gradient(
+      circle at 18% 15%,
+      rgba(255, 255, 255, 0.72),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 82% 82%,
+      rgba(189, 121, 151, 0.075),
+      transparent 34%
+    ),
+    linear-gradient(
+      135deg,
+      #fffafc 0%,
+      #f9edf3 48%,
+      #f3e2eb 100%
+    );
+
+  color: #321727;
+
+  box-shadow:
+    0 2px 0
+      rgba(255, 255, 255, 0.78)
+      inset,
+
+    0 -1px 0
+      rgba(117, 57, 89, 0.1)
+      inset,
+
+    0 18px 50px
+      rgba(0, 0, 0, 0.22);
+
+  transform-origin: center center;
+
+  will-change:
+    transform,
+    opacity,
+    clip-path;
+}
+
+.birthday-letter-page::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.32;
+
+  background-image:
+    radial-gradient(
+      rgba(71, 32, 52, 0.12)
+      0.55px,
+      transparent 0.7px
+    );
+
+  background-size: 5px 5px;
+
+  mix-blend-mode: multiply;
+}
+
+.birthday-letter-page::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 12px;
+
+  border:
+    1px solid
+    rgba(107, 53, 80, 0.12);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   PAPER INNER
+   ========================================================= */
+
+.birthday-letter-page-inner {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+
+  min-height: 0;
+
+  padding:
+    46px
+    54px
+    34px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.birthday-letter-page-header {
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding-bottom: 18px;
+
+  border-bottom:
+    1px solid
+    rgba(79, 38, 60, 0.13);
+}
+
+.birthday-letter-page-number {
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 15px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.16em;
+
+  color:
+    rgba(88, 43, 67, 0.6);
+}
+
+.birthday-letter-page-section {
+  font-size: 8px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.25em;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(81, 39, 61, 0.48);
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.birthday-letter-page-content {
+  flex: 1;
+
+  min-height: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding:
+    22px
+    5%
+    14px;
+
+  overflow-y: auto;
+
+  overflow-x: hidden;
+
+  scrollbar-width: none;
+
+  overscroll-behavior: contain;
+}
+
+.birthday-letter-page-content::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.birthday-letter-heading {
+  flex-shrink: 0;
+
+  margin: 0;
+
+  font-family:
+    "Cormorant Garamond",
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      40px,
+      5.8vw,
+      70px
+    );
+
+  line-height: 0.94;
+
+  font-weight: 500;
+
+  letter-spacing: -0.035em;
+
+  color: #361a2a;
+
+  text-wrap: balance;
+}
+
+
+/* =========================================================
+   SUBTITLE
+   ========================================================= */
+
+.birthday-letter-subtitle {
+  flex-shrink: 0;
+
+  margin:
+    13px 0 0;
+
+  font-family:
+    "Inter",
+    sans-serif;
+
+  font-size: 9px;
+
+  font-weight: 500;
+
+  line-height: 1.5;
+
+  letter-spacing: 0.2em;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(91, 48, 70, 0.55);
+}
+
+
+/* =========================================================
+   DIVIDER
+   ========================================================= */
+
+.birthday-letter-divider {
+  flex-shrink: 0;
+
+  height: 1px;
+
+  margin:
+    27px 0 25px;
+
+  width: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(115, 47, 83, 0.36),
+      rgba(115, 47, 83, 0.08)
+    );
+
+  transform-origin: left center;
+}
+
+
+/* =========================================================
+   TEXT
+   ========================================================= */
+
+.birthday-letter-text {
+  flex-shrink: 0;
+
+  margin: 0;
+
+  max-width: 620px;
+
+  white-space: pre-line;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(
+      17px,
+      1.8vw,
+      20px
+    );
+
+  line-height: 1.58;
+
+  font-weight: 400;
+
+  letter-spacing: 0.005em;
+
+  color:
+    rgba(53, 27, 42, 0.88);
+
+  overflow-wrap: break-word;
+}
+
+
+/* =========================================================
+   QUOTE
+   ========================================================= */
+
+.birthday-letter-quote {
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 8px;
+
+  max-width: 540px;
+
+  margin-top: 26px;
+
+  padding-bottom: 4px;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(
+      14px,
+      1.6vw,
+      17px
+    );
+
+  font-style: italic;
+
+  line-height: 1.45;
+
+  color:
+    rgba(92, 43, 67, 0.67);
+}
+
+.birthday-letter-quote-mark {
+  flex-shrink: 0;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 28px;
+
+  line-height: 0.7;
+
+  color:
+    rgba(188, 83, 137, 0.72);
+}
+
+
+/* =========================================================
+   SIGNATURE
+   ========================================================= */
+
+.birthday-letter-signature {
+  flex-shrink: 0;
+
+  margin-top: 22px;
+
+  align-self: flex-end;
+
+  padding-right: 4px;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 19px;
+
+  font-style: italic;
+
+  color:
+    rgba(75, 33, 55, 0.72);
+}
+
+
+/* =========================================================
+   PAPER FOOTER
+   ========================================================= */
+
+.birthday-letter-page-footer {
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding-top: 18px;
+
+  border-top:
+    1px solid
+    rgba(79, 38, 60, 0.12);
+
+  font-family:
+    "Inter",
+    sans-serif;
+
+  font-size: 7px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.2em;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(79, 38, 60, 0.38);
+}
+
+.birthday-letter-page-footer span:last-child {
+  font-size: 11px;
+
+  color:
+    rgba(184, 71, 132, 0.55);
+}
+
+
+/* =========================================================
+   NAVIGATION AREA
+   ========================================================= */
+
+.birthday-letter-navigation {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  bottom: -67px;
+
+  height: 52px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   ARROW POSITIONS
+   ========================================================= */
+
+.birthday-letter-navigation > .birthday-letter-back,
+.birthday-letter-navigation > .birthday-letter-next {
+  position: absolute;
+
+  top: 50%;
+
+  width: 54px;
+  height: 48px;
+
+  margin: 0;
+  padding: 0;
+
+  transform:
+    translateY(-50%);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.birthday-letter-navigation > .birthday-letter-back {
+  left: 24px;
+}
+
+.birthday-letter-navigation > .birthday-letter-next {
+  right: 24px;
+}
+
+
+/* =========================================================
+   ARROW BUTTON
+   ========================================================= */
+
+.birthday-letter-nav-button {
+  position: absolute;
+
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  pointer-events: auto;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  isolation: isolate;
+
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+}
+
+.birthday-letter-nav-button::before {
+  content: "";
+
+  position: absolute;
+
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 56, 174, 0.24),
+      rgba(255, 56, 174, 0.08) 38%,
+      transparent 72%
+    );
+
+  filter: blur(6px);
+
+  opacity: 0.6;
+
+  z-index: -1;
+
+  animation:
+    birthday-arrow-glow
+    3.2s ease-in-out
+    infinite;
+}
+
+@keyframes birthday-arrow-glow {
+
+  0%,
+  100% {
+    transform: scale(0.78);
+    opacity: 0.28;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 0.68;
+  }
+}
+
+.birthday-letter-arrow {
+  display: block;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 28px;
+
+  font-weight: 300;
+
+  line-height: 1;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff329f 0%,
+      #ff76bd 25%,
+      #fff0f8 48%,
+      #ff76bd 70%,
+      #ff2e9d 100%
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  color: transparent;
+
+  filter:
+    drop-shadow(
+      0 0 3px
+      rgba(255, 255, 255, 0.75)
+    )
+    drop-shadow(
+      0 0 8px
+      rgba(255, 64, 174, 0.8)
+    )
+    drop-shadow(
+      0 0 18px
+      rgba(255, 35, 160, 0.5)
+    );
+
+  animation:
+    birthday-arrow-pulse
+    3s ease-in-out
+    infinite;
+
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
+}
+
+@keyframes birthday-arrow-pulse {
+
+  0%,
+  100% {
+    opacity: 0.72;
+
+    filter:
+      drop-shadow(
+        0 0 3px
+        rgba(255, 255, 255, 0.6)
+      )
+      drop-shadow(
+        0 0 8px
+        rgba(255, 64, 174, 0.6)
+      )
+      drop-shadow(
+        0 0 16px
+        rgba(255, 35, 160, 0.38)
+      );
+  }
+
+  50% {
+    opacity: 1;
+
+    filter:
+      drop-shadow(
+        0 0 5px
+        rgba(255, 255, 255, 0.95)
+      )
+      drop-shadow(
+        0 0 11px
+        rgba(255, 100, 191, 0.95)
+      )
+      drop-shadow(
+        0 0 23px
+        rgba(255, 35, 160, 0.7)
+      );
+  }
+}
+
+.birthday-letter-back:hover:not(:disabled) {
+  transform:
+    translateY(-50%)
+    translateX(-3px);
+}
+
+.birthday-letter-back:hover:not(:disabled)
+.birthday-letter-arrow {
+  transform:
+    translateX(-5px)
+    scale(1.1);
+}
+
+.birthday-letter-next:hover:not(:disabled) {
+  transform:
+    translateY(-50%)
+    translateX(3px);
+}
+
+.birthday-letter-next:hover:not(:disabled)
+.birthday-letter-arrow {
+  transform:
+    translateX(5px)
+    scale(1.1);
+}
+
+.birthday-letter-back:active:not(:disabled),
+.birthday-letter-next:active:not(:disabled) {
+  transform:
+    translateY(-50%)
+    scale(0.9);
+}
+
+.birthday-letter-nav-button:disabled {
+  opacity: 0.15;
+  cursor: default;
+}
+
+
+/* =========================================================
+   CENTER NAV
+   ========================================================= */
+
+.birthday-letter-navigation-center {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  pointer-events: none;
+}
+
+.birthday-letter-dots {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 6px;
+}
+
+.birthday-letter-dot {
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 210, 233, 0.24);
+
+  transition:
+    width 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.birthday-letter-dot.active {
+  width: 18px;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ff3da8,
+      #ff9bd2
+    );
+
+  box-shadow:
+    0 0 7px
+      rgba(255, 71, 177, 0.8),
+
+    0 0 16px
+      rgba(255, 46, 168, 0.38);
+}
+
+.birthday-letter-count {
+  font-size: 7px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.24em;
+
+  color:
+    rgba(255, 215, 236, 0.38);
+}
+
+
+/* =========================================================
+   BACK TO MEMORY
+   ========================================================= */
+
+.birthday-letter-memory-link {
+  position: absolute;
+
+  left: 50%;
+
+  /*
+    DIPINDAHKAN LEBIH JAUH DARI NAVIGATION
+    supaya tidak bertabrakan dengan take your time.
+  */
+  bottom: -118px;
+
+  transform:
+    translateX(-50%);
+
+  min-width: 184px;
+
+  height: 40px;
+
+  padding:
+    0 21px;
+
+  border: none;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 55, 175, 0.035);
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  font-family:
+    "Inter",
+    sans-serif;
+
+  font-size: 8px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.24em;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(255, 218, 238, 0.78);
+
+  cursor: pointer;
+
+  pointer-events: auto;
+
+  isolation: isolate;
+
+  transition:
+    color 0.4s ease,
+    background 0.4s ease,
+    box-shadow 0.4s ease,
+    transform 0.4s ease;
+}
+
+.birthday-letter-memory-link::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 999px;
+
+  padding: 1px;
+
+  background:
+    linear-gradient(
+      110deg,
+      rgba(255, 79, 181, 0.25),
+      rgba(255, 112, 196, 0.85),
+      rgba(255, 210, 232, 0.55),
+      rgba(255, 77, 177, 0.85),
+      rgba(255, 79, 181, 0.25)
+    );
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0)
+      content-box,
+    linear-gradient(#fff 0 0);
+
+  -webkit-mask-composite: xor;
+
+  mask-composite: exclude;
+
+  opacity: 0.82;
+
+  transition:
+    opacity 0.4s ease,
+    filter 0.4s ease;
+}
+
+.birthday-letter-memory-link::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -7px;
+
+  border-radius: 999px;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(255, 51, 174, 0.17),
+      transparent 70%
+    );
+
+  filter: blur(8px);
+
+  opacity: 0.32;
+
+  z-index: -1;
+}
+
+.birthday-letter-memory-icon {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 13px;
+
+  line-height: 1;
+
+  color:
+    #ff69b9;
+
+  text-shadow:
+    0 0 5px
+      rgba(255, 255, 255, 0.35),
+
+    0 0 11px
+      rgba(255, 73, 180, 0.75),
+
+    0 0 23px
+      rgba(255, 52, 170, 0.4);
+}
+
+.birthday-letter-memory-text {
+  line-height: 1;
+}
+
+.birthday-letter-memory-link:hover:not(:disabled) {
+  color: #ffffff;
+
+  background:
+    rgba(255, 53, 173, 0.075);
+
+  box-shadow:
+    0 0 13px
+      rgba(255, 54, 174, 0.2),
+
+    0 0 31px
+      rgba(255, 45, 169, 0.13);
+
+  transform:
+    translateX(-50%)
+    translateY(-3px);
+}
+
+.birthday-letter-memory-link:hover:not(:disabled)
+.birthday-letter-memory-icon {
+  color: #ffffff;
+
+  transform: translateX(-3px);
+
+  text-shadow:
+    0 0 6px #ffffff,
+    0 0 14px #ff8bc8,
+    0 0 26px #ff48ae;
+}
+
+.birthday-letter-memory-link:active:not(:disabled) {
+  transform:
+    translateX(-50%)
+    scale(0.96);
+}
+
+.birthday-letter-memory-link:disabled {
+  opacity: 0.22;
+}
+
+
+/* =========================================================
+   CENTER HEART
+   ========================================================= */
+
+.birthday-letter-center-heart {
+  position: absolute;
+
+  left: 50%;
+
+  /*
+    Heart diletakkan setelah tombol.
+  */
+  bottom: -169px;
+
+  transform:
+    translateX(-50%);
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 14px;
+
+  color:
+    rgba(255, 100, 186, 0.55);
+
+  text-shadow:
+    0 0 10px
+    rgba(255, 57, 171, 0.45);
+
+  animation:
+    birthday-letter-heart-pulse
+    3.8s ease-in-out
+    infinite;
+
+  pointer-events: none;
+}
+
+@keyframes birthday-letter-heart-pulse {
+
+  0%,
+  100% {
+    opacity: 0.45;
+
+    transform:
+      translateX(-50%)
+      scale(0.92);
+  }
+
+  50% {
+    opacity: 0.9;
+
+    transform:
+      translateX(-50%)
+      scale(1.12);
+  }
+}
+
+
+/* =========================================================
+   TAKE YOUR TIME
+   ========================================================= */
+
+/*
+   Ini sengaja dibuat absolute dan punya
+   posisi sendiri di PALING BAWAH layar.
+
+   Jadi tidak lagi ikut flow tombol Back to Memory.
+*/
+
+.birthday-letter-bottom-note {
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 18px;
+
+  transform:
+    translateX(-50%);
+
+  z-index: 20;
+
+  width: max-content;
+
+  max-width: calc(100% - 40px);
+
+  display: flex;
+
+  justify-content: center;
+
+  pointer-events: none;
+}
+
+.birthday-letter-bottom-note span {
+  display: block;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 12px;
+
+  font-style: italic;
+
+  letter-spacing: 0.08em;
+
+  color:
+    rgba(255, 211, 232, 0.38);
+
+  white-space: nowrap;
+
+  text-shadow:
+    0 0 12px
+    rgba(255, 62, 173, 0.12);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .birthday-letter-paper-stage {
+    width:
+      min(
+        720px,
+        88vw
+      );
+
+    height:
+      clamp(
+        500px,
+        calc(100vh - 190px),
+        700px
+      );
+  }
+
+  .birthday-letter-page-inner {
+    padding:
+      38px
+      44px
+      30px;
+  }
+
+  .birthday-letter-heading {
+    font-size:
+      clamp(
+        40px,
+        7vw,
+        64px
+      );
+  }
+
+  .birthday-letter-text {
+    font-size: 18px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .birthday-letter-scene {
+    min-height: 100svh;
+  }
+
+  .birthday-letter-topbar {
+    width:
+      calc(100% - 34px);
+
+    padding-top: 18px;
+  }
+
+  .birthday-letter-small-label {
+    font-size: 6px;
+
+    letter-spacing: 0.2em;
+  }
+
+  .birthday-letter-topbar-center {
+    font-size: 7px;
+
+    gap: 6px;
+  }
+
+  .birthday-letter-main {
+    padding:
+      20px
+      17px
+      155px;
+  }
+
+  .birthday-letter-paper-stage {
+    width:
+      calc(100vw - 34px);
+
+    height:
+      calc(100svh - 210px);
+
+    min-height: 470px;
+
+    max-height: 640px;
+  }
+
+  .birthday-letter-page-inner {
+    padding:
+      31px
+      30px
+      26px;
+  }
+
+  .birthday-letter-page::after {
+    inset: 9px;
+  }
+
+  .birthday-letter-page-header {
+    padding-bottom: 14px;
+  }
+
+  .birthday-letter-page-number {
+    font-size: 12px;
+  }
+
+  .birthday-letter-page-section {
+    font-size: 6.5px;
+
+    letter-spacing: 0.2em;
+  }
+
+  .birthday-letter-page-content {
+    padding:
+      18px
+      2%
+      12px;
+  }
+
+  .birthday-letter-heading {
+    font-size:
+      clamp(
+        35px,
+        10vw,
+        54px
+      );
+  }
+
+  .birthday-letter-subtitle {
+    margin-top: 11px;
+
+    font-size: 7px;
+
+    line-height: 1.55;
+  }
+
+  .birthday-letter-divider {
+    margin:
+      22px 0 20px;
+  }
+
+  .birthday-letter-text {
+    font-size: 16px;
+
+    line-height: 1.55;
+  }
+
+  .birthday-letter-quote {
+    margin-top: 21px;
+
+    font-size: 13px;
+  }
+
+  .birthday-letter-signature {
+    margin-top: 19px;
+
+    font-size: 17px;
+  }
+
+  .birthday-letter-page-footer {
+    padding-top: 14px;
+
+    font-size: 6px;
+  }
+
+
+  /* -------------------------
+     ARROWS
+     ------------------------- */
+
+  .birthday-letter-navigation {
+    bottom: -58px;
+
+    height: 48px;
+  }
+
+  .birthday-letter-navigation > .birthday-letter-back {
+    left: 12px;
+  }
+
+  .birthday-letter-navigation > .birthday-letter-next {
+    right: 12px;
+  }
+
+  .birthday-letter-nav-button {
+    width: 48px;
+    height: 44px;
+  }
+
+  .birthday-letter-arrow {
+    font-size: 25px;
+  }
+
+
+  /* -------------------------
+     BACK TO MEMORY
+     ------------------------- */
+
+  .birthday-letter-memory-link {
+    bottom: -111px;
+
+    min-width: 166px;
+
+    height: 37px;
+
+    padding:
+      0 15px;
+
+    gap: 8px;
+
+    font-size: 7px;
+
+    letter-spacing: 0.2em;
+  }
+
+  .birthday-letter-memory-icon {
+    font-size: 12px;
+  }
+
+
+  /* -------------------------
+     HEART
+     ------------------------- */
+
+  .birthday-letter-center-heart {
+    bottom: -157px;
+  }
+
+
+  /* -------------------------
+     TAKE YOUR TIME
+     ------------------------- */
+
+  .birthday-letter-bottom-note {
+    bottom: 14px;
+  }
+
+  .birthday-letter-bottom-note span {
+    font-size: 10px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 560px) {
+
+  .birthday-letter-main {
+    padding:
+      16px
+      13px
+      150px;
+  }
+
+  .birthday-letter-paper-stage {
+    width:
+      calc(100vw - 26px);
+
+    height:
+      calc(100svh - 205px);
+
+    min-height: 440px;
+
+    max-height: 610px;
+  }
+
+  .birthday-letter-page-inner {
+    padding:
+      27px
+      25px
+      23px;
+  }
+
+  .birthday-letter-page::after {
+    inset: 8px;
+  }
+
+  .birthday-letter-heading {
+    font-size:
+      clamp(
+        32px,
+        10.5vw,
+        48px
+      );
+  }
+
+  .birthday-letter-subtitle {
+    font-size: 6.5px;
+
+    letter-spacing: 0.16em;
+  }
+
+  .birthday-letter-divider {
+    margin:
+      20px 0 18px;
+  }
+
+  .birthday-letter-text {
+    font-size: 15px;
+
+    line-height: 1.5;
+  }
+
+  .birthday-letter-quote {
+    font-size: 12px;
+
+    gap: 6px;
+  }
+
+  .birthday-letter-quote-mark {
+    font-size: 22px;
+  }
+
+  .birthday-letter-page-footer {
+    font-size: 5.5px;
+
+    letter-spacing: 0.15em;
+  }
+
+  .birthday-letter-navigation {
+    bottom: -55px;
+  }
+
+  .birthday-letter-navigation > .birthday-letter-back {
+    left: 7px;
+  }
+
+  .birthday-letter-navigation > .birthday-letter-next {
+    right: 7px;
+  }
+
+  .birthday-letter-memory-link {
+    bottom: -106px;
+  }
+
+  .birthday-letter-center-heart {
+    bottom: -152px;
+  }
+
+  .birthday-letter-bottom-note {
+    bottom: 12px;
+  }
+
+  .birthday-letter-bottom-note span {
+    font-size: 9px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 390px) {
+
+  .birthday-letter-topbar {
+    width:
+      calc(100% - 26px);
+  }
+
+  .birthday-letter-main {
+    padding:
+      14px
+      10px
+      145px;
+  }
+
+  .birthday-letter-paper-stage {
+    width:
+      calc(100vw - 20px);
+
+    height:
+      calc(100svh - 195px);
+
+    min-height: 400px;
+
+    max-height: 560px;
+  }
+
+  .birthday-letter-page-inner {
+    padding:
+      23px
+      21px
+      20px;
+  }
+
+  .birthday-letter-page::after {
+    inset: 7px;
+  }
+
+  .birthday-letter-page-number {
+    font-size: 10px;
+  }
+
+  .birthday-letter-page-section {
+    font-size: 5.5px;
+
+    letter-spacing: 0.16em;
+  }
+
+  .birthday-letter-heading {
+    font-size:
+      clamp(
+        29px,
+        10.5vw,
+        42px
+      );
+  }
+
+  .birthday-letter-subtitle {
+    font-size: 5.8px;
+
+    letter-spacing: 0.13em;
+  }
+
+  .birthday-letter-divider {
+    margin:
+      18px 0 17px;
+  }
+
+  .birthday-letter-text {
+    font-size: 14px;
+
+    line-height: 1.46;
+  }
+
+  .birthday-letter-quote {
+    margin-top: 17px;
+
+    font-size: 11px;
+  }
+
+  .birthday-letter-signature {
+    font-size: 15px;
+
+    margin-top: 15px;
+  }
+
+  .birthday-letter-page-footer {
+    padding-top: 11px;
+
+    font-size: 5px;
+  }
+
+
+  /* ARROWS */
+
+  .birthday-letter-navigation {
+    bottom: -51px;
+  }
+
+  .birthday-letter-navigation > .birthday-letter-back {
+    left: 3px;
+  }
+
+  .birthday-letter-navigation > .birthday-letter-next {
+    right: 3px;
+  }
+
+  .birthday-letter-nav-button {
+    width: 44px;
+    height: 40px;
+  }
+
+  .birthday-letter-arrow {
+    font-size: 23px;
+  }
+
+
+  /* MEMORY */
+
+  .birthday-letter-memory-link {
+    min-width: 158px;
+
+    height: 35px;
+
+    font-size: 6.5px;
+
+    letter-spacing: 0.18em;
+
+    bottom: -102px;
+  }
+
+
+  /* HEART */
+
+  .birthday-letter-center-heart {
+    bottom: -147px;
+
+    font-size: 12px;
+  }
+
+
+  /* TAKE YOUR TIME */
+
+  .birthday-letter-bottom-note {
+    bottom: 10px;
+  }
+
+  .birthday-letter-bottom-note span {
+    font-size: 8.5px;
+  }
+}
+
+
+/* =========================================================
+   EXTRA SMALL
+   ========================================================= */
+
+@media (max-width: 350px) {
+
+  .birthday-letter-main {
+    padding-bottom: 140px;
+  }
+
+  .birthday-letter-paper-stage {
+    width:
+      calc(100vw - 16px);
+
+    height:
+      calc(100svh - 185px);
+
+    min-height: 380px;
+
+    max-height: 510px;
+  }
+
+  .birthday-letter-page-inner {
+    padding:
+      20px
+      18px
+      17px;
+  }
+
+  .birthday-letter-heading {
+    font-size: 27px;
+  }
+
+  .birthday-letter-text {
+    font-size: 13px;
+
+    line-height: 1.42;
+  }
+
+  .birthday-letter-quote {
+    font-size: 10px;
+  }
+
+  .birthday-letter-navigation {
+    bottom: -49px;
+  }
+
+  .birthday-letter-navigation > .birthday-letter-back {
+    left: 0;
+  }
+
+  .birthday-letter-navigation > .birthday-letter-next {
+    right: 0;
+  }
+
+  .birthday-letter-memory-link {
+    min-width: 146px;
+
+    height: 33px;
+
+    font-size: 6px;
+
+    bottom: -96px;
+  }
+
+  .birthday-letter-center-heart {
+    bottom: -140px;
+  }
+
+  .birthday-letter-bottom-note {
+    bottom: 8px;
+  }
+
+  .birthday-letter-bottom-note span {
+    font-size: 8px;
+  }
+}
+
+
+/* =========================================================
+   LANDSCAPE MOBILE
+   ========================================================= */
+
+@media (
+  max-height: 600px
+) and (
+  orientation: landscape
+) {
+
+  .birthday-letter-topbar {
+    padding-top: 12px;
+  }
+
+  .birthday-letter-main {
+    padding:
+      12px
+      20px
+      130px;
+  }
+
+  .birthday-letter-paper-stage {
+    height:
+      calc(100svh - 160px);
+
+    min-height: 360px;
+
+    max-height: 450px;
+
+    width:
+      min(
+        700px,
+        82vw
+      );
+  }
+
+  .birthday-letter-page-inner {
+    padding:
+      22px
+      32px
+      18px;
+  }
+
+  .birthday-letter-page-content {
+    padding:
+      10px
+      4%
+      8px;
+  }
+
+  .birthday-letter-heading {
+    font-size: 36px;
+  }
+
+  .birthday-letter-text {
+    font-size: 14px;
+
+    line-height: 1.38;
+  }
+
+  .birthday-letter-divider {
+    margin:
+      14px 0;
+  }
+
+  .birthday-letter-quote {
+    margin-top: 12px;
+
+    font-size: 11px;
+  }
+
+  .birthday-letter-navigation {
+    bottom: -48px;
+  }
+
+  .birthday-letter-navigation > .birthday-letter-back {
+    left: 20px;
+  }
+
+  .birthday-letter-navigation > .birthday-letter-next {
+    right: 20px;
+  }
+
+  .birthday-letter-memory-link {
+    bottom: -92px;
+  }
+
+  .birthday-letter-center-heart {
+    bottom: -137px;
+  }
+
+  .birthday-letter-bottom-note {
+    bottom: 8px;
+  }
+
+  .birthday-letter-bottom-note span {
+    font-size: 9px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .birthday-letter-floating-heart,
+  .birthday-letter-center-heart,
+  .birthday-letter-arrow,
+  .birthday-letter-nav-button::before {
+    animation: none;
+  }
+
+  .birthday-letter-page,
+  .birthday-letter-memory-link,
+  .birthday-letter-nav-button,
+  .birthday-letter-arrow,
+  .birthday-letter-memory-icon,
+  .birthday-letter-dot {
+    transition: none;
+  }
+}
+
+
+/* =========================================================
+   TOUCH
+   ========================================================= */
+
+@media (hover: none) {
+
+  .birthday-letter-memory-link:active {
+    background:
+      rgba(255, 55, 175, 0.08);
+  }
+
+  .birthday-letter-nav-button:active {
+    transform:
+      translateY(-50%)
+      scale(0.92);
+  }
+}
+
