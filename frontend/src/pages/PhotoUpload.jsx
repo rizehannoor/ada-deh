@@ -40,15 +40,12 @@ function cropImageToThreeByFour(file) {
         const sourceHeight = image.naturalHeight;
 
         if (!sourceWidth || !sourceHeight) {
-          reject(
-            new Error("Resolusi foto tidak valid.")
-          );
+          reject(new Error("Resolusi foto tidak valid."));
           return;
         }
 
         const targetRatio = 3 / 4;
-        const sourceRatio =
-          sourceWidth / sourceHeight;
+        const sourceRatio = sourceWidth / sourceHeight;
 
         let cropWidth;
         let cropHeight;
@@ -57,26 +54,16 @@ function cropImageToThreeByFour(file) {
 
         if (sourceRatio > targetRatio) {
           cropHeight = sourceHeight;
-          cropWidth = Math.round(
-            sourceHeight * targetRatio
-          );
+          cropWidth = Math.round(sourceHeight * targetRatio);
 
-          cropX = Math.round(
-            (sourceWidth - cropWidth) / 2
-          );
-
+          cropX = Math.round((sourceWidth - cropWidth) / 2);
           cropY = 0;
         } else if (sourceRatio < targetRatio) {
           cropWidth = sourceWidth;
-          cropHeight = Math.round(
-            sourceWidth / targetRatio
-          );
+          cropHeight = Math.round(sourceWidth / targetRatio);
 
           cropX = 0;
-
-          cropY = Math.round(
-            (sourceHeight - cropHeight) / 2
-          );
+          cropY = Math.round((sourceHeight - cropHeight) / 2);
         } else {
           cropWidth = sourceWidth;
           cropHeight = sourceHeight;
@@ -84,33 +71,20 @@ function cropImageToThreeByFour(file) {
           cropY = 0;
         }
 
-        if (
-          cropWidth <= 0 ||
-          cropHeight <= 0
-        ) {
-          reject(
-            new Error(
-              "Ukuran crop foto tidak valid."
-            )
-          );
+        if (cropWidth <= 0 || cropHeight <= 0) {
+          reject(new Error("Ukuran crop foto tidak valid."));
           return;
         }
 
-        const canvas =
-          document.createElement("canvas");
+        const canvas = document.createElement("canvas");
 
         canvas.width = cropWidth;
         canvas.height = cropHeight;
 
-        const ctx =
-          canvas.getContext("2d");
+        const ctx = canvas.getContext("2d");
 
         if (!ctx) {
-          reject(
-            new Error(
-              "Canvas tidak tersedia."
-            )
-          );
+          reject(new Error("Canvas tidak tersedia."));
           return;
         }
 
@@ -132,16 +106,11 @@ function cropImageToThreeByFour(file) {
         canvas.toBlob(
           (blob) => {
             if (!blob) {
-              reject(
-                new Error(
-                  "Gagal membuat file foto."
-                )
-              );
+              reject(new Error("Gagal membuat file foto."));
               return;
             }
 
-            const objectUrl =
-              URL.createObjectURL(blob);
+            const objectUrl = URL.createObjectURL(blob);
 
             resolve({
               src: objectUrl,
@@ -157,27 +126,24 @@ function cropImageToThreeByFour(file) {
       };
 
       image.onerror = () => {
-        reject(
-          new Error(
-            "Foto tidak dapat dibaca."
-          )
-        );
+        reject(new Error("Foto tidak dapat dibaca."));
       };
 
       image.src = reader.result;
     };
 
     reader.onerror = () => {
-      reject(
-        new Error(
-          "File tidak dapat dibaca."
-        )
-      );
+      reject(new Error("File tidak dapat dibaca."));
     };
 
     reader.readAsDataURL(file);
   });
 }
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
 
 function FinaleLikeBackground() {
   return (
@@ -185,29 +151,35 @@ function FinaleLikeBackground() {
       className="photo-upload-background"
       aria-hidden="true"
     >
-      <div className="photo-upload-bg-glow photo-upload-bg-glow-main" />
+      <div className="photo-upload-cosmic-base" />
+
+      <div className="photo-upload-cosmic-nebula photo-upload-cosmic-nebula-one" />
+
+      <div className="photo-upload-cosmic-nebula photo-upload-cosmic-nebula-two" />
+
+      <div className="photo-upload-cosmic-nebula photo-upload-cosmic-nebula-three" />
 
       <motion.div
-        className="photo-upload-bg-glow photo-upload-bg-glow-pink"
+        className="photo-upload-ambient-glow photo-upload-ambient-glow-left"
         animate={{
-          opacity: [0.34, 0.52, 0.34],
-          scale: [1, 1.07, 1],
+          opacity: [0.16, 0.28, 0.16],
+          scale: [1, 1.05, 1],
         }}
         transition={{
-          duration: 9,
+          duration: 10,
           repeat: Infinity,
           ease: "easeInOut",
         }}
       />
 
       <motion.div
-        className="photo-upload-bg-glow photo-upload-bg-glow-violet"
+        className="photo-upload-ambient-glow photo-upload-ambient-glow-right"
         animate={{
-          opacity: [0.22, 0.4, 0.22],
-          scale: [1, 1.08, 1],
+          opacity: [0.12, 0.24, 0.12],
+          scale: [1, 1.07, 1],
         }}
         transition={{
-          duration: 11,
+          duration: 12,
           repeat: Infinity,
           ease: "easeInOut",
           delay: 1.5,
@@ -215,75 +187,75 @@ function FinaleLikeBackground() {
       />
 
       <motion.div
-        className="photo-upload-bg-glow photo-upload-bg-glow-bottom"
+        className="photo-upload-ambient-glow photo-upload-ambient-glow-bottom"
         animate={{
-          opacity: [0.2, 0.34, 0.2],
-          scale: [1, 1.05, 1],
+          opacity: [0.08, 0.17, 0.08],
+          scale: [1, 1.04, 1],
         }}
         transition={{
-          duration: 12,
+          duration: 14,
           repeat: Infinity,
           ease: "easeInOut",
           delay: 2,
         }}
       />
 
-      {backgroundStars.map(
-        (star, index) => (
-          <motion.span
-            key={index}
-            className="photo-upload-bg-star"
-            style={{
-              left: star.left,
-              top: star.top,
-              width: `${star.size}px`,
-              height: `${star.size}px`,
-            }}
-            animate={{
-              opacity: [0.08, 0.5, 0.08],
-              scale: [0.7, 1.2, 0.7],
-            }}
-            transition={{
-              duration:
-                4 + (index % 4) * 0.7,
-              delay: star.delay,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-        )
-      )}
+      <div className="photo-upload-cosmic-stars photo-upload-cosmic-stars-one" />
+
+      <div className="photo-upload-cosmic-stars photo-upload-cosmic-stars-two" />
+
+      {backgroundStars.map((star, index) => (
+        <motion.span
+          key={index}
+          className="photo-upload-bg-star"
+          style={{
+            left: star.left,
+            top: star.top,
+            width: `${star.size}px`,
+            height: `${star.size}px`,
+          }}
+          animate={{
+            opacity: [0.06, 0.32, 0.06],
+            scale: [0.7, 1.15, 0.7],
+          }}
+          transition={{
+            duration: 4 + (index % 4) * 0.7,
+            delay: star.delay,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+      ))}
 
       <div className="photo-upload-floating-hearts">
-        {Array.from({ length: 10 }).map(
-          (_, index) => (
-            <span
-              key={index}
-              className="photo-upload-floating-heart"
-              style={{
-                "--heart-left": `${
-                  (index * 19) % 100
-                }%`,
-                "--heart-delay": `${
-                  index * 1.3
-                }s`,
-                "--heart-size": `${
-                  7 + (index % 3) * 3
-                }px`,
-              }}
-            >
-              ♥
-            </span>
-          )
-        )}
+        {Array.from({ length: 8 }).map((_, index) => (
+          <span
+            key={index}
+            className="photo-upload-floating-heart"
+            style={{
+              "--heart-left": `${(index * 23) % 100}%`,
+              "--heart-delay": `${index * 1.6}s`,
+              "--heart-size": `${6 + (index % 3) * 2}px`,
+            }}
+          >
+            ♥
+          </span>
+        ))}
       </div>
 
       <div className="photo-upload-bg-center" />
+
       <div className="photo-upload-bg-vignette" />
+
       <div className="photo-upload-bg-grain" />
     </div>
   );
 }
+
+
+/* =========================================================
+   MAIN
+========================================================= */
 
 export default function PhotoUpload({
   onNext,
@@ -292,34 +264,23 @@ export default function PhotoUpload({
 }) {
   const fileInputRefs = useRef([]);
 
-  const [feedback, setFeedback] =
-    useState("");
-
-  const [isNextAnimating, setIsNextAnimating] =
-    useState(false);
+  const [feedback, setFeedback] = useState("");
+  const [isNextAnimating, setIsNextAnimating] = useState(false);
 
   const openFilePicker = (index) => {
     fileInputRefs.current[index]?.click();
   };
 
-  const handleFileChange = async (
-    event,
-    index
-  ) => {
-    const file =
-      event.target.files?.[0];
+  const handleFileChange = async (event, index) => {
+    const file = event.target.files?.[0];
 
     if (!file) {
       return;
     }
 
     if (!file.type.startsWith("image/")) {
-      setFeedback(
-        "pilih file foto ya."
-      );
-
+      setFeedback("pilih file foto ya.");
       event.target.value = "";
-
       return;
     }
 
@@ -327,70 +288,52 @@ export default function PhotoUpload({
       const processedPhoto =
         await cropImageToThreeByFour(file);
 
-      setPhotos(
-        (currentPhotos) => {
-          const updatedPhotos = [
-            ...currentPhotos,
-          ];
+      setPhotos((currentPhotos) => {
+        const updatedPhotos = [...currentPhotos];
 
-          updatedPhotos[index] =
-            processedPhoto;
+        updatedPhotos[index] = processedPhoto;
 
-          const uploadedCount =
-            updatedPhotos.filter(Boolean)
-              .length;
+        const uploadedCount =
+          updatedPhotos.filter(Boolean).length;
 
-          setFeedback(
-            feedbackMessages[
-              Math.min(
-                uploadedCount,
-                feedbackMessages.length - 1
-              )
-            ]
-          );
+        setFeedback(
+          feedbackMessages[
+            Math.min(
+              uploadedCount,
+              feedbackMessages.length - 1
+            )
+          ]
+        );
 
-          return updatedPhotos;
-        }
-      );
+        return updatedPhotos;
+      });
     } catch (error) {
-      console.error(
-        "Gagal memproses foto:",
-        error
-      );
+      console.error("Gagal memproses foto:", error);
 
-      setFeedback(
-        "foto itu nggak bisa diproses."
-      );
+      setFeedback("foto itu nggak bisa diproses.");
     }
 
     event.target.value = "";
   };
 
   const removePhoto = (index) => {
-    setPhotos(
-      (currentPhotos) => {
-        const updatedPhotos = [
-          ...currentPhotos,
-        ];
+    setPhotos((currentPhotos) => {
+      const updatedPhotos = [...currentPhotos];
 
-        const oldPhoto =
-          updatedPhotos[index];
+      const oldPhoto = updatedPhotos[index];
 
-        if (
-          oldPhoto &&
-          typeof oldPhoto === "object" &&
-          oldPhoto.src
-        ) {
-          URL.revokeObjectURL(
-            oldPhoto.src
-          );
-        }
-
-        updatedPhotos[index] = null;
-
-        return updatedPhotos;
+      if (
+        oldPhoto &&
+        typeof oldPhoto === "object" &&
+        oldPhoto.src
+      ) {
+        URL.revokeObjectURL(oldPhoto.src);
       }
-    );
+
+      updatedPhotos[index] = null;
+
+      return updatedPhotos;
+    });
 
     setFeedback("");
   };
@@ -417,107 +360,114 @@ export default function PhotoUpload({
 
   return (
     <section className="scene scene-photo-upload">
+
       <FinaleLikeBackground />
 
-      <motion.div
-        className="photo-upload-copy"
-        initial={{
-          opacity: 0,
-          y: 22,
-        }}
-        animate={{
-          opacity: 1,
-          y: 0,
-        }}
-        transition={{
-          duration: 1,
-          ease: [
-            0.22,
-            1,
-            0.36,
-            1,
-          ],
-        }}
-      >
-        <div className="photo-upload-eyebrow">
-          A LITTLE SOMETHING FROM YOU
-        </div>
 
-        <div className="photo-upload-title-wrap">
+      {/* =====================================================
+          CONTENT
+      ===================================================== */}
+
+      <div className="photo-upload-content">
+
+        {/* ===================================================
+            HEADER
+        =================================================== */}
+
+        <motion.div
+          className="photo-upload-copy"
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.95,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+        >
+          <div className="photo-upload-eyebrow">
+            A LITTLE SOMETHING FROM YOU
+          </div>
+
+          <div className="photo-upload-divider">
+            <span />
+            <i />
+            <span />
+          </div>
+
           <h1>
-            taruh 3 foto
+            simpan sedikit
             <br />
-            kamu di sini.
+            <em>tentang kamu.</em>
           </h1>
-        </div>
 
-        <div className="photo-upload-description">
-          <p>
-            bisa selfie asal-asalan.
-          </p>
+          <div className="photo-upload-description">
+            <p>
+              pilih 3 foto yang paling kamu suka.
+            </p>
 
-          <p>
-            bisa foto random di galeri kamu.
-          </p>
+            <p>
+              foto random juga boleh.
+            </p>
 
-          <p>
-            apapun.
-          </p>
-        </div>
+            <p>
+              nggak harus sempurna.
+            </p>
+          </div>
 
-        <div className="photo-upload-instruction">
-          <span>
-            yang penting itu kamu.
-          </span>
-        </div>
-      </motion.div>
+          <div className="photo-upload-instruction">
+            <span>
+              aku cuma ingin melihat dunia dari sisi kamu.
+            </span>
+          </div>
+        </motion.div>
 
-      <motion.div
-        className="photo-slots"
-        initial={{
-          opacity: 0,
-          y: 28,
-        }}
-        animate={{
-          opacity: 1,
-          y: 0,
-        }}
-        transition={{
-          duration: 1,
-          delay: 0.18,
-          ease: [
-            0.22,
-            1,
-            0.36,
-            1,
-          ],
-        }}
-      >
-        {photos.map(
-          (photo, index) => (
+
+        {/* ===================================================
+            PHOTO GRID
+        =================================================== */}
+
+        <motion.div
+          className="photo-slots"
+          initial={{
+            opacity: 0,
+            y: 24,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.95,
+            delay: 0.16,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+        >
+          {photos.map((photo, index) => (
             <motion.div
               key={index}
               className={`photo-slot-wrapper ${
-                photo
-                  ? "has-photo"
-                  : ""
+                photo ? "has-photo" : ""
               }`}
               initial={{
                 opacity: 0,
-                y: 20,
+                y: 18,
               }}
               animate={{
                 opacity: 1,
                 y: 0,
               }}
               transition={{
-                duration: 0.7,
-                delay:
-                  0.3 +
-                  index * 0.1,
-                ease: "easeOut",
+                duration: 0.65,
+                delay: 0.25 + index * 0.1,
+                ease: [0.22, 1, 0.36, 1],
               }}
             >
+
               <div
                 className={`photo-slot ${
                   photo
@@ -525,13 +475,21 @@ export default function PhotoUpload({
                     : "photo-slot-empty-state"
                 }`}
               >
-                <div className="photo-slot-number">
-                  0{index + 1}
+
+                {/* TOP META */}
+
+                <div className="photo-slot-meta">
+                  <span className="photo-slot-number">
+                    0{index + 1}
+                  </span>
+
+                  <span className="photo-slot-label">
+                    MEMORY
+                  </span>
                 </div>
 
-                <div className="photo-slot-label">
-                  MEMORY
-                </div>
+
+                {/* EMPTY */}
 
                 {!photo && (
                   <button
@@ -549,7 +507,7 @@ export default function PhotoUpload({
                     </span>
 
                     <span className="photo-empty-title">
-                      add memory
+                      ADD A PHOTO
                     </span>
 
                     <span className="photo-empty-hint">
@@ -558,12 +516,15 @@ export default function PhotoUpload({
                   </button>
                 )}
 
+
+                {/* FILLED */}
+
                 {photo && (
                   <motion.div
                     className="photo-filled"
                     initial={{
                       opacity: 0,
-                      scale: 1.04,
+                      scale: 1.035,
                     }}
                     animate={{
                       opacity: 1,
@@ -571,7 +532,7 @@ export default function PhotoUpload({
                     }}
                     transition={{
                       duration: 0.7,
-                      ease: "easeOut",
+                      ease: [0.22, 1, 0.36, 1],
                     }}
                   >
                     <img
@@ -580,9 +541,7 @@ export default function PhotoUpload({
                           ? photo
                           : photo.src
                       }
-                      alt={`Memory ${
-                        index + 1
-                      }`}
+                      alt={`Memory ${index + 1}`}
                       className="photo-preview"
                       draggable="false"
                     />
@@ -597,8 +556,10 @@ export default function PhotoUpload({
                             openFilePicker(index)
                           }
                         >
-                          Ganti foto
+                          Ganti
                         </button>
+
+                        <span />
 
                         <button
                           type="button"
@@ -606,18 +567,25 @@ export default function PhotoUpload({
                             removePhoto(index)
                           }
                         >
-                          Hapus foto
+                          Hapus
                         </button>
                       </div>
                     </div>
                   </motion.div>
                 )}
 
+
+                {/* CORNERS */}
+
                 <span className="photo-corner photo-corner-tl" />
                 <span className="photo-corner photo-corner-tr" />
                 <span className="photo-corner photo-corner-bl" />
                 <span className="photo-corner photo-corner-br" />
+
               </div>
+
+
+              {/* HIDDEN INPUT */}
 
               <input
                 ref={(element) => {
@@ -634,84 +602,132 @@ export default function PhotoUpload({
                 }
                 hidden
               />
+
             </motion.div>
-          )
-        )}
-      </motion.div>
+          ))}
+        </motion.div>
 
-      <AnimatePresence mode="wait">
-        {feedback && (
-          <motion.div
-            key={feedback}
-            className="photo-upload-feedback"
-            initial={{
-              opacity: 0,
-              y: 8,
-              scale: 0.96,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-              scale: 1,
-            }}
-            exit={{
-              opacity: 0,
-              y: -8,
-            }}
-            transition={{
-              duration: 0.45,
-              ease: "easeOut",
-            }}
-          >
-            {feedback}
-          </motion.div>
-        )}
-      </AnimatePresence>
 
-      <AnimatePresence>
-        {allPhotosUploaded && (
-          <motion.button
-            type="button"
-            className={`editorial-navigation ${
-              isNextAnimating
-                ? "is-next-moving"
-                : ""
-            }`}
-            onClick={handleNext}
-            disabled={isNextAnimating}
-            aria-label="Continue"
-            initial={{
-              opacity: 0,
-              y: 10,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            exit={{
-              opacity: 0,
-              y: 10,
-            }}
-            transition={{
-              duration: 0.7,
-              ease: [
-                0.22,
-                1,
-                0.36,
-                1,
-              ],
-            }}
-          >
-            <span className="editorial-arrow">
-              <span className="editorial-line" />
+        {/* ===================================================
+            PROGRESS
+        =================================================== */}
 
-              <span className="editorial-arrow-symbol">
-                →
-              </span>
+        <motion.div
+          className="photo-upload-progress"
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+          }}
+          transition={{
+            delay: 0.55,
+            duration: 0.6,
+          }}
+        >
+          <div className="photo-upload-progress-line">
+            <span
+              style={{
+                width: `${(uploadedCount / 3) * 100}%`,
+              }}
+            />
+          </div>
+
+          <div className="photo-upload-progress-text">
+            <span>
+              {uploadedCount === 0
+                ? "three little memories"
+                : `${uploadedCount} of 3 memories`}
             </span>
-          </motion.button>
-        )}
-      </AnimatePresence>
+
+            <span>
+              {uploadedCount === 3
+                ? "complete"
+                : "your turn"}
+            </span>
+          </div>
+        </motion.div>
+
+
+        {/* ===================================================
+            FEEDBACK
+        =================================================== */}
+
+        <AnimatePresence mode="wait">
+          {feedback && (
+            <motion.div
+              key={feedback}
+              className="photo-upload-feedback"
+              initial={{
+                opacity: 0,
+                y: 8,
+                scale: 0.97,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                scale: 1,
+              }}
+              exit={{
+                opacity: 0,
+                y: -8,
+              }}
+              transition={{
+                duration: 0.4,
+                ease: "easeOut",
+              }}
+            >
+              {feedback}
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+
+        {/* ===================================================
+            CONTINUE
+        =================================================== */}
+
+        <AnimatePresence>
+          {allPhotosUploaded && (
+            <motion.button
+              type="button"
+              className={`editorial-navigation ${
+                isNextAnimating
+                  ? "is-next-moving"
+                  : ""
+              }`}
+              onClick={handleNext}
+              disabled={isNextAnimating}
+              aria-label="Continue"
+              initial={{
+                opacity: 0,
+                y: 10,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              exit={{
+                opacity: 0,
+                y: 10,
+              }}
+              transition={{
+                duration: 0.65,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            >
+              <span className="editorial-arrow">
+                <span className="editorial-line" />
+
+                <span className="editorial-arrow-symbol">
+                  →
+                </span>
+              </span>
+            </motion.button>
+          )}
+        </AnimatePresence>
+
+      </div>
     </section>
   );
 }

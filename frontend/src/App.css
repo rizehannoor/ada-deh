@@ -12688,3 +12688,5735 @@ button:focus-visible {
 .scene-photo-transition .typewriter-lines {
   transform: translateY(45px);
 }
+/* =========================================================
+   FINALE — COMPLETE RESPONSIVE CSS
+   Designed for:
+   360 / 375 / 390 / 414 / 430
+   tablet
+   laptop
+   desktop
+
+   IMPORTANT:
+   JSX yang sekarang tetap bisa dipakai.
+   CSS ini sengaja menggunakan beberapa !important
+   untuk mengalahkan inline style yang ada di JSX.
+========================================================= */
+
+
+/* =========================================================
+   ROOT SAFETY
+========================================================= */
+
+.scene-finale,
+.scene-finale *,
+.scene-finale *::before,
+.scene-finale *::after {
+  box-sizing: border-box;
+}
+
+.scene-finale {
+  position: relative;
+
+  width: 100%;
+  min-width: 0;
+
+  min-height: 100vh;
+  min-height: 100svh;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  isolation: isolate;
+
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(111, 49, 94, 0.16),
+      transparent 38%
+    ),
+    linear-gradient(
+      180deg,
+      #050208 0%,
+      #08030d 42%,
+      #100616 72%,
+      #050207 100%
+    );
+
+  color: #fff8fc;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.cosmic-background {
+  position: fixed;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+
+.cosmic-nebula {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(70px);
+
+  pointer-events: none;
+
+  opacity: 0.55;
+}
+
+
+.cosmic-nebula-one {
+  width: 520px;
+  height: 520px;
+
+  top: -180px;
+  left: -180px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(212, 154, 183, 0.18),
+      rgba(111, 49, 94, 0.08),
+      transparent 72%
+    );
+}
+
+
+.cosmic-nebula-two {
+  width: 650px;
+  height: 650px;
+
+  top: 24%;
+  right: -300px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(111, 49, 94, 0.20),
+      rgba(75, 32, 63, 0.07),
+      transparent 72%
+    );
+}
+
+
+.cosmic-nebula-three {
+  width: 700px;
+  height: 500px;
+
+  bottom: -240px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(212, 154, 183, 0.11),
+      rgba(111, 49, 94, 0.06),
+      transparent 70%
+    );
+}
+
+
+/* =========================================================
+   STARS
+========================================================= */
+
+.cosmic-stars {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.55;
+}
+
+
+.cosmic-stars-one {
+  background-image:
+    radial-gradient(
+      circle at 12% 18%,
+      rgba(255,255,255,.42) 0 1px,
+      transparent 1.5px
+    ),
+    radial-gradient(
+      circle at 24% 67%,
+      rgba(231,191,210,.32) 0 1px,
+      transparent 1.5px
+    ),
+    radial-gradient(
+      circle at 47% 31%,
+      rgba(255,255,255,.25) 0 1px,
+      transparent 1.5px
+    ),
+    radial-gradient(
+      circle at 73% 14%,
+      rgba(231,191,210,.38) 0 1px,
+      transparent 1.5px
+    ),
+    radial-gradient(
+      circle at 86% 63%,
+      rgba(255,255,255,.32) 0 1px,
+      transparent 1.5px
+    ),
+    radial-gradient(
+      circle at 61% 81%,
+      rgba(231,191,210,.24) 0 1px,
+      transparent 1.5px
+    );
+}
+
+
+.cosmic-stars-two {
+  opacity: 0.3;
+
+  background-image:
+    radial-gradient(
+      circle at 8% 76%,
+      rgba(255,255,255,.28) 0 1px,
+      transparent 1.5px
+    ),
+    radial-gradient(
+      circle at 32% 11%,
+      rgba(231,191,210,.25) 0 1px,
+      transparent 1.5px
+    ),
+    radial-gradient(
+      circle at 55% 58%,
+      rgba(255,255,255,.20) 0 1px,
+      transparent 1.5px
+    ),
+    radial-gradient(
+      circle at 91% 32%,
+      rgba(231,191,210,.25) 0 1px,
+      transparent 1.5px
+    );
+}
+
+
+/* =========================================================
+   MOON
+========================================================= */
+
+.cosmic-moon {
+  position: absolute;
+
+  top: 7%;
+  right: 8%;
+
+  width: 100px;
+  height: 100px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 34% 32%,
+      rgba(255,255,255,.20),
+      rgba(231,191,210,.08) 38%,
+      rgba(111,49,94,.04) 60%,
+      transparent 72%
+    );
+
+  filter: blur(1px);
+
+  opacity: 0.35;
+}
+
+
+.cosmic-horizon {
+  position: absolute;
+
+  left: 50%;
+  bottom: -18%;
+
+  width: 100%;
+  height: 55%;
+
+  transform: translateX(-50%);
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(111,49,94,.15),
+      transparent 68%
+    );
+
+  filter: blur(30px);
+}
+
+
+/* =========================================================
+   VIGNETTE
+========================================================= */
+
+.cosmic-vignette {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 30%,
+      rgba(0,0,0,.10) 58%,
+      rgba(0,0,0,.62) 100%
+    );
+}
+
+
+.cosmic-grain {
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0.055;
+
+  pointer-events: none;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.32'/%3E%3C/svg%3E");
+}
+
+
+/* =========================================================
+   AMBIENT GLOW
+========================================================= */
+
+.ambient-glow {
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  filter: blur(90px);
+
+  z-index: 1;
+
+  opacity: 0.20;
+}
+
+
+.ambient-glow-left {
+  top: 28%;
+  left: -190px;
+
+  background:
+    rgba(185,120,157,.32);
+}
+
+
+.ambient-glow-right {
+  top: 58%;
+  right: -190px;
+
+  background:
+    rgba(111,49,94,.36);
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.finale-content {
+  position: relative !important;
+
+  z-index: 5 !important;
+
+  width: min(
+    calc(100% - 32px),
+    760px
+  ) !important;
+
+  max-width: 760px !important;
+
+  margin: 0 auto !important;
+
+  padding:
+    72px 0
+    80px !important;
+
+  display: flex !important;
+
+  flex-direction: column !important;
+
+  align-items: center !important;
+
+  justify-content: flex-start !important;
+
+  text-align: center;
+
+  overflow: visible !important;
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.finale-eyebrow {
+  position: relative;
+
+  z-index: 10;
+
+  width: 100%;
+
+  margin:
+    0 0 18px !important;
+
+  padding: 0;
+
+  text-align: center;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 9px;
+
+  line-height: 1.4;
+
+  font-weight: 600;
+
+  letter-spacing: 0.28em;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(231,191,210,.72);
+}
+
+
+.finale-eyebrow::before,
+.finale-eyebrow::after {
+  content: "";
+
+  display: inline-block;
+
+  width: 34px;
+  height: 1px;
+
+  margin:
+    0 12px 3px;
+
+  background:
+    rgba(212,154,183,.28);
+
+  vertical-align: middle;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.finale-title {
+  position: relative !important;
+
+  z-index: 10 !important;
+
+  width: 100% !important;
+
+  max-width: 720px !important;
+
+  margin:
+    0 auto !important;
+
+  padding:
+    0 10px !important;
+
+  text-align: center !important;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(38px, 6vw, 64px) !important;
+
+  line-height:
+    1.02 !important;
+
+  font-weight: 400;
+
+  letter-spacing:
+    -0.025em;
+
+  color:
+    #fff8fc;
+
+  text-wrap: balance;
+
+  overflow: visible !important;
+}
+
+
+.finale-title span {
+  display: block;
+
+  margin-top: 5px;
+
+  font-size:
+    1.08em;
+
+  font-style: italic;
+
+  color:
+    #d49ab7;
+
+  text-shadow:
+    0 0 30px rgba(212,154,183,.18);
+}
+
+
+/* =========================================================
+   PHOTO STRIP OUTER
+   THIS IS VERY IMPORTANT
+========================================================= */
+
+.finale-photo-strip {
+  position: relative !important;
+
+  z-index: 6 !important;
+
+  width: 100% !important;
+
+  max-width: 100% !important;
+
+  height: auto !important;
+
+  min-height: 0 !important;
+
+  margin:
+    42px auto 0 !important;
+
+  padding: 0 !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: center !important;
+
+  flex-shrink: 0 !important;
+
+  overflow: visible !important;
+
+  transform: none;
+}
+
+
+/* =========================================================
+   PHOTO BOOTH
+========================================================= */
+
+.finale-photo-booth {
+  position: relative !important;
+
+  width:
+    min(390px, calc(100vw - 48px)) !important;
+
+  max-width:
+    390px !important;
+
+  min-width: 0 !important;
+
+  height: auto !important;
+
+  margin:
+    0 auto !important;
+
+  padding:
+    10px !important;
+
+  background:
+    #ffffff !important;
+
+  border:
+    1px solid rgba(75,32,63,.16);
+
+  box-shadow:
+    0 26px 80px rgba(0,0,0,.45),
+    0 4px 20px rgba(111,49,94,.12) !important;
+
+  display:
+    flex !important;
+
+  flex-direction:
+    column !important;
+
+  align-items:
+    stretch !important;
+
+  justify-content:
+    flex-start !important;
+
+  gap:
+    6px !important;
+
+  flex-shrink: 0 !important;
+
+  box-sizing:
+    border-box !important;
+
+  overflow:
+    visible !important;
+
+  transform:
+    none !important;
+}
+
+
+/* =========================================================
+   PHOTO BOOTH INNER BORDER
+========================================================= */
+
+.finale-photo-booth::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 5px;
+
+  border:
+    1px solid rgba(111,49,94,.12);
+
+  pointer-events: none;
+
+  z-index: 20;
+}
+
+
+.finale-photo-booth::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 21;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.18),
+      transparent 25%,
+      transparent 75%,
+      rgba(111,49,94,.03)
+    );
+}
+
+
+/* =========================================================
+   FLOWERS
+========================================================= */
+
+.finale-photo-booth > div[aria-hidden="true"] {
+  pointer-events: none !important;
+}
+
+
+/* =========================================================
+   PHOTO ITEMS
+========================================================= */
+
+.finale-booth-photo {
+  position: relative !important;
+
+  width: 100% !important;
+
+  height: auto !important;
+
+  aspect-ratio:
+    4 / 3 !important;
+
+  min-height: 0 !important;
+
+  flex:
+    0 0 auto !important;
+
+  overflow:
+    hidden !important;
+
+  background:
+    #f7f4f7 !important;
+
+  border:
+    1px solid rgba(75,32,63,.08) !important;
+
+  box-sizing:
+    border-box !important;
+
+  transform:
+    none !important;
+}
+
+
+.finale-booth-photo img {
+  display: block !important;
+
+  width: 100% !important;
+
+  height: 100% !important;
+
+  min-width: 0 !important;
+
+  min-height: 0 !important;
+
+  max-width: 100% !important;
+
+  max-height: 100% !important;
+
+  object-fit:
+    cover !important;
+
+  object-position:
+    center center !important;
+
+  border: 0 !important;
+
+  margin: 0 !important;
+
+  padding: 0 !important;
+}
+
+
+/* =========================================================
+   PHOTO PLACEHOLDER
+========================================================= */
+
+.finale-booth-photo > div {
+  max-width: 100%;
+
+  overflow: hidden;
+
+  text-align: center;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   BOOTH MESSAGE
+========================================================= */
+
+.finale-booth-message {
+  position: relative !important;
+
+  z-index: 5;
+
+  width: 100% !important;
+
+  min-height:
+    145px !important;
+
+  height: auto !important;
+
+  margin: 0 !important;
+
+  padding:
+    18px 12px 16px !important;
+
+  display:
+    flex !important;
+
+  flex-direction:
+    column !important;
+
+  align-items:
+    center !important;
+
+  justify-content:
+    center !important;
+
+  text-align:
+    center !important;
+
+  color:
+    #4b203f;
+
+  background:
+    #ffffff;
+
+  overflow:
+    hidden !important;
+}
+
+
+.finale-booth-message span,
+.finale-booth-message strong,
+.finale-booth-message em,
+.finale-booth-message small {
+  max-width: 100%;
+
+  overflow-wrap: anywhere;
+
+  word-break: normal;
+
+  text-align: center;
+}
+
+
+.finale-booth-message strong {
+  font-family:
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(17px, 4.5vw, 20px);
+
+  line-height:
+    1.25;
+
+  font-weight: 500;
+}
+
+
+.finale-booth-message em {
+  margin-top: 3px;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(23px, 6vw, 28px);
+
+  line-height: 1.1;
+
+  color:
+    #b9789d;
+
+  font-style: italic;
+}
+
+
+/* =========================================================
+   LETTER AREA
+   CRITICAL: KEEP BELOW PHOTO BOOTH
+========================================================= */
+
+.finale-letter-area {
+  position: relative !important;
+
+  z-index: 30 !important;
+
+  width: 100% !important;
+
+  max-width: 760px !important;
+
+  height: auto !important;
+
+  min-height: 0 !important;
+
+  margin:
+    58px auto 0 !important;
+
+  padding:
+    0 !important;
+
+  display:
+    flex !important;
+
+  flex-direction:
+    column !important;
+
+  align-items:
+    center !important;
+
+  justify-content:
+    flex-start !important;
+
+  overflow:
+    visible !important;
+
+  flex-shrink: 0 !important;
+
+  transform:
+    none !important;
+}
+
+
+/* =========================================================
+   LETTER EYEBROW
+========================================================= */
+
+.finale-letter-eyebrow {
+  position: relative !important;
+
+  z-index: 50 !important;
+
+  margin:
+    0 0 18px !important;
+
+  padding: 0;
+
+  text-align: center;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif !important;
+
+  font-size:
+    9px !important;
+
+  line-height:
+    1.4 !important;
+
+  letter-spacing:
+    .25em !important;
+
+  color:
+    rgba(231,191,210,.72) !important;
+
+  text-transform:
+    uppercase;
+}
+
+
+/* =========================================================
+   ENVELOPE BUTTON
+========================================================= */
+
+.finale-envelope-button {
+  position: relative !important;
+
+  z-index: 40 !important;
+
+  display: block !important;
+
+  width:
+    min(360px, calc(100vw - 56px)) !important;
+
+  max-width:
+    360px !important;
+
+  height:
+    auto !important;
+
+  aspect-ratio:
+    360 / 230 !important;
+
+  min-height:
+    0 !important;
+
+  margin:
+    0 auto !important;
+
+  padding:
+    0 !important;
+
+  border:
+    0 !important;
+
+  outline:
+    none;
+
+  background:
+    transparent !important;
+
+  overflow:
+    visible !important;
+
+  cursor:
+    pointer;
+
+  flex-shrink:
+    0 !important;
+
+  transform:
+    none;
+
+  -webkit-tap-highlight-color:
+    transparent;
+}
+
+
+.finale-envelope-button:disabled {
+  cursor: default;
+
+  opacity: 1;
+}
+
+
+/* =========================================================
+   ENVELOPE
+========================================================= */
+
+.finale-envelope {
+  position: absolute !important;
+
+  left: 50% !important;
+  top: 50% !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  margin: 0 !important;
+
+  transform:
+    translate(-50%, -50%) !important;
+
+  transform-style:
+    preserve-3d;
+
+  overflow:
+    visible !important;
+
+  filter:
+    drop-shadow(
+      0 22px 32px rgba(0,0,0,.42)
+    ) !important;
+}
+
+
+/* =========================================================
+   ENVELOPE BACK
+========================================================= */
+
+.envelope-back {
+  position: absolute !important;
+
+  inset: 0 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  border-radius:
+    5px !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      #714966 0%,
+      #5d3856 48%,
+      #472b45 100%
+    ) !important;
+
+  border:
+    1px solid rgba(231,191,210,.24) !important;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.15),
+    inset 0 -10px 20px rgba(20,5,20,.15);
+
+  overflow:
+    hidden !important;
+}
+
+
+/* =========================================================
+   LETTER INSIDE
+========================================================= */
+
+.envelope-letter {
+  position: absolute !important;
+
+  left:
+    11% !important;
+
+  top:
+    10% !important;
+
+  width:
+    78% !important;
+
+  height:
+    82% !important;
+
+  max-width:
+    none !important;
+
+  background:
+    #fffafd !important;
+
+  border-radius:
+    3px !important;
+
+  box-shadow:
+    0 5px 20px rgba(0,0,0,.18);
+
+  overflow:
+    hidden !important;
+
+  z-index:
+    2 !important;
+}
+
+
+/* =========================================================
+   ENVELOPE FOLDS
+========================================================= */
+
+.envelope-fold {
+  pointer-events: none;
+}
+
+
+/* LEFT */
+
+.envelope-fold-left {
+  position: absolute !important;
+
+  left: 0 !important;
+  bottom: 0 !important;
+
+  z-index: 5 !important;
+
+  border-top:
+    115px solid transparent !important;
+
+  border-bottom:
+    115px solid transparent !important;
+
+  border-left:
+    168px solid #54324f !important;
+}
+
+
+/* RIGHT */
+
+.envelope-fold-right {
+  position: absolute !important;
+
+  right: 0 !important;
+  bottom: 0 !important;
+
+  z-index: 5 !important;
+
+  border-top:
+    115px solid transparent !important;
+
+  border-bottom:
+    115px solid transparent !important;
+
+  border-right:
+    168px solid #54324f !important;
+}
+
+
+/* BOTTOM */
+
+.envelope-fold-bottom {
+  position: absolute !important;
+
+  left: 0 !important;
+  bottom: 0 !important;
+
+  z-index: 6 !important;
+
+  border-left:
+    180px solid transparent !important;
+
+  border-right:
+    180px solid transparent !important;
+
+  border-bottom:
+    118px solid #472b45 !important;
+}
+
+
+/* =========================================================
+   TOP FLAP
+========================================================= */
+
+.envelope-flap {
+  position: absolute !important;
+
+  top: 0 !important;
+  left: 0 !important;
+
+  width: 100% !important;
+  height: 55% !important;
+
+  z-index: 9 !important;
+
+  transform-origin:
+    50% 0%;
+
+  transform-style:
+    preserve-3d;
+
+  pointer-events:
+    none !important;
+}
+
+
+/* =========================================================
+   SEAL
+========================================================= */
+
+.envelope-seal {
+  position: absolute !important;
+
+  left: 50% !important;
+
+  top: 58% !important;
+
+  width:
+    62px !important;
+
+  height:
+    62px !important;
+
+  z-index:
+    12 !important;
+
+  display:
+    flex !important;
+
+  align-items:
+    center !important;
+
+  justify-content:
+    center !important;
+
+  border-radius:
+    50% !important;
+
+  color:
+    #fff8fc !important;
+
+  font-family:
+    Georgia,
+    serif !important;
+
+  font-size:
+    27px !important;
+
+  line-height:
+    1 !important;
+}
+
+
+/* =========================================================
+   ENVELOPE SPARKLES
+========================================================= */
+
+.finale-envelope-sparkles {
+  position: absolute !important;
+
+  inset:
+    -20px !important;
+
+  z-index:
+    20 !important;
+
+  pointer-events:
+    none !important;
+}
+
+
+.envelope-sparkle {
+  position: absolute;
+
+  display: block;
+
+  line-height: 1;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   LETTER HINT
+========================================================= */
+
+.finale-letter-hint {
+  position: relative !important;
+
+  z-index: 40 !important;
+
+  width:
+    100%;
+
+  margin:
+    17px 0 0 !important;
+
+  padding:
+    0 12px;
+
+  font-family:
+    Georgia,
+    serif !important;
+
+  font-size:
+    11px !important;
+
+  line-height:
+    1.5 !important;
+
+  font-style:
+    italic;
+
+  text-align:
+    center;
+
+  color:
+    rgba(255,248,252,.58) !important;
+}
+
+
+.finale-letter-open-text {
+  position: relative !important;
+
+  z-index: 40 !important;
+
+  width:
+    100%;
+
+  margin:
+    10px 0 0 !important;
+
+  padding:
+    0 12px;
+
+  text-align:
+    center;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif !important;
+
+  font-size:
+    9px !important;
+
+  line-height:
+    1.4 !important;
+
+  letter-spacing:
+    .18em !important;
+
+  text-transform:
+    uppercase;
+
+  color:
+    rgba(231,191,210,.72) !important;
+}
+
+
+/* =========================================================
+   DOWNLOAD AREA
+   CRITICAL: BELOW ENVELOPE
+========================================================= */
+
+.finale-actions {
+  position: relative !important;
+
+  z-index: 30 !important;
+
+  width:
+    100% !important;
+
+  max-width:
+    500px !important;
+
+  margin:
+    42px auto 0 !important;
+
+  padding:
+    0 !important;
+
+  display:
+    flex !important;
+
+  flex-direction:
+    column !important;
+
+  align-items:
+    center !important;
+
+  justify-content:
+    center !important;
+
+  flex-shrink:
+    0 !important;
+
+  text-align:
+    center !important;
+}
+
+
+/* =========================================================
+   SAVE BUTTON
+========================================================= */
+
+.finale-save-button {
+  position: relative;
+
+  display: inline-flex !important;
+
+  align-items:
+    center !important;
+
+  justify-content:
+    center !important;
+
+  gap:
+    12px !important;
+
+  width:
+    auto !important;
+
+  min-width:
+    230px !important;
+
+  max-width:
+    calc(100vw - 48px) !important;
+
+  min-height:
+    46px !important;
+
+  padding:
+    12px 18px !important;
+
+  border:
+    1px solid rgba(212,154,183,.45) !important;
+
+  border-radius:
+    999px !important;
+
+  outline:
+    none !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(111,49,94,.34),
+      rgba(75,32,63,.46)
+    ) !important;
+
+  box-shadow:
+    0 10px 35px rgba(0,0,0,.28),
+    inset 0 1px 0 rgba(255,255,255,.10) !important;
+
+  color:
+    #fff8fc !important;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif !important;
+
+  font-size:
+    10px !important;
+
+  font-weight:
+    600 !important;
+
+  letter-spacing:
+    .12em !important;
+
+  text-transform:
+    lowercase;
+
+  cursor:
+    pointer;
+
+  transition:
+    transform .25s ease,
+    border-color .25s ease,
+    background .25s ease,
+    box-shadow .25s ease;
+}
+
+
+.finale-save-button:hover:not(:disabled) {
+  transform:
+    translateY(-2px);
+
+  border-color:
+    rgba(231,191,210,.72) !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(111,49,94,.48),
+      rgba(75,32,63,.58)
+    ) !important;
+
+  box-shadow:
+    0 14px 40px rgba(0,0,0,.34),
+    0 0 25px rgba(185,120,157,.10) !important;
+}
+
+
+.finale-save-button:active:not(:disabled) {
+  transform:
+    translateY(0)
+    scale(.98);
+}
+
+
+.finale-save-button:disabled {
+  opacity:
+    .55;
+
+  cursor:
+    default;
+
+  transform:
+    none !important;
+}
+
+
+/* =========================================================
+   DOWNLOAD ICON
+========================================================= */
+
+.save-download-icon {
+  display:
+    inline-flex;
+
+  width:
+    17px;
+
+  height:
+    17px;
+
+  flex:
+    0 0 auto;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+}
+
+
+.save-download-icon svg {
+  display:
+    block;
+
+  width:
+    17px;
+
+  height:
+    17px;
+}
+
+
+/* =========================================================
+   QUALITY
+========================================================= */
+
+.finale-quality {
+  margin:
+    12px 0 0 !important;
+
+  padding:
+    0 8px;
+
+  text-align:
+    center;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif !important;
+
+  font-size:
+    7px !important;
+
+  line-height:
+    1.5 !important;
+
+  letter-spacing:
+    .18em !important;
+
+  color:
+    rgba(255,248,252,.32) !important;
+
+  text-transform:
+    uppercase;
+}
+
+
+/* =========================================================
+   SIGNATURE
+========================================================= */
+
+.finale-signature {
+  position: relative !important;
+
+  z-index: 20 !important;
+
+  width:
+    100%;
+
+  margin:
+    30px 0 0 !important;
+
+  padding:
+    0 10px;
+
+  text-align:
+    center;
+
+  font-family:
+    Georgia,
+    serif !important;
+
+  font-size:
+    12px !important;
+
+  line-height:
+    1.5 !important;
+
+  font-style:
+    italic;
+
+  color:
+    rgba(231,191,210,.58) !important;
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.finale-envelope-button:focus-visible,
+.finale-save-button:focus-visible {
+  outline:
+    2px solid rgba(231,191,210,.85) !important;
+
+  outline-offset:
+    5px !important;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 600px) and (max-width: 1024px) {
+
+  .finale-content {
+    width:
+      min(calc(100% - 48px), 700px) !important;
+
+    padding:
+      76px 0 90px !important;
+  }
+
+
+  .finale-title {
+    font-size:
+      clamp(46px, 7vw, 62px) !important;
+  }
+
+
+  .finale-photo-booth {
+    width:
+      min(390px, calc(100vw - 80px)) !important;
+  }
+
+
+  .finale-letter-area {
+    margin-top:
+      64px !important;
+  }
+
+
+  .finale-envelope-button {
+    width:
+      min(360px, calc(100vw - 100px)) !important;
+  }
+
+
+  .finale-actions {
+    margin-top:
+      44px !important;
+  }
+}
+
+
+/* =========================================================
+   LAPTOP / DESKTOP
+========================================================= */
+
+@media (min-width: 1025px) {
+
+  .scene-finale {
+    min-height:
+      100vh;
+
+    display:
+      block;
+  }
+
+
+  .finale-content {
+    width:
+      min(calc(100% - 80px), 820px) !important;
+
+    padding:
+      90px 0 110px !important;
+  }
+
+
+  .finale-eyebrow {
+    margin-bottom:
+      20px !important;
+  }
+
+
+  .finale-title {
+    font-size:
+      clamp(54px, 5vw, 72px) !important;
+  }
+
+
+  .finale-photo-strip {
+    margin-top:
+      48px !important;
+  }
+
+
+  .finale-photo-booth {
+    width:
+      390px !important;
+    max-width:
+      390px !important;
+  }
+
+
+  .finale-letter-area {
+    margin-top:
+      72px !important;
+  }
+
+
+  .finale-envelope-button {
+    width:
+      360px !important;
+
+    max-width:
+      360px !important;
+  }
+
+
+  .finale-actions {
+    margin-top:
+      48px !important;
+  }
+
+
+  .finale-signature {
+    margin-top:
+      34px !important;
+  }
+}
+
+
+/* =========================================================
+   MOBILE GENERAL
+========================================================= */
+
+@media (max-width: 599px) {
+
+  .scene-finale {
+    width:
+      100%;
+
+    min-width:
+      0;
+
+    min-height:
+      100svh;
+
+    overflow-x:
+      hidden;
+  }
+
+
+  .cosmic-nebula-one {
+    width:
+      330px;
+
+    height:
+      330px;
+
+    top:
+      -120px;
+
+    left:
+      -140px;
+  }
+
+
+  .cosmic-nebula-two {
+    width:
+      380px;
+
+    height:
+      380px;
+
+    right:
+      -220px;
+  }
+
+
+  .cosmic-nebula-three {
+    width:
+      440px;
+
+    height:
+      360px;
+  }
+
+
+  .cosmic-moon {
+    width:
+      70px;
+
+    height:
+      70px;
+
+    top:
+      4%;
+
+    right:
+      5%;
+
+    opacity:
+      .24;
+  }
+
+
+  .ambient-glow {
+    width:
+      220px;
+
+    height:
+      220px;
+
+    filter:
+      blur(75px);
+  }
+
+
+  .finale-content {
+    width:
+      calc(100% - 28px) !important;
+
+    max-width:
+      none !important;
+
+    padding:
+      54px 0 70px !important;
+  }
+
+
+  .finale-eyebrow {
+    margin-bottom:
+      15px !important;
+
+    font-size:
+      8px !important;
+
+    letter-spacing:
+      .22em !important;
+  }
+
+
+  .finale-eyebrow::before,
+  .finale-eyebrow::after {
+    width:
+      20px;
+
+    margin:
+      0 7px 3px;
+  }
+
+
+  .finale-title {
+    max-width:
+      100% !important;
+
+    padding:
+      0 2px !important;
+
+    font-size:
+      clamp(
+        34px,
+        10.5vw,
+        47px
+      ) !important;
+
+    line-height:
+      1.02 !important;
+
+    letter-spacing:
+      -.025em;
+  }
+
+
+  .finale-title span {
+    margin-top:
+      5px;
+  }
+
+
+  .finale-photo-strip {
+    margin-top:
+      34px !important;
+
+    width:
+      100% !important;
+  }
+
+
+  .finale-photo-booth {
+    width:
+      min(
+        390px,
+        calc(100vw - 42px)
+      ) !important;
+
+    max-width:
+      calc(100vw - 42px) !important;
+
+    padding:
+      8px !important;
+
+    gap:
+      5px !important;
+  }
+
+
+  .finale-booth-message {
+    min-height:
+      128px !important;
+
+    padding:
+      16px 8px 14px !important;
+  }
+
+
+  .finale-booth-message strong {
+    font-size:
+      clamp(
+        15px,
+        4.6vw,
+        19px
+      );
+  }
+
+
+  .finale-booth-message em {
+    font-size:
+      clamp(
+        21px,
+        6vw,
+        26px
+      );
+  }
+
+
+  .finale-letter-area {
+    margin-top:
+      48px !important;
+  }
+
+
+  .finale-letter-eyebrow {
+    margin-bottom:
+      15px !important;
+
+    font-size:
+      8px !important;
+  }
+
+
+  .finale-envelope-button {
+    width:
+      min(
+        360px,
+        calc(100vw - 54px)
+      ) !important;
+
+    max-width:
+      calc(100vw - 54px) !important;
+
+    aspect-ratio:
+      360 / 230 !important;
+  }
+
+
+  .finale-letter-hint {
+    margin-top:
+      15px !important;
+
+    font-size:
+      10px !important;
+  }
+
+
+  .finale-actions {
+    margin-top:
+      38px !important;
+
+    width:
+      100% !important;
+  }
+
+
+  .finale-save-button {
+    min-width:
+      0 !important;
+
+    width:
+      auto !important;
+
+    max-width:
+      calc(100vw - 48px) !important;
+
+    padding:
+      11px 17px !important;
+
+    font-size:
+      9px !important;
+  }
+
+
+  .finale-quality {
+    font-size:
+      6.5px !important;
+
+    letter-spacing:
+      .13em !important;
+  }
+
+
+  .finale-signature {
+    margin-top:
+      26px !important;
+
+    font-size:
+      10px !important;
+  }
+}
+
+
+/* =========================================================
+   430 PX
+========================================================= */
+
+@media (max-width: 430px) {
+
+  .finale-content {
+    width:
+      calc(100% - 24px) !important;
+
+    padding-top:
+      48px !important;
+
+    padding-bottom:
+      60px !important;
+  }
+
+
+  .finale-title {
+    font-size:
+      clamp(
+        32px,
+        10vw,
+        43px
+      ) !important;
+  }
+
+
+  .finale-photo-booth {
+    width:
+      calc(100vw - 38px) !important;
+
+    max-width:
+      calc(100vw - 38px) !important;
+
+    padding:
+      8px !important;
+  }
+
+
+  .finale-letter-area {
+    margin-top:
+      44px !important;
+  }
+
+
+  .finale-envelope-button {
+    width:
+      calc(100vw - 58px) !important;
+
+    max-width:
+      360px !important;
+  }
+
+
+  .envelope-seal {
+    width:
+      55px !important;
+
+    height:
+      55px !important;
+
+    font-size:
+      24px !important;
+  }
+}
+
+
+/* =========================================================
+   390 PX
+========================================================= */
+
+@media (max-width: 390px) {
+
+  .finale-content {
+    width:
+      calc(100% - 20px) !important;
+
+    padding-top:
+      44px !important;
+  }
+
+
+  .finale-title {
+    font-size:
+      clamp(
+        30px,
+        9.8vw,
+        40px
+      ) !important;
+  }
+
+
+  .finale-eyebrow {
+    font-size:
+      7px !important;
+
+    letter-spacing:
+      .18em !important;
+  }
+
+
+  .finale-eyebrow::before,
+  .finale-eyebrow::after {
+    width:
+      15px;
+
+    margin:
+      0 5px 3px;
+  }
+
+
+  .finale-photo-strip {
+    margin-top:
+      30px !important;
+  }
+
+
+  .finale-photo-booth {
+    width:
+      calc(100vw - 30px) !important;
+
+    max-width:
+      calc(100vw - 30px) !important;
+
+    padding:
+      7px !important;
+
+    gap:
+      5px !important;
+  }
+
+
+  .finale-booth-message {
+    min-height:
+      120px !important;
+
+    padding:
+      14px 7px !important;
+  }
+
+
+  .finale-booth-message strong {
+    font-size:
+      15px !important;
+  }
+
+
+  .finale-booth-message em {
+    font-size:
+      22px !important;
+  }
+
+
+  .finale-booth-message small {
+    font-size:
+      6.5px !important;
+  }
+
+
+  .finale-letter-area {
+    margin-top:
+      40px !important;
+  }
+
+
+  .finale-letter-eyebrow {
+    font-size:
+      7px !important;
+
+    letter-spacing:
+      .19em !important;
+  }
+
+
+  .finale-envelope-button {
+    width:
+      calc(100vw - 48px) !important;
+
+    max-width:
+      342px !important;
+  }
+
+
+  .finale-actions {
+    margin-top:
+      34px !important;
+  }
+
+
+  .finale-save-button {
+    padding:
+      10px 14px !important;
+
+    font-size:
+      8px !important;
+
+    gap:
+      9px !important;
+  }
+
+
+  .save-download-icon,
+  .save-download-icon svg {
+    width:
+      15px !important;
+
+    height:
+      15px !important;
+  }
+
+
+  .finale-signature {
+    font-size:
+      9px !important;
+  }
+}
+
+
+/* =========================================================
+   375 PX
+========================================================= */
+
+@media (max-width: 375px) {
+
+  .finale-content {
+    width:
+      calc(100% - 18px) !important;
+  }
+
+
+  .finale-title {
+    font-size:
+      31px !important;
+  }
+
+
+  .finale-photo-booth {
+    width:
+      calc(100vw - 26px) !important;
+
+    max-width:
+      calc(100vw - 26px) !important;
+  }
+
+
+  .finale-envelope-button {
+    width:
+      calc(100vw - 42px) !important;
+  }
+
+
+  .finale-letter-hint {
+    font-size:
+      9px !important;
+  }
+}
+
+
+/* =========================================================
+   360 PX
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .finale-content {
+    width:
+      calc(100% - 16px) !important;
+
+    padding-top:
+      40px !important;
+
+    padding-bottom:
+      54px !important;
+  }
+
+
+  .finale-eyebrow {
+    font-size:
+      6.5px !important;
+  }
+
+
+  .finale-title {
+    font-size:
+      29px !important;
+
+    line-height:
+      1.04 !important;
+  }
+
+
+  .finale-photo-strip {
+    margin-top:
+      27px !important;
+  }
+
+
+  .finale-photo-booth {
+    width:
+      calc(100vw - 22px) !important;
+
+    max-width:
+      calc(100vw - 22px) !important;
+
+    padding:
+      6px !important;
+
+    gap:
+      4px !important;
+  }
+
+
+  .finale-booth-message {
+    min-height:
+      112px !important;
+
+    padding:
+      12px 5px !important;
+  }
+
+
+  .finale-booth-message strong {
+    font-size:
+      14px !important;
+  }
+
+
+  .finale-booth-message em {
+    font-size:
+      20px !important;
+  }
+
+
+  .finale-booth-message small {
+    margin-top:
+      6px !important;
+
+    font-size:
+      6px !important;
+  }
+
+
+  .finale-letter-area {
+    margin-top:
+      36px !important;
+  }
+
+
+  .finale-envelope-button {
+    width:
+      calc(100vw - 36px) !important;
+
+    max-width:
+      324px !important;
+  }
+
+
+  .envelope-seal {
+    width:
+      50px !important;
+
+    height:
+      50px !important;
+
+    font-size:
+      22px !important;
+  }
+
+
+  .finale-letter-hint {
+    font-size:
+      8.5px !important;
+  }
+
+
+  .finale-actions {
+    margin-top:
+      30px !important;
+  }
+
+
+  .finale-save-button {
+    max-width:
+      calc(100vw - 38px) !important;
+
+    padding:
+      9px 12px !important;
+
+    font-size:
+      7.5px !important;
+  }
+
+
+  .finale-quality {
+    font-size:
+      5.8px !important;
+  }
+
+
+  .finale-signature {
+    margin-top:
+      22px !important;
+
+    font-size:
+      8.5px !important;
+  }
+}
+
+
+/* =========================================================
+   TOUCH DEVICES
+========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+  .finale-save-button:hover:not(:disabled) {
+    transform:
+      none !important;
+
+    box-shadow:
+      0 10px 35px rgba(0,0,0,.28),
+      inset 0 1px 0 rgba(255,255,255,.10) !important;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .scene-finale *,
+  .scene-finale *::before,
+  .scene-finale *::after {
+    animation-duration:
+      0.01ms !important;
+
+    animation-iteration-count:
+      1 !important;
+
+    transition-duration:
+      0.01ms !important;
+
+    scroll-behavior:
+      auto !important;
+  }
+}
+
+
+/* =========================================================
+   SAFETY — NO HORIZONTAL OVERFLOW
+========================================================= */
+
+.scene-finale img,
+.scene-finale svg,
+.scene-finale video,
+.scene-finale canvas {
+  max-width:
+    100%;
+}
+
+
+.scene-finale button {
+  font: inherit;
+}
+
+
+.scene-finale p,
+.scene-finale h1,
+.scene-finale h2,
+.scene-finale h3 {
+  max-width:
+    100%;
+}
+
+
+/* =========================================================
+   EXTRA SAFETY FOR VERY NARROW DEVICES
+========================================================= */
+
+@media (max-width: 340px) {
+
+  .finale-content {
+    width:
+      calc(100% - 12px) !important;
+  }
+
+
+  .finale-title {
+    font-size:
+      27px !important;
+  }
+
+
+  .finale-photo-booth {
+    width:
+      calc(100vw - 16px) !important;
+
+    max-width:
+      calc(100vw - 16px) !important;
+  }
+
+
+  .finale-envelope-button {
+    width:
+      calc(100vw - 28px) !important;
+  }
+}
+
+/* ============================================================
+   PREMIUM ENVELOPE REFINEMENT
+   Tambahkan di PALING BAWAH Finale.css
+   Tidak perlu menghapus CSS envelope sebelumnya.
+   ============================================================ */
+
+
+/* ============================================================
+   01. ENVELOPE CONTAINER
+   ============================================================ */
+
+.finale-envelope {
+  position: relative !important;
+
+  width: min(82vw, 430px) !important;
+  aspect-ratio: 1.52 / 1 !important;
+
+  margin: 0 auto !important;
+
+  display: block !important;
+
+  overflow: visible !important;
+
+  isolation: isolate;
+
+  transform: translateX(-2%) translateZ(0);
+
+  filter:
+    drop-shadow(0 28px 45px rgba(0, 0, 0, 0.45))
+    drop-shadow(0 0 25px rgba(240, 0, 120, 0.08));
+
+  transition:
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.6s ease;
+}
+
+
+/* ============================================================
+   02. ENVELOPE BUTTON
+   ============================================================ */
+
+.finale-envelope-button {
+  position: relative !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  min-width: 0 !important;
+  min-height: 0 !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  border: 0 !important;
+  outline: none !important;
+
+  background: transparent !important;
+
+  display: block !important;
+
+  cursor: pointer;
+
+  overflow: visible !important;
+
+  -webkit-tap-highlight-color: transparent;
+
+  isolation: isolate;
+}
+
+
+/* keyboard accessibility */
+
+.finale-envelope-button:focus-visible {
+  outline: 2px solid rgba(255, 20, 147, 0.85) !important;
+  outline-offset: 10px !important;
+
+  border-radius: 18px;
+}
+
+
+/* ============================================================
+   03. OUTER GLOW
+   ============================================================ */
+
+.finale-envelope-button::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 108%;
+  height: 108%;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 18px;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(255, 20, 147, 0.16) 0%,
+      rgba(212, 20, 200, 0.09) 32%,
+      rgba(110, 45, 190, 0.04) 55%,
+      transparent 74%
+    );
+
+  filter: blur(22px);
+
+  opacity: 0.7;
+
+  z-index: -3;
+
+  pointer-events: none;
+}
+
+
+/* ============================================================
+   04. ENVELOPE BACK / MAIN BODY
+   ============================================================ */
+
+.finale-envelope .envelope-back {
+  position: absolute !important;
+
+  inset: 0 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  border-radius: clamp(10px, 2.5vw, 18px) !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(73, 16, 58, 0.98) 0%,
+      rgba(48, 10, 44, 0.99) 35%,
+      rgba(34, 8, 34, 1) 70%,
+      rgba(25, 5, 28, 1) 100%
+    ) !important;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.11),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.5),
+    inset 14px 0 30px rgba(255, 20, 147, 0.035),
+    inset -14px 0 30px rgba(139, 42, 255, 0.035),
+    0 18px 38px rgba(0, 0, 0, 0.38) !important;
+
+  overflow: hidden !important;
+
+  z-index: 1;
+}
+
+
+/* subtle inner border */
+
+.finale-envelope .envelope-back::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 7px;
+
+  border-radius: clamp(7px, 1.8vw, 13px);
+
+  border: 1px solid rgba(255, 255, 255, 0.045);
+
+  pointer-events: none;
+
+  z-index: 20;
+}
+
+
+/* subtle top light */
+
+.finale-envelope .envelope-back::after {
+  content: "";
+
+  position: absolute;
+
+  left: 7%;
+  right: 7%;
+  top: 3%;
+
+  height: 20%;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.055),
+      transparent
+    );
+
+  filter: blur(8px);
+
+  pointer-events: none;
+
+  z-index: 21;
+}
+
+
+/* ============================================================
+   05. LETTER / PAPER INSIDE ENVELOPE
+   ============================================================ */
+
+.finale-envelope .envelope-letter {
+  position: absolute !important;
+
+  left: 13% !important;
+  top: 9% !important;
+
+  width: 74% !important;
+  height: 82% !important;
+
+  padding: 0 !important;
+
+  border-radius: 4px 4px 7px 7px !important;
+
+  border: 1px solid rgba(80, 46, 57, 0.16) !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      #fffdf9 0%,
+      #faf4ef 46%,
+      #f2e8e4 100%
+    ) !important;
+
+  box-shadow:
+    0 7px 18px rgba(0, 0, 0, 0.20),
+    0 2px 5px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
+
+  transform:
+    translateY(-5%)
+    rotate(-0.4deg) !important;
+
+  overflow: hidden !important;
+
+  z-index: 4;
+
+  transition:
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.5s ease;
+}
+
+
+/* paper texture */
+
+.finale-envelope .envelope-letter::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 20% 15%,
+      rgba(255, 255, 255, 0.9),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 80% 85%,
+      rgba(214, 182, 190, 0.08),
+      transparent 32%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(90, 50, 65, 0.018) 0px,
+      rgba(90, 50, 65, 0.018) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+
+/* paper upper highlight */
+
+.finale-envelope .envelope-letter::after {
+  content: "";
+
+  position: absolute;
+
+  left: 10%;
+  right: 10%;
+  top: 7%;
+
+  height: 22%;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.55),
+      transparent
+    );
+
+  filter: blur(9px);
+
+  pointer-events: none;
+
+  z-index: 3;
+}
+
+
+/* ============================================================
+   06. LEFT FOLD
+   ============================================================ */
+
+.finale-envelope .envelope-fold-left {
+  position: absolute !important;
+
+  left: 0 !important;
+  top: 0 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  border: 0 !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(95, 21, 72, 0.92),
+      rgba(48, 10, 44, 0.98)
+    ) !important;
+
+  clip-path:
+    polygon(
+      0 0,
+      50% 52%,
+      0 100%
+    ) !important;
+
+  z-index: 7 !important;
+
+  pointer-events: none;
+}
+
+
+/* left fold inner highlight */
+
+.finale-envelope .envelope-fold-left::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 52%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.08),
+      transparent 42%
+    );
+
+  clip-path:
+    polygon(
+      0 0,
+      100% 50%,
+      0 100%
+    );
+
+  opacity: 0.8;
+}
+
+
+/* ============================================================
+   07. RIGHT FOLD
+   ============================================================ */
+
+.finale-envelope .envelope-fold-right {
+  position: absolute !important;
+
+  right: 0 !important;
+  top: 0 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  border: 0 !important;
+
+  background:
+    linear-gradient(
+      215deg,
+      rgba(91, 20, 70, 0.92),
+      rgba(45, 9, 41, 0.98)
+    ) !important;
+
+  clip-path:
+    polygon(
+      100% 0,
+      50% 52%,
+      100% 100%
+    ) !important;
+
+  z-index: 7 !important;
+
+  pointer-events: none;
+}
+
+
+/* right fold highlight */
+
+.finale-envelope .envelope-fold-right::after {
+  content: "";
+
+  position: absolute;
+
+  right: 0;
+  top: 0;
+
+  width: 52%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      215deg,
+      rgba(255, 255, 255, 0.075),
+      transparent 42%
+    );
+
+  clip-path:
+    polygon(
+      100% 0,
+      0 50%,
+      100% 100%
+    );
+
+  opacity: 0.8;
+}
+
+
+/* ============================================================
+   08. BOTTOM FOLD
+   ============================================================ */
+
+.finale-envelope .envelope-fold-bottom {
+  position: absolute !important;
+
+  left: 0 !important;
+  bottom: 0 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  border: 0 !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(58, 12, 49, 0.97),
+      rgba(31, 6, 31, 1)
+    ) !important;
+
+  clip-path:
+    polygon(
+      0 100%,
+      50% 52%,
+      100% 100%
+    ) !important;
+
+  z-index: 8 !important;
+
+  pointer-events: none;
+}
+
+
+/* bottom fold highlight */
+
+.finale-envelope .envelope-fold-bottom::before {
+  content: "";
+
+  position: absolute;
+
+  left: 8%;
+  right: 8%;
+  bottom: 4%;
+
+  height: 45%;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.04),
+      transparent
+    );
+
+  clip-path:
+    polygon(
+      0 100%,
+      50% 0,
+      100% 100%
+    );
+
+  opacity: 0.65;
+}
+
+
+/* ============================================================
+   09. TOP FLAP
+   ============================================================ */
+
+.finale-envelope .envelope-flap {
+  position: absolute !important;
+
+  left: 0 !important;
+  top: 0 !important;
+
+  width: 100% !important;
+  height: 58% !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  border: 0 !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(101, 23, 77, 1) 0%,
+      rgba(74, 15, 60, 0.99) 45%,
+      rgba(48, 10, 44, 1) 100%
+    ) !important;
+
+  clip-path:
+    polygon(
+      0 0,
+      100% 0,
+      50% 100%
+    ) !important;
+
+  z-index: 10 !important;
+
+  transform-origin: 50% 0%;
+
+  pointer-events: none;
+
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+
+/* flap upper shine */
+
+.finale-envelope .envelope-flap::before {
+  content: "";
+
+  position: absolute;
+
+  left: 4%;
+  right: 4%;
+  top: 3%;
+
+  height: 48%;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.10),
+      transparent
+    );
+
+  clip-path:
+    polygon(
+      0 0,
+      100% 0,
+      50% 100%
+    );
+
+  opacity: 0.85;
+}
+
+
+/* flap central shadow */
+
+.finale-envelope .envelope-flap::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 1%;
+
+  width: 40%;
+
+  height: 15px;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.22);
+
+  filter: blur(9px);
+
+  opacity: 0.65;
+}
+
+
+/* ============================================================
+   10. CENTER SEAL
+   ============================================================ */
+
+.finale-envelope .envelope-seal {
+  position: absolute !important;
+
+  left: 50% !important;
+  top: 53% !important;
+
+  width: clamp(48px, 15%, 66px) !important;
+  height: clamp(48px, 15%, 66px) !important;
+
+  transform: translate(-50%, -50%) !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  border-radius: 50% !important;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.23) !important;
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      rgba(255, 126, 203, 0.98) 0%,
+      rgba(255, 20, 147, 0.98) 30%,
+      rgba(214, 20, 200, 0.98) 62%,
+      rgba(108, 32, 155, 1) 100%
+    ) !important;
+
+  box-shadow:
+    0 7px 20px rgba(0, 0, 0, 0.38),
+    0 0 0 5px rgba(255, 20, 147, 0.045),
+    0 0 24px rgba(255, 20, 147, 0.20),
+    inset 0 2px 4px rgba(255, 255, 255, 0.35),
+    inset 0 -4px 7px rgba(78, 0, 73, 0.35) !important;
+
+  color: rgba(255, 255, 255, 0.96) !important;
+
+  z-index: 20 !important;
+
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease;
+}
+
+
+/* seal inner ring */
+
+.finale-envelope .envelope-seal::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 6px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.25);
+
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.20);
+
+  pointer-events: none;
+}
+
+
+/* seal highlight */
+
+.finale-envelope .envelope-seal::after {
+  content: "";
+
+  position: absolute;
+
+  left: 20%;
+  top: 13%;
+
+  width: 35%;
+  height: 20%;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.35);
+
+  filter: blur(3px);
+
+  transform: rotate(-25deg);
+
+  pointer-events: none;
+}
+
+
+/* ============================================================
+   11. SEAL HEART / ICON
+   ============================================================ */
+
+.finale-envelope .envelope-seal > * {
+  position: relative;
+
+  z-index: 3;
+}
+
+
+/* ============================================================
+   12. ENVELOPE CORNER LIGHTS
+   ============================================================ */
+
+.finale-envelope-button::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: clamp(10px, 2.5vw, 18px);
+
+  pointer-events: none;
+
+  z-index: 30;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.08),
+      transparent 17%,
+      transparent 80%,
+      rgba(255, 20, 147, 0.045)
+    );
+
+  opacity: 0.75;
+}
+
+
+/* ============================================================
+   13. HOVER EFFECT
+   ============================================================ */
+
+@media (hover: hover) {
+
+  .finale-envelope-button:hover {
+    transform: translateY(-6px) scale(1.012);
+
+    filter:
+      drop-shadow(0 34px 55px rgba(0, 0, 0, 0.48))
+      drop-shadow(0 0 32px rgba(240, 0, 120, 0.14));
+  }
+
+  .finale-envelope-button:hover .envelope-letter {
+    transform:
+      translateY(-7%)
+      rotate(-0.4deg) !important;
+
+    box-shadow:
+      0 11px 24px rgba(0, 0, 0, 0.22),
+      0 3px 7px rgba(0, 0, 0, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
+  }
+
+  .finale-envelope-button:hover .envelope-seal {
+    transform:
+      translate(-50%, -50%)
+      scale(1.06) !important;
+
+    box-shadow:
+      0 9px 24px rgba(0, 0, 0, 0.42),
+      0 0 0 6px rgba(255, 20, 147, 0.05),
+      0 0 32px rgba(255, 20, 147, 0.28),
+      inset 0 2px 4px rgba(255, 255, 255, 0.35),
+      inset 0 -4px 7px rgba(78, 0, 73, 0.35) !important;
+  }
+
+}
+
+
+/* ============================================================
+   14. MOBILE — 430px
+   ============================================================ */
+
+@media (max-width: 430px) {
+
+  .finale-envelope {
+    width: min(86vw, 390px) !important;
+
+    filter:
+      drop-shadow(0 22px 34px rgba(0, 0, 0, 0.42))
+      drop-shadow(0 0 20px rgba(240, 0, 120, 0.07));
+  }
+
+  .finale-envelope .envelope-letter {
+    left: 12.5% !important;
+    top: 9% !important;
+
+    width: 75% !important;
+    height: 82% !important;
+  }
+
+  .finale-envelope .envelope-seal {
+    width: clamp(46px, 15vw, 58px) !important;
+    height: clamp(46px, 15vw, 58px) !important;
+  }
+
+}
+
+
+/* ============================================================
+   15. MOBILE — 390px
+   ============================================================ */
+
+@media (max-width: 390px) {
+
+  .finale-envelope {
+    width: 87vw !important;
+  }
+
+  .finale-envelope .envelope-letter {
+    left: 12% !important;
+    top: 8.5% !important;
+
+    width: 76% !important;
+    height: 83% !important;
+  }
+
+  .finale-envelope .envelope-seal {
+    top: 53% !important;
+
+    width: 51px !important;
+    height: 51px !important;
+  }
+
+}
+
+
+/* ============================================================
+   16. MOBILE — 360px
+   ============================================================ */
+
+@media (max-width: 360px) {
+
+  .finale-envelope {
+    width: 89vw !important;
+  }
+
+  .finale-envelope .envelope-back {
+    border-radius: 11px !important;
+  }
+
+  .finale-envelope .envelope-letter {
+    left: 11.5% !important;
+    top: 8% !important;
+
+    width: 77% !important;
+    height: 84% !important;
+  }
+
+  .finale-envelope .envelope-seal {
+    width: 48px !important;
+    height: 48px !important;
+
+    top: 53% !important;
+  }
+
+}
+
+
+/* ============================================================
+   17. VERY SMALL SCREEN
+   ============================================================ */
+
+@media (max-width: 340px) {
+
+  .finale-envelope {
+    width: 91vw !important;
+  }
+
+  .finale-envelope .envelope-letter {
+    left: 11% !important;
+    width: 78% !important;
+  }
+
+  .finale-envelope .envelope-seal {
+    width: 45px !important;
+    height: 45px !important;
+  }
+
+}
+
+
+/* ============================================================
+   18. REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .finale-envelope,
+  .finale-envelope-button,
+  .finale-envelope .envelope-letter,
+  .finale-envelope .envelope-seal {
+    transition: none !important;
+  }
+
+}
+
+
+/* ============================================================
+   19. FINAL POLISH
+   ============================================================ */
+
+.finale-envelope,
+.finale-envelope-button,
+.finale-envelope .envelope-back,
+.finale-envelope .envelope-letter,
+.finale-envelope .envelope-fold-left,
+.finale-envelope .envelope-fold-right,
+.finale-envelope .envelope-fold-bottom,
+.finale-envelope .envelope-flap,
+.finale-envelope .envelope-seal {
+  box-sizing: border-box !important;
+}
+
+
+/* Prevent accidental text selection */
+
+.finale-envelope,
+.finale-envelope-button {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+
+/* Keep envelope centered */
+
+.finale-envelope {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+
+/* Final depth layer */
+
+.finale-envelope .envelope-back,
+.finale-envelope .envelope-letter,
+.finale-envelope .envelope-fold-left,
+.finale-envelope .envelope-fold-right,
+.finale-envelope .envelope-fold-bottom,
+.finale-envelope .envelope-flap,
+.finale-envelope .envelope-seal {
+  will-change: transform;
+}
+
+/* =========================================================
+   TRUE DARK — MIDNIGHT PURPLE / DUSTY PINK
+========================================================= */
+
+.scene-photo-upload {
+  --ivory: #ddd2dc;
+  --pink: #a65b82;
+  --purple: #49306f;
+
+  color: var(--ivory);
+
+  background:
+    radial-gradient(
+      ellipse at 18% 12%,
+      rgba(72, 42, 104, 0.20),
+      transparent 32%
+    ),
+    radial-gradient(
+      ellipse at 84% 30%,
+      rgba(102, 38, 76, 0.16),
+      transparent 34%
+    ),
+    radial-gradient(
+      ellipse at 50% 100%,
+      rgba(73, 35, 82, 0.13),
+      transparent 40%
+    ),
+    #0d0912;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.photo-upload-cosmic-base {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0b0810 0%,
+      #110a18 32%,
+      #160b19 58%,
+      #100811 100%
+    );
+}
+
+
+/* =========================================================
+   VERY SUBTLE NEBULA
+========================================================= */
+
+.photo-upload-cosmic-nebula {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(120px);
+
+  opacity: 0.45;
+
+  mix-blend-mode: screen;
+
+  pointer-events: none;
+}
+
+.photo-upload-cosmic-nebula-one {
+  width: 420px;
+  height: 260px;
+
+  top: -140px;
+  left: -160px;
+
+  background:
+    rgba(69, 44, 104, 0.25);
+}
+
+.photo-upload-cosmic-nebula-two {
+  width: 360px;
+  height: 300px;
+
+  right: -170px;
+  top: 35%;
+
+  background:
+    rgba(104, 42, 79, 0.18);
+}
+
+.photo-upload-cosmic-nebula-three {
+  width: 420px;
+  height: 240px;
+
+  bottom: -150px;
+  left: 30%;
+
+  background:
+    rgba(72, 35, 80, 0.18);
+}
+
+
+/* =========================================================
+   GLOW
+========================================================= */
+
+.photo-upload-ambient-glow {
+  position: absolute;
+
+  width: 260px;
+  height: 260px;
+
+  border-radius: 50%;
+
+  filter: blur(120px);
+
+  pointer-events: none;
+}
+
+.photo-upload-ambient-glow-left {
+  left: -190px;
+  top: 25%;
+
+  background:
+    rgba(71, 46, 108, 0.20);
+}
+
+.photo-upload-ambient-glow-right {
+  right: -190px;
+  top: 45%;
+
+  background:
+    rgba(117, 44, 83, 0.15);
+}
+
+.photo-upload-ambient-glow-bottom {
+  left: 50%;
+  bottom: -190px;
+
+  transform: translateX(-50%);
+
+  background:
+    rgba(78, 37, 88, 0.16);
+}
+
+
+/* =========================================================
+   CENTER LIGHT — ALMOST INVISIBLE
+========================================================= */
+
+.photo-upload-bg-center {
+  position: absolute;
+
+  width: min(80vw, 750px);
+  height: 500px;
+
+  left: 50%;
+  top: 46%;
+
+  transform: translate(-50%, -50%);
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(188, 121, 167, 0.025),
+      transparent 65%
+    );
+
+  filter: blur(20px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   VIGNETTE
+========================================================= */
+
+.photo-upload-bg-vignette {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 25%,
+      rgba(0,0,0,0.28) 65%,
+      rgba(0,0,0,0.58) 100%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   STARS — DIM
+========================================================= */
+
+.photo-upload-cosmic-stars-one {
+  opacity: 0.12;
+}
+
+.photo-upload-cosmic-stars-two {
+  opacity: 0.045;
+}
+
+.photo-upload-bg-star {
+  background:
+    rgba(235, 216, 232, 0.42);
+
+  box-shadow:
+    0 0 5px
+    rgba(220, 180, 215, 0.12);
+}
+
+
+/* =========================================================
+   FLOATING HEARTS — BARELY VISIBLE
+========================================================= */
+
+.photo-upload-floating-hearts {
+  opacity: 0.12;
+}
+
+.photo-upload-floating-heart {
+  color:
+    rgba(171, 91, 130, 0.32);
+
+  text-shadow:
+    0 0 10px
+    rgba(140, 65, 105, 0.15);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.photo-upload-eyebrow {
+  color:
+    rgba(221,210,220,0.38);
+}
+
+.photo-upload-divider span {
+  background:
+    rgba(221,210,220,0.10);
+}
+
+.photo-upload-divider i {
+  background:
+    #86506f;
+
+  box-shadow:
+    0 0 7px
+    rgba(134,80,111,0.22);
+}
+
+.photo-upload-copy h1 {
+  color:
+    #ddd2dc;
+
+  text-shadow:
+    0 5px 30px
+    rgba(0,0,0,0.65);
+}
+
+.photo-upload-copy h1 em {
+  color:
+    #a96b8d;
+
+  text-shadow:
+    0 0 16px
+    rgba(130,60,100,0.16);
+}
+
+.photo-upload-description p {
+  color:
+    rgba(221,210,220,0.34);
+}
+
+.photo-upload-instruction span {
+  color:
+    rgba(183,119,150,0.58);
+}
+
+.photo-upload-instruction span::after {
+  background:
+    rgba(151,79,116,0.25);
+}
+
+
+/* =========================================================
+   PHOTO CARDS
+========================================================= */
+
+.photo-slot {
+  border:
+    1px solid
+    rgba(221,210,220,0.10);
+
+  background:
+    rgba(255,255,255,0.018);
+
+  box-shadow:
+    0 25px 70px
+    rgba(0,0,0,0.55),
+
+    inset 0 1px 0
+    rgba(255,255,255,0.035);
+
+  backdrop-filter:
+    blur(8px);
+
+  -webkit-backdrop-filter:
+    blur(8px);
+}
+
+.photo-slot::before {
+  border:
+    1px solid
+    rgba(221,210,220,0.045);
+}
+
+.photo-slot:hover {
+  border-color:
+    rgba(169,107,141,0.20);
+
+  box-shadow:
+    0 30px 80px
+    rgba(0,0,0,0.62),
+
+    0 0 25px
+    rgba(120,55,91,0.05);
+}
+
+
+/* =========================================================
+   META
+========================================================= */
+
+.photo-slot-number {
+  color:
+    rgba(221,210,220,0.45);
+}
+
+.photo-slot-label {
+  color:
+    rgba(221,210,220,0.26);
+}
+
+
+/* =========================================================
+   EMPTY SLOT
+========================================================= */
+
+.photo-slot-empty-state {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.025),
+      rgba(255,255,255,0.006)
+    );
+}
+
+.photo-empty::before {
+  border:
+    1px solid
+    rgba(154,83,121,0.15);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(118,49,91,0.035),
+      transparent 70%
+    );
+
+  box-shadow:
+    0 0 25px
+    rgba(100,40,80,0.035);
+}
+
+.photo-empty:hover::before {
+  border-color:
+    rgba(170,103,139,0.25);
+}
+
+.photo-empty-plus {
+  color:
+    #a66b8c;
+
+  text-shadow:
+    0 0 12px
+    rgba(140,67,105,0.16);
+}
+
+.photo-empty-title {
+  color:
+    rgba(221,210,220,0.48);
+}
+
+.photo-empty-hint {
+  color:
+    rgba(221,210,220,0.20);
+}
+
+
+/* =========================================================
+   PHOTO
+========================================================= */
+
+.photo-filled {
+  background:
+    #100a12;
+}
+
+.photo-preview {
+  filter:
+    saturate(0.88)
+    contrast(1.02);
+}
+
+.photo-image-overlay {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(10,4,15,0.12),
+      transparent 32%,
+      transparent 57%,
+      rgba(5,2,8,0.68)
+    );
+}
+
+
+/* =========================================================
+   CORNERS
+========================================================= */
+
+.photo-corner-tl,
+.photo-corner-tr,
+.photo-corner-bl,
+.photo-corner-br {
+  opacity: 0.55;
+}
+
+.photo-corner-tl {
+  border-color:
+    rgba(221,210,220,0.24);
+}
+
+.photo-corner-tr {
+  border-color:
+    rgba(221,210,220,0.24);
+}
+
+.photo-corner-bl {
+  border-color:
+    rgba(221,210,220,0.24);
+}
+
+.photo-corner-br {
+  border-color:
+    rgba(221,210,220,0.24);
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.photo-upload-progress-line {
+  background:
+    rgba(221,210,220,0.07);
+}
+
+.photo-upload-progress-line span {
+  background:
+    linear-gradient(
+      90deg,
+      #4d356e,
+      #714064,
+      #92506f
+    );
+
+  box-shadow:
+    0 0 8px
+    rgba(130,70,105,0.18);
+}
+
+.photo-upload-progress-text {
+  color:
+    rgba(221,210,220,0.23);
+}
+
+
+/* =========================================================
+   FEEDBACK
+========================================================= */
+
+.photo-upload-feedback {
+  color:
+    rgba(180,113,147,0.58);
+
+  text-shadow:
+    0 0 10px
+    rgba(120,55,90,0.12);
+}
+
+
+/* =========================================================
+   NEXT ARROW
+========================================================= */
+
+.editorial-navigation {
+  color:
+    rgba(221,210,220,0.48);
+
+  filter:
+    drop-shadow(
+      0 0 8px
+      rgba(120,55,90,0.12)
+    );
+}
+
+.editorial-navigation:hover {
+  color:
+    #e6dce4;
+
+  filter:
+    drop-shadow(
+      0 0 12px
+      rgba(160,90,125,0.18)
+    );
+}
+
+.editorial-line {
+  background:
+    rgba(221,210,220,0.30);
+}
+
+/* =========================================================
+   PHOTO UPLOAD
+   FINALE-ALIGNED EDITORIAL DESIGN
+========================================================= */
+
+.scene-photo-upload {
+  --upload-bg: #09090d;
+  --upload-bg-soft: #111018;
+
+  --upload-ivory: #f7f4ed;
+  --upload-ivory-soft: #fbf9f4;
+
+  --upload-text: #24211f;
+  --upload-text-soft: #5d5853;
+  --upload-muted: #817a73;
+
+  --upload-border: rgba(247, 244, 237, 0.16);
+  --upload-border-soft: rgba(247, 244, 237, 0.09);
+
+  --upload-pink: #b88791;
+  --upload-pink-soft: #d2aeb5;
+  --upload-pink-deep: #9d6877;
+
+  --upload-gold: #9c8760;
+  --upload-olive: #69745f;
+
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      rgba(155, 112, 128, 0.08),
+      transparent 38%
+    ),
+    #09090d;
+
+  color: var(--upload-ivory);
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.photo-upload-content {
+  position: relative;
+  z-index: 20;
+
+  width: min(100%, 1120px);
+  min-height: 100%;
+
+  margin: 0 auto;
+
+  padding:
+    clamp(42px, 7vh, 76px)
+    clamp(22px, 5vw, 56px)
+    clamp(90px, 10vh, 120px);
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.photo-upload-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+
+  pointer-events: none;
+}
+
+.photo-upload-cosmic-base {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 50% 30%,
+      rgba(155, 112, 128, 0.09),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 18% 80%,
+      rgba(111, 117, 101, 0.07),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(156, 135, 96, 0.055),
+      transparent 28%
+    ),
+    linear-gradient(
+      180deg,
+      #08080c 0%,
+      #0b0a10 52%,
+      #09090d 100%
+    );
+}
+
+.photo-upload-cosmic-nebula {
+  position: absolute;
+  border-radius: 50%;
+
+  filter: blur(70px);
+
+  pointer-events: none;
+}
+
+.photo-upload-cosmic-nebula-one {
+  width: 340px;
+  height: 240px;
+
+  top: -80px;
+  left: -100px;
+
+  background: rgba(164, 113, 137, 0.08);
+
+  transform: rotate(-20deg);
+}
+
+.photo-upload-cosmic-nebula-two {
+  width: 300px;
+  height: 250px;
+
+  right: -100px;
+  top: 28%;
+
+  background: rgba(107, 119, 96, 0.055);
+
+  transform: rotate(20deg);
+}
+
+.photo-upload-cosmic-nebula-three {
+  width: 400px;
+  height: 220px;
+
+  left: 35%;
+  bottom: -100px;
+
+  background: rgba(157, 104, 119, 0.055);
+}
+
+
+/* =========================================================
+   AMBIENT GLOW
+========================================================= */
+
+.photo-upload-ambient-glow {
+  position: absolute;
+
+  width: 280px;
+  height: 280px;
+
+  border-radius: 50%;
+
+  filter: blur(80px);
+
+  pointer-events: none;
+}
+
+.photo-upload-ambient-glow-left {
+  left: -160px;
+  top: 20%;
+
+  background: rgba(184, 135, 145, 0.08);
+}
+
+.photo-upload-ambient-glow-right {
+  right: -150px;
+  top: 44%;
+
+  background: rgba(156, 135, 96, 0.06);
+}
+
+.photo-upload-ambient-glow-bottom {
+  left: 50%;
+  bottom: -180px;
+
+  transform: translateX(-50%);
+
+  background: rgba(111, 117, 101, 0.05);
+}
+
+
+/* =========================================================
+   STARS
+========================================================= */
+
+.photo-upload-cosmic-stars {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.35;
+}
+
+.photo-upload-cosmic-stars-one {
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(255,255,255,0.75) 0 1px,
+      transparent 1.2px
+    );
+
+  background-size: 130px 150px;
+
+  background-position:
+    20px 40px;
+}
+
+.photo-upload-cosmic-stars-two {
+  opacity: 0.16;
+
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(214, 174, 185, 0.7) 0 1px,
+      transparent 1.2px
+    );
+
+  background-size: 210px 190px;
+
+  background-position:
+    90px 120px;
+}
+
+.photo-upload-bg-star {
+  position: absolute;
+
+  display: block;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.75);
+
+  box-shadow:
+    0 0 7px rgba(255,255,255,0.2);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+.photo-upload-floating-hearts {
+  position: absolute;
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  opacity: 0.32;
+}
+
+.photo-upload-floating-heart {
+  position: absolute;
+
+  left: var(--heart-left);
+  bottom: -30px;
+
+  font-family: Georgia, serif;
+  font-size: var(--heart-size);
+
+  color: rgba(184, 135, 145, 0.34);
+
+  animation:
+    photoUploadHeartFloat
+    10s
+    var(--heart-delay)
+    ease-in-out
+    infinite;
+}
+
+@keyframes photoUploadHeartFloat {
+  0% {
+    transform:
+      translate3d(0, 0, 0)
+      rotate(0deg);
+
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 0.42;
+  }
+
+  55% {
+    transform:
+      translate3d(15px, -45vh, 0)
+      rotate(12deg);
+
+    opacity: 0.2;
+  }
+
+  100% {
+    transform:
+      translate3d(-10px, -105vh, 0)
+      rotate(-8deg);
+
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   CENTER LIGHT
+========================================================= */
+
+.photo-upload-bg-center {
+  position: absolute;
+
+  width: min(80vw, 700px);
+  height: 420px;
+
+  left: 50%;
+  top: 42%;
+
+  transform: translate(-50%, -50%);
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(255,255,255,0.035),
+      transparent 68%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   VIGNETTE
+========================================================= */
+
+.photo-upload-bg-vignette {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 38%,
+      rgba(0,0,0,0.28) 100%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   GRAIN
+========================================================= */
+
+.photo-upload-bg-grain {
+  position: absolute;
+  inset: -50%;
+
+  opacity: 0.035;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+
+  transform: rotate(7deg);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.photo-upload-copy {
+  position: relative;
+
+  width: min(100%, 680px);
+
+  text-align: center;
+
+  margin-bottom: clamp(34px, 5vh, 54px);
+}
+
+.photo-upload-eyebrow {
+  margin: 0;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 8px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.30em;
+
+  line-height: 1.5;
+
+  color: rgba(247,244,237,0.54);
+
+  text-transform: uppercase;
+}
+
+.photo-upload-divider {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  margin:
+    17px
+    auto
+    21px;
+}
+
+.photo-upload-divider span {
+  display: block;
+
+  width: 34px;
+  height: 1px;
+
+  background:
+    rgba(247,244,237,0.16);
+}
+
+.photo-upload-divider i {
+  display: block;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background:
+    var(--upload-pink);
+
+  box-shadow:
+    0 0 8px
+    rgba(184,135,145,0.32);
+}
+
+.photo-upload-copy h1 {
+  margin: 0;
+
+  color: var(--upload-ivory);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(32px, 5vw, 56px);
+
+  font-weight: 400;
+
+  line-height: 1.04;
+
+  letter-spacing: -0.035em;
+}
+
+.photo-upload-copy h1 em {
+  color: #d1aeb5;
+
+  font-style: italic;
+
+  font-weight: 400;
+}
+
+.photo-upload-description {
+  margin-top: 20px;
+}
+
+.photo-upload-description p {
+  margin: 3px 0;
+
+  color:
+    rgba(247,244,237,0.54);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size:
+    clamp(10px, 1.5vw, 12px);
+
+  line-height: 1.65;
+
+  letter-spacing: 0.015em;
+}
+
+.photo-upload-instruction {
+  margin-top: 19px;
+}
+
+.photo-upload-instruction span {
+  position: relative;
+
+  display: inline-block;
+
+  padding-bottom: 5px;
+
+  color:
+    rgba(210,174,181,0.82);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(11px, 1.7vw, 13px);
+
+  font-style: italic;
+
+  line-height: 1.5;
+}
+
+.photo-upload-instruction span::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  width: 34px;
+  height: 1px;
+
+  transform: translateX(-50%);
+
+  background:
+    rgba(184,135,145,0.35);
+}
+
+
+/* =========================================================
+   PHOTO GRID
+========================================================= */
+
+.photo-slots {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap:
+    clamp(12px, 2vw, 22px);
+
+  align-items: stretch;
+}
+
+
+/* =========================================================
+   SLOT WRAPPER
+========================================================= */
+
+.photo-slot-wrapper {
+  min-width: 0;
+}
+
+
+/* =========================================================
+   PHOTO SLOT
+========================================================= */
+
+.photo-slot {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 3 / 4;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+
+  border:
+    1px solid
+    rgba(247,244,237,0.14);
+
+  background:
+    rgba(247,244,237,0.035);
+
+  box-shadow:
+    0 24px 60px
+    rgba(0,0,0,0.22);
+
+  transition:
+    border-color 0.45s ease,
+    transform 0.45s
+    cubic-bezier(0.22,1,0.36,1),
+    box-shadow 0.45s ease;
+}
+
+.photo-slot:hover {
+  border-color:
+    rgba(210,174,181,0.35);
+
+  box-shadow:
+    0 28px 72px
+    rgba(0,0,0,0.3);
+
+  transform:
+    translateY(-3px);
+}
+
+
+/* =========================================================
+   INNER PAPER TONE
+========================================================= */
+
+.photo-slot::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 5px;
+
+  border:
+    1px solid
+    rgba(247,244,237,0.075);
+
+  pointer-events: none;
+
+  z-index: 8;
+}
+
+
+/* =========================================================
+   SLOT META
+========================================================= */
+
+.photo-slot-meta {
+  position: absolute;
+
+  top: 16px;
+  left: 17px;
+  right: 17px;
+
+  z-index: 12;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  pointer-events: none;
+}
+
+.photo-slot-number {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 13px;
+
+  font-style: italic;
+
+  color:
+    rgba(247,244,237,0.76);
+}
+
+.photo-slot-label {
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 7px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.24em;
+
+  color:
+    rgba(247,244,237,0.55);
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.photo-slot-empty-state {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(247,244,237,0.05),
+      rgba(247,244,237,0.018)
+    );
+}
+
+.photo-empty {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+
+  padding: 58px 18px 20px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+
+  color: inherit;
+
+  cursor: pointer;
+
+  font: inherit;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+.photo-empty::before {
+  content: "";
+
+  position: absolute;
+
+  width: 70px;
+  height: 70px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid
+    rgba(184,135,145,0.12);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(184,135,145,0.06),
+      transparent 68%
+    );
+
+  transition:
+    transform 0.6s
+    cubic-bezier(0.22,1,0.36,1),
+    border-color 0.4s ease;
+}
+
+.photo-empty:hover::before {
+  transform: scale(1.12);
+
+  border-color:
+    rgba(184,135,145,0.28);
+}
+
+.photo-empty-plus {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  margin-bottom: 15px;
+
+  color:
+    rgba(210,174,181,0.86);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 27px;
+
+  font-weight: 300;
+
+  line-height: 1;
+
+  transition:
+    transform 0.5s
+    cubic-bezier(0.22,1,0.36,1);
+}
+
+.photo-empty:hover .photo-empty-plus {
+  transform:
+    rotate(90deg);
+}
+
+.photo-empty-title {
+  position: relative;
+  z-index: 2;
+
+  color:
+    rgba(247,244,237,0.68);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 8px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.24em;
+
+  text-transform: uppercase;
+}
+
+.photo-empty-hint {
+  position: relative;
+  z-index: 2;
+
+  margin-top: 8px;
+
+  color:
+    rgba(247,244,237,0.31);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 8px;
+
+  letter-spacing: 0.06em;
+}
+
+
+/* =========================================================
+   FILLED PHOTO
+========================================================= */
+
+.photo-filled {
+  position: absolute;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  background: #222;
+}
+
+.photo-preview {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  filter:
+    saturate(0.91)
+    contrast(0.98);
+
+  user-select: none;
+
+  transition:
+    transform 0.9s
+    cubic-bezier(0.22,1,0.36,1);
+}
+
+.photo-slot:hover .photo-preview {
+  transform: scale(1.025);
+}
+
+.photo-image-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,0.22) 0%,
+      transparent 28%,
+      transparent 60%,
+      rgba(0,0,0,0.52) 100%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   PHOTO ACTIONS
+========================================================= */
+
+.photo-filled-bottom {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding:
+    38px
+    16px
+    16px;
+
+  z-index: 10;
+
+  opacity: 0;
+
+  transform:
+    translateY(5px);
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s
+    cubic-bezier(0.22,1,0.36,1);
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent,
+      rgba(0,0,0,0.48)
+    );
+}
+
+.photo-slot:hover .photo-filled-bottom,
+.photo-slot:focus-within .photo-filled-bottom {
+  opacity: 1;
+
+  transform:
+    translateY(0);
+}
+
+.photo-filled-actions {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+}
+
+.photo-filled-actions button {
+  border: 0;
+
+  padding: 7px 0;
+
+  background: transparent;
+
+  color:
+    rgba(255,255,255,0.78);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 8px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+
+  transition:
+    color 0.25s ease;
+}
+
+.photo-filled-actions button:hover {
+  color: #fff;
+}
+
+.photo-filled-actions span {
+  width: 1px;
+  height: 10px;
+
+  background:
+    rgba(255,255,255,0.25);
+}
+
+
+/* =========================================================
+   CORNER DECORATIONS
+========================================================= */
+
+.photo-corner {
+  position: absolute;
+
+  width: 13px;
+  height: 13px;
+
+  z-index: 15;
+
+  pointer-events: none;
+
+  opacity: 0.75;
+}
+
+.photo-corner-tl {
+  top: 10px;
+  left: 10px;
+
+  border-top:
+    1px solid
+    rgba(247,244,237,0.45);
+
+  border-left:
+    1px solid
+    rgba(247,244,237,0.45);
+}
+
+.photo-corner-tr {
+  top: 10px;
+  right: 10px;
+
+  border-top:
+    1px solid
+    rgba(247,244,237,0.45);
+
+  border-right:
+    1px solid
+    rgba(247,244,237,0.45);
+}
+
+.photo-corner-bl {
+  bottom: 10px;
+  left: 10px;
+
+  border-bottom:
+    1px solid
+    rgba(247,244,237,0.45);
+
+  border-left:
+    1px solid
+    rgba(247,244,237,0.45);
+}
+
+.photo-corner-br {
+  bottom: 10px;
+  right: 10px;
+
+  border-bottom:
+    1px solid
+    rgba(247,244,237,0.45);
+
+  border-right:
+    1px solid
+    rgba(247,244,237,0.45);
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.photo-upload-progress {
+  width: min(100%, 500px);
+
+  margin-top:
+    clamp(24px, 4vh, 36px);
+}
+
+.photo-upload-progress-line {
+  width: 100%;
+  height: 1px;
+
+  background:
+    rgba(247,244,237,0.10);
+
+  overflow: hidden;
+}
+
+.photo-upload-progress-line span {
+  display: block;
+
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(157,104,119,0.7),
+      rgba(210,174,181,0.95)
+    );
+
+  transition:
+    width 0.7s
+    cubic-bezier(0.22,1,0.36,1);
+}
+
+.photo-upload-progress-text {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 9px;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 7px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(247,244,237,0.32);
+}
+
+
+/* =========================================================
+   FEEDBACK
+========================================================= */
+
+.photo-upload-feedback {
+  min-height: 18px;
+
+  margin-top: 16px;
+
+  color:
+    rgba(210,174,181,0.82);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 11px;
+
+  font-style: italic;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.editorial-navigation {
+  position: relative;
+
+  margin-top:
+    clamp(22px, 4vh, 38px);
+
+  width: 54px;
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+
+  background: transparent;
+
+  color:
+    rgba(247,244,237,0.78);
+
+  cursor: pointer;
+
+  padding: 0;
+
+  -webkit-tap-highlight-color: transparent;
+
+  transition:
+    color 0.3s ease,
+    transform 0.4s
+    cubic-bezier(0.22,1,0.36,1);
+}
+
+.editorial-navigation:hover {
+  color: #fff;
+
+  transform:
+    translateX(4px);
+}
+
+.editorial-navigation:disabled {
+  cursor: default;
+}
+
+.editorial-navigation.is-next-moving {
+  transform:
+    translateX(18px);
+
+  opacity: 0;
+}
+
+.editorial-arrow {
+  display: flex;
+
+  align-items: center;
+}
+
+.editorial-line {
+  display: block;
+
+  width: 27px;
+  height: 1px;
+
+  background:
+    rgba(247,244,237,0.48);
+
+  transition:
+    width 0.4s
+    cubic-bezier(0.22,1,0.36,1);
+}
+
+.editorial-navigation:hover .editorial-line {
+  width: 34px;
+}
+
+.editorial-arrow-symbol {
+  margin-left: 4px;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 19px;
+
+  font-weight: 300;
+
+  line-height: 1;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 760px) {
+
+  .photo-upload-content {
+    padding:
+      42px
+      22px
+      86px;
+  }
+
+  .photo-upload-copy {
+    margin-bottom: 32px;
+  }
+
+  .photo-upload-copy h1 {
+    font-size:
+      clamp(31px, 8vw, 44px);
+  }
+
+  .photo-slots {
+    gap: 12px;
+  }
+
+  .photo-slot-meta {
+    top: 13px;
+    left: 13px;
+    right: 13px;
+  }
+
+  .photo-slot-number {
+    font-size: 11px;
+  }
+
+  .photo-slot-label {
+    font-size: 6px;
+  }
+
+  .photo-empty {
+    padding:
+      46px
+      12px
+      16px;
+  }
+
+  .photo-empty-plus {
+    width: 40px;
+    height: 40px;
+
+    margin-bottom: 10px;
+
+    font-size: 23px;
+  }
+
+  .photo-empty-title {
+    font-size: 7px;
+
+    letter-spacing: 0.18em;
+  }
+
+  .photo-empty-hint {
+    font-size: 7px;
+  }
+
+  .photo-filled-bottom {
+    opacity: 1;
+
+    transform: none;
+
+    padding:
+      28px
+      11px
+      10px;
+  }
+
+  .photo-filled-actions button {
+    font-size: 7px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 520px) {
+
+  .scene-photo-upload {
+    min-height: 100dvh;
+  }
+
+  .photo-upload-content {
+    min-height: 100dvh;
+
+    padding:
+      34px
+      17px
+      72px;
+
+    justify-content: flex-start;
+  }
+
+  .photo-upload-copy {
+    margin-bottom: 27px;
+  }
+
+  .photo-upload-eyebrow {
+    font-size: 7px;
+
+    letter-spacing: 0.24em;
+  }
+
+  .photo-upload-divider {
+    margin:
+      14px
+      auto
+      18px;
+  }
+
+  .photo-upload-divider span {
+    width: 25px;
+  }
+
+  .photo-upload-copy h1 {
+    font-size:
+      clamp(30px, 9.2vw, 39px);
+
+    line-height: 1.06;
+  }
+
+  .photo-upload-description {
+    margin-top: 16px;
+  }
+
+  .photo-upload-description p {
+    font-size: 10px;
+
+    line-height: 1.55;
+  }
+
+  .photo-upload-instruction {
+    margin-top: 15px;
+  }
+
+  .photo-upload-instruction span {
+    font-size: 10.5px;
+  }
+
+  .photo-slots {
+    width: 100%;
+
+    gap: 9px;
+  }
+
+  .photo-slot {
+    box-shadow:
+      0 16px 38px
+      rgba(0,0,0,0.22);
+  }
+
+  .photo-slot:hover {
+    transform: none;
+
+    box-shadow:
+      0 16px 38px
+      rgba(0,0,0,0.22);
+  }
+
+  .photo-slot-meta {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+  }
+
+  .photo-slot-number {
+    font-size: 10px;
+  }
+
+  .photo-slot-label {
+    font-size: 5.5px;
+
+    letter-spacing: 0.18em;
+  }
+
+  .photo-empty {
+    padding:
+      38px
+      7px
+      10px;
+  }
+
+  .photo-empty::before {
+    width: 54px;
+    height: 54px;
+  }
+
+  .photo-empty-plus {
+    width: 34px;
+    height: 34px;
+
+    margin-bottom: 8px;
+
+    font-size: 20px;
+  }
+
+  .photo-empty-title {
+    font-size: 5.5px;
+
+    letter-spacing: 0.14em;
+
+    white-space: nowrap;
+  }
+
+  .photo-empty-hint {
+    margin-top: 5px;
+
+    font-size: 5.5px;
+
+    white-space: nowrap;
+  }
+
+  .photo-filled-bottom {
+    padding:
+      24px
+      7px
+      8px;
+  }
+
+  .photo-filled-actions {
+    gap: 5px;
+  }
+
+  .photo-filled-actions button {
+    font-size: 6px;
+
+    letter-spacing: 0.04em;
+  }
+
+  .photo-filled-actions span {
+    height: 8px;
+  }
+
+  .photo-corner {
+    width: 9px;
+    height: 9px;
+  }
+
+  .photo-corner-tl {
+    top: 7px;
+    left: 7px;
+  }
+
+  .photo-corner-tr {
+    top: 7px;
+    right: 7px;
+  }
+
+  .photo-corner-bl {
+    bottom: 7px;
+    left: 7px;
+  }
+
+  .photo-corner-br {
+    bottom: 7px;
+    right: 7px;
+  }
+
+  .photo-upload-progress {
+    margin-top: 21px;
+  }
+
+  .photo-upload-progress-text {
+    font-size: 6px;
+
+    letter-spacing: 0.13em;
+  }
+
+  .photo-upload-feedback {
+    margin-top: 12px;
+
+    font-size: 10px;
+  }
+
+  .editorial-navigation {
+    margin-top: 20px;
+
+    width: 50px;
+    height: 38px;
+  }
+
+  .editorial-line {
+    width: 23px;
+  }
+
+  .editorial-arrow-symbol {
+    font-size: 17px;
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .photo-upload-content {
+    padding:
+      28px
+      13px
+      64px;
+  }
+
+  .photo-upload-copy {
+    margin-bottom: 23px;
+  }
+
+  .photo-upload-copy h1 {
+    font-size: 28px;
+  }
+
+  .photo-upload-description p {
+    font-size: 9px;
+  }
+
+  .photo-upload-instruction span {
+    font-size: 9.5px;
+  }
+
+  .photo-slots {
+    gap: 7px;
+  }
+
+  .photo-slot-meta {
+    top: 8px;
+    left: 8px;
+    right: 8px;
+  }
+
+  .photo-slot-number {
+    font-size: 9px;
+  }
+
+  .photo-slot-label {
+    font-size: 5px;
+  }
+
+  .photo-empty {
+    padding-top: 31px;
+  }
+
+  .photo-empty::before {
+    width: 45px;
+    height: 45px;
+  }
+
+  .photo-empty-plus {
+    width: 28px;
+    height: 28px;
+
+    font-size: 18px;
+
+    margin-bottom: 6px;
+  }
+
+  .photo-empty-title {
+    font-size: 5px;
+  }
+
+  .photo-empty-hint {
+    font-size: 5px;
+  }
+
+  .photo-filled-bottom {
+    padding:
+      21px
+      5px
+      6px;
+  }
+
+  .photo-filled-actions {
+    gap: 3px;
+  }
+
+  .photo-filled-actions button {
+    font-size: 5.5px;
+  }
+
+  .photo-upload-progress-text {
+    font-size: 5.5px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .photo-upload-floating-heart {
+    animation: none;
+  }
+
+  .photo-slot,
+  .photo-preview,
+  .photo-empty-plus,
+  .photo-empty::before,
+  .editorial-navigation,
+  .editorial-line {
+    transition: none;
+  }
+}
