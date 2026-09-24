@@ -18420,3 +18420,58 @@ button:focus-visible {
     transition: none;
   }
 }
+
+/* =========================================================
+   FINALE — ENVELOPE MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .birthday-envelope-wrapper {
+    width: 64vw;
+    max-width: 290px;
+    margin-top: 28px;
+  }
+
+  .birthday-envelope-seal {
+    width: 48px;
+    height: 48px;
+  }
+
+  .birthday-envelope-seal span {
+    font-size: 19px;
+  }
+
+  .birthday-envelope-opening-glow {
+    width: 60px;
+    height: 60px;
+  }
+
+  .birthday-envelope-shadow {
+    bottom: -14px;
+    height: 38px;
+    filter: blur(18px);
+  }
+
+  .birthday-envelope-paper {
+    border-radius: 7px;
+  }
+
+  .birthday-paper-small {
+    font-size: 8px;
+  }
+
+  .birthday-paper-title {
+    margin-top: 8px;
+    font-size: 20px;
+  }
+
+  .birthday-paper-line {
+    width: 50px;
+    margin-top: 10px;
+  }
+
+  .birthday-letter-hint {
+    margin-top: 18px;
+    font-size: 9px;
+  }
+}
